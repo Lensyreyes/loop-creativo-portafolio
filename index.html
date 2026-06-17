@@ -1165,6 +1165,11 @@
       <h2 class="section-title">Mi <span>Portafolio</span></h2>
       <div class="divider"></div>
     </div>
+    <div class="filter-btns reveal">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
+      <button class="filter-btn" data-filter="foto">Fotografía</button>
+    </div>
     <div class="gallery" id="gallery">
       <!-- PROYECTOS: se generan por JS desde PROJECTS_DATA -->
       <div id="project-cards-diseno"></div>
@@ -1505,6 +1510,7 @@
     const PROJECTS_DATA = [
       {
         title: 'Artes de Legendarios',
+        cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Artes de Legendarios/Portada.jpg',
         images: [
@@ -1524,6 +1530,7 @@
       },
       {
         title: 'Blessed Handbags',
+        cat: 'foto',
         sub: 'Fotografía de Producto',
         cover: 'Portafolio diigital de trabajos/Fotos/Fotos Para Blessed Handbags/Portada.jpg',
         images: [
@@ -1537,6 +1544,7 @@
       },
       {
         title: 'Fotos Legendarios',
+        cat: 'foto',
         sub: 'Fotografía de Evento',
         cover: 'Portafolio diigital de trabajos/Fotos/Fotos Legendarios/Portada.jpg',
         images: [
@@ -1564,6 +1572,7 @@
       },
       {
         title: 'ML Príncipe Auto Adornos',
+        cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/ML Principe Auto Adornos/Portada.jpg',
         images: [
@@ -1579,6 +1588,7 @@
       },
       {
         title: 'Mlopez Luxury Auto Import',
+        cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Mlopez Luxury Auto Import/Portada.jpg',
         images: [
@@ -1596,6 +1606,7 @@
       },
       {
         title: 'BeLife',
+        cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/BeLife/Portada.jpg',
         images: [
@@ -1606,6 +1617,7 @@
       },
       {
         title: 'Resistencia CA',
+        cat: 'foto',
         sub: 'Fotografía de Evento',
         cover: 'Portafolio diigital de trabajos/Fotos/Resistencia CA/Portada.jpg',
         images: [
@@ -1618,6 +1630,7 @@
       },
       {
         title: 'Smart Tech',
+        cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Smart Tech/Portada.jpg',
         images: [
@@ -1639,7 +1652,6 @@
       const container = document.getElementById('project-cards-diseno');
       if (!container) return;
       container.className = 'projects-grid';
-      container.dataset.cat = 'diseno';
       if (PROJECTS_DATA.length === 0) {
         container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px 20px; color:rgba(245,240,232,0.4); font-size:0.9rem;">
           ✨ Próximamente — nuevos proyectos en camino
@@ -1647,7 +1659,7 @@
         return;
       }
       container.innerHTML = PROJECTS_DATA.map((p, i) => `
-        <div class="project-card" onclick="openProjectModal(${i})">
+        <div class="project-card" data-cat="${p.cat || 'diseno'}" onclick="openProjectModal(${i})">
           <img src="${p.cover}" alt="${p.title}" loading="lazy"/>
           <span class="project-card-tag">Proyecto</span>
           <div class="project-card-overlay">
@@ -1685,7 +1697,7 @@
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        document.querySelectorAll('.gallery-item, #project-cards-diseno').forEach(item => {
+        document.querySelectorAll('.project-card').forEach(item => {
           if (filter === 'all' || item.dataset.cat === filter) {
             item.classList.remove('hidden');
           } else {
