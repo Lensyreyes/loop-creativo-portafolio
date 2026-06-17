@@ -1,0 +1,7 @@
+claudio-finance/
+Portafolio diigital de trabajos/Videos Para redes sociales/
+*.zip
+client_secret_*.json
+.claude/
+node_modules/
+.next/
