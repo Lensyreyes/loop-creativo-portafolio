@@ -437,6 +437,139 @@
     }
     .gallery-item[data-cat] { transition: opacity 0.3s, transform 0.3s; }
     .gallery-item.hidden { display: none; }
+    .hidden { display: none !important; }
+
+    /* ── PROJECT CARDS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 16px;
+      grid-column: 1 / -1;
+    }
+    .project-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: var(--gray);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(255,68,32,0.18);
+    }
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover img { transform: scale(1.07); }
+    .project-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.15) 45%, transparent 75%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+    .project-card-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 30px;
+    }
+    .project-card-title {
+      font-family: 'DiloWorld', sans-serif;
+      font-size: 1.25rem;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+    .project-card-count {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── PROJECT MODAL ── */
+    #project-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.97);
+      z-index: 1100;
+      overflow-y: auto;
+      padding: 0 0 60px;
+    }
+    #project-modal.open { display: block; }
+    .pm-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(26,26,26,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,68,32,0.2);
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pm-header-info h2 {
+      font-family: 'DiloWorld', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      color: var(--cream);
+    }
+    .pm-header-info p {
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.5);
+      margin-top: 4px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .pm-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,68,32,0.12);
+      border: 1px solid rgba(255,68,32,0.3);
+      color: var(--orange);
+      font-size: 1.4rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .pm-close:hover { background: rgba(255,68,32,0.25); }
+    .pm-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 5% 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .pm-body img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .pm-body img:hover { transform: scale(1.02); }
 
     /* ── LIGHTBOX ── */
     #lightbox {
@@ -1003,56 +1136,8 @@
 </div>
     <div class="gallery" id="gallery">
 
-      <!-- DISEÑO / REDES SOCIALES -->
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Encuentro de Jovenes.jpg" alt="Encuentro de Jóvenes" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/AHU.jpg" alt="AHU" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Audifonos.jpg" alt="Audifonos" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Dia del Padre.jpg" alt="Día del Padre" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Tucson.jpg" alt="Tucson" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Airpods NV.jpg" alt="Airpods" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Sold out.jpg" alt="Sold Out" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Esenciales.jpg" alt="Esenciales" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/RPM OCTUBRE.jpg" alt="RPM Octubre" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Iglesia.jpg" alt="Iglesia" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/NOCHE DE TESTIMONIO.jpg" alt="Noche de Testimonio" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-      <div class="gallery-item" data-cat="diseno" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Artes de redes sociales/Cumpleaños.jpg.jpg" alt="Cumpleaños" loading="lazy"/>
-        <div class="gallery-overlay"><span>Diseño Gráfico</span></div>
-      </div>
-
+      <!-- PROYECTOS DE DISEÑO: se generan por JS desde PROJECTS_DATA -->
+      <div id="project-cards-diseno"></div>
 
       <!-- FOTOS -->
       <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
@@ -1131,6 +1216,18 @@
   <div id="lightbox">
     <button id="lightbox-close" onclick="closeLightbox()">✕</button>
     <div id="lightbox-content"></div>
+  </div>
+
+  <!-- PROJECT MODAL -->
+  <div id="project-modal">
+    <div class="pm-header">
+      <div class="pm-header-info">
+        <h2 id="pm-title">—</h2>
+        <p id="pm-sub">—</p>
+      </div>
+      <button class="pm-close" onclick="closeProjectModal()">✕</button>
+    </div>
+    <div class="pm-body" id="pm-body"></div>
   </div>
 
   <!-- SERVICIOS / PRECIOS -->
@@ -1413,13 +1510,100 @@
       mobileMenu.classList.remove('open');
     }
 
+    // ── PROYECTOS DE DISEÑO (cards + modal) ──
+    const PROJECTS_DATA = [
+      {
+        title: 'Legendarios Dominicana',
+        sub: 'Redes Sociales · Movimiento Cristiano',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Sold out.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Sold out.jpg', alt: 'Sold Out' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/RPM OCTUBRE.jpg', alt: 'RPM Octubre' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Encuentro de Jovenes.jpg', alt: 'Encuentro de Jóvenes' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Iglesia.jpg', alt: 'Iglesia' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/NOCHE DE TESTIMONIO.jpg', alt: 'Noche de Testimonio' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Esenciales.jpg', alt: 'Esenciales' },
+        ]
+      },
+      {
+        title: 'Campaña Automotriz',
+        sub: 'Diseño Digital · Jeep & Hyundai',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Tucson.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Tucson.jpg', alt: 'Hyundai Tucson' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/HYUNDAI CANTUN 1.jpg', alt: 'Hyundai Cantun' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Veloster Portada.jpg', alt: 'Veloster' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Colorado.jpg', alt: 'Colorado' },
+        ]
+      },
+      {
+        title: 'Tech & Gadgets',
+        sub: 'Diseño de Producto · Audio',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Airpods NV.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Airpods NV.jpg', alt: 'Airpods' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Audifonos.jpg', alt: 'Audífonos' },
+        ]
+      },
+      {
+        title: 'Branding & Campañas',
+        sub: 'Diseño Gráfico · Varios Clientes',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/AHU.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AHU.jpg', alt: 'AHU' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Freedom.jpg', alt: 'Freedom' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/hombre.jpg', alt: 'Campaña' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Dia del Padre.jpg', alt: 'Día del Padre' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Cumpleaños.jpg.jpg', alt: 'Cumpleaños' },
+        ]
+      },
+    ];
+
+    function renderProjectCards() {
+      const container = document.getElementById('project-cards-diseno');
+      if (!container) return;
+      container.className = 'projects-grid';
+      container.dataset.cat = 'diseno';
+      container.innerHTML = PROJECTS_DATA.map((p, i) => `
+        <div class="project-card" onclick="openProjectModal(${i})">
+          <img src="${p.cover}" alt="${p.title}" loading="lazy"/>
+          <span class="project-card-tag">Proyecto</span>
+          <div class="project-card-overlay">
+            <div class="project-card-title">${p.title}</div>
+            <div class="project-card-count">${p.images.length} piezas · Ver proyecto →</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    renderProjectCards();
+
+    function openProjectModal(idx) {
+      const p = PROJECTS_DATA[idx];
+      document.getElementById('pm-title').textContent = p.title;
+      document.getElementById('pm-sub').textContent = p.sub;
+      document.getElementById('pm-body').innerHTML = p.images.map(img =>
+        `<img src="${img.src}" alt="${img.alt}" loading="lazy" onclick="openLightboxSrc('${img.src}','${img.alt}')"/>`
+      ).join('');
+      document.getElementById('project-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function openLightboxSrc(src, alt) {
+      document.getElementById('lightbox-content').innerHTML = `<img src="${src}" alt="${alt}"/>`;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
     // ── FILTRO PORTAFOLIO ──
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        document.querySelectorAll('.gallery-item').forEach(item => {
+        document.querySelectorAll('.gallery-item, #project-cards-diseno').forEach(item => {
           if (filter === 'all' || item.dataset.cat === filter) {
             item.classList.remove('hidden');
           } else {
@@ -1468,7 +1652,12 @@
       document.body.style.overflow = '';
     }
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeProjectModal();
+      }
+    });
 
     // ── DATOS DESDE ADMIN (localStorage) ──
     const DEFAULT_SERVICES = [
