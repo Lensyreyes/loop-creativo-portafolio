@@ -492,10 +492,11 @@
       border-radius: 30px;
     }
     .project-card-title {
-      font-family: 'DiloWorld', sans-serif;
-      font-size: 1.25rem;
+      font-family: 'Nexa', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
       color: #fff;
-      line-height: 1.15;
+      line-height: 1.25;
       margin-bottom: 4px;
     }
     .project-card-count {
@@ -529,8 +530,9 @@
       justify-content: space-between;
     }
     .pm-header-info h2 {
-      font-family: 'DiloWorld', sans-serif;
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-family: 'Nexa', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
       color: var(--cream);
     }
     .pm-header-info p {
@@ -1128,87 +1130,9 @@
       <h2 class="section-title">Mi <span>Portafolio</span></h2>
       <div class="divider"></div>
     </div>
-    <div class="filter-btns reveal">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
-      <button class="filter-btn" data-filter="foto">Fotografía</button>
-      <button class="filter-btn" data-filter="behance">Behance</button>
-</div>
     <div class="gallery" id="gallery">
-
-      <!-- PROYECTOS DE DISEÑO: se generan por JS desde PROJECTS_DATA -->
+      <!-- PROYECTOS: se generan por JS desde PROJECTS_DATA -->
       <div id="project-cards-diseno"></div>
-
-      <!-- FOTOS -->
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC06195.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC06351.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC06433.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC06879.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC08210.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC08315.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC08793.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC09046.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-      <div class="gallery-item" data-cat="foto" onclick="openLightbox(this)">
-        <img src="Portafolio diigital de trabajos/Fotos/DSC09267.jpg" alt="Fotografía" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografía</span></div>
-      </div>
-
-      <!-- BEHANCE -->
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/237272601/Legendarios-Dominicana" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/original/df0674243220429.Y3JvcCwyNjUxLDIwNzQsODEzLDYxNg.jpg" alt="Legendarios Dominicana" loading="lazy"/>
-        <div class="gallery-overlay"><span>Legendarios Dominicana ↗</span></div>
-      </a>
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/220043469/Contenido-Redes-Sociales-Jeep" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/62f9cd220043469.6914e9947a998.png" alt="Contenido Redes Sociales Jeep" loading="lazy"/>
-        <div class="gallery-overlay"><span>Contenido Redes Sociales Jeep ↗</span></div>
-      </a>
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/200257609/Contenido-CPS" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f1c875200257609.6914e2ef3722b.png" alt="Contenido CPS" loading="lazy"/>
-        <div class="gallery-overlay"><span>Contenido CPS ↗</span></div>
-      </a>
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/168763621/Shooting-Para-EGO-SHOES" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/cf3416168763621.6914e31beebc6.png" alt="Shooting para EGO SHOES" loading="lazy"/>
-        <div class="gallery-overlay"><span>Shooting para EGO SHOES ↗</span></div>
-      </a>
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/159934739/Shooting-para-EGO-SHOES" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4844ed159934739.6914e348f1241.png" alt="Shooting para EGO SHOES 2" loading="lazy"/>
-        <div class="gallery-overlay"><span>Shooting para EGO SHOES ↗</span></div>
-      </a>
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/118423753/Videos-para-Youtube" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/original/5b5f4f173358407.Y3JvcCwxNDAwLDEwOTUsMCwzMjU.jpg" alt="Videos para YouTube" loading="lazy"/>
-        <div class="gallery-overlay"><span>Videos para YouTube ↗</span></div>
-      </a>
-      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/237402807/Fotografias-Legendarios" target="_blank" rel="noopener">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/original/796c43249360631.Y3JvcCw1MzE4LDQxNjAsNDYwLDA.jpg" alt="Fotografías Legendarios" loading="lazy"/>
-        <div class="gallery-overlay"><span>Fotografías Legendarios ↗</span></div>
-      </a>
-
-      <!-- VIDEOS: próximamente desde YouTube -->
-
     </div>
   </section>
 
@@ -1510,60 +1434,21 @@
       mobileMenu.classList.remove('open');
     }
 
-    // ── PROYECTOS DE DISEÑO (cards + modal) ──
-    const PROJECTS_DATA = [
-      {
-        title: 'Legendarios Dominicana',
-        sub: 'Redes Sociales · Movimiento Cristiano',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Sold out.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Sold out.jpg', alt: 'Sold Out' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/RPM OCTUBRE.jpg', alt: 'RPM Octubre' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Encuentro de Jovenes.jpg', alt: 'Encuentro de Jóvenes' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Iglesia.jpg', alt: 'Iglesia' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/NOCHE DE TESTIMONIO.jpg', alt: 'Noche de Testimonio' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Esenciales.jpg', alt: 'Esenciales' },
-        ]
-      },
-      {
-        title: 'Campaña Automotriz',
-        sub: 'Diseño Digital · Jeep & Hyundai',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Tucson.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Tucson.jpg', alt: 'Hyundai Tucson' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/HYUNDAI CANTUN 1.jpg', alt: 'Hyundai Cantun' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Veloster Portada.jpg', alt: 'Veloster' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Colorado.jpg', alt: 'Colorado' },
-        ]
-      },
-      {
-        title: 'Tech & Gadgets',
-        sub: 'Diseño de Producto · Audio',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Airpods NV.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Airpods NV.jpg', alt: 'Airpods' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Audifonos.jpg', alt: 'Audífonos' },
-        ]
-      },
-      {
-        title: 'Branding & Campañas',
-        sub: 'Diseño Gráfico · Varios Clientes',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/AHU.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AHU.jpg', alt: 'AHU' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Freedom.jpg', alt: 'Freedom' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/hombre.jpg', alt: 'Campaña' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Dia del Padre.jpg', alt: 'Día del Padre' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Cumpleaños.jpg.jpg', alt: 'Cumpleaños' },
-        ]
-      },
-    ];
+    // ── PROYECTOS (cards + modal) ──
+    // Vacío a propósito: se llenará cuando Lensy suba sus carpetas organizadas.
+    const PROJECTS_DATA = [];
 
     function renderProjectCards() {
       const container = document.getElementById('project-cards-diseno');
       if (!container) return;
       container.className = 'projects-grid';
       container.dataset.cat = 'diseno';
+      if (PROJECTS_DATA.length === 0) {
+        container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px 20px; color:rgba(245,240,232,0.4); font-size:0.9rem;">
+          ✨ Próximamente — nuevos proyectos en camino
+        </div>`;
+        return;
+      }
       container.innerHTML = PROJECTS_DATA.map((p, i) => `
         <div class="project-card" onclick="openProjectModal(${i})">
           <img src="${p.cover}" alt="${p.title}" loading="lazy"/>
