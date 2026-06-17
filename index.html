@@ -398,13 +398,16 @@
       margin: 0 auto;
     }
     .gallery-item {
+      display: block;
       position: relative;
       border-radius: 12px;
       overflow: hidden;
       aspect-ratio: 1;
       cursor: pointer;
       background: var(--gray);
+      text-decoration: none;
     }
+    .gallery-item .gallery-overlay span { text-transform: none; }
     .gallery-item img, .gallery-item video {
       width: 100%;
       height: 100%;
@@ -996,7 +999,8 @@
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
       <button class="filter-btn" data-filter="foto">Fotografía</button>
-    </div>
+      <button class="filter-btn" data-filter="behance">Behance</button>
+</div>
     <div class="gallery" id="gallery">
 
       <!-- DISEÑO / REDES SOCIALES -->
@@ -1087,6 +1091,36 @@
         <img src="Portafolio diigital de trabajos/Fotos/DSC09267.jpg" alt="Fotografía" loading="lazy"/>
         <div class="gallery-overlay"><span>Fotografía</span></div>
       </div>
+
+      <!-- BEHANCE -->
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/237272601/Legendarios-Dominicana" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/projects/original/df0674243220429.Y3JvcCwyNjUxLDIwNzQsODEzLDYxNg.jpg" alt="Legendarios Dominicana" loading="lazy"/>
+        <div class="gallery-overlay"><span>Legendarios Dominicana ↗</span></div>
+      </a>
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/220043469/Contenido-Redes-Sociales-Jeep" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/62f9cd220043469.6914e9947a998.png" alt="Contenido Redes Sociales Jeep" loading="lazy"/>
+        <div class="gallery-overlay"><span>Contenido Redes Sociales Jeep ↗</span></div>
+      </a>
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/200257609/Contenido-CPS" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f1c875200257609.6914e2ef3722b.png" alt="Contenido CPS" loading="lazy"/>
+        <div class="gallery-overlay"><span>Contenido CPS ↗</span></div>
+      </a>
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/168763621/Shooting-Para-EGO-SHOES" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/cf3416168763621.6914e31beebc6.png" alt="Shooting para EGO SHOES" loading="lazy"/>
+        <div class="gallery-overlay"><span>Shooting para EGO SHOES ↗</span></div>
+      </a>
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/159934739/Shooting-para-EGO-SHOES" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4844ed159934739.6914e348f1241.png" alt="Shooting para EGO SHOES 2" loading="lazy"/>
+        <div class="gallery-overlay"><span>Shooting para EGO SHOES ↗</span></div>
+      </a>
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/118423753/Videos-para-Youtube" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/projects/original/5b5f4f173358407.Y3JvcCwxNDAwLDEwOTUsMCwzMjU.jpg" alt="Videos para YouTube" loading="lazy"/>
+        <div class="gallery-overlay"><span>Videos para YouTube ↗</span></div>
+      </a>
+      <a class="gallery-item" data-cat="behance" href="https://www.behance.net/gallery/237402807/Fotografias-Legendarios" target="_blank" rel="noopener">
+        <img src="https://mir-s3-cdn-cf.behance.net/projects/original/796c43249360631.Y3JvcCw1MzE4LDQxNjAsNDYwLDA.jpg" alt="Fotografías Legendarios" loading="lazy"/>
+        <div class="gallery-overlay"><span>Fotografías Legendarios ↗</span></div>
+      </a>
 
       <!-- VIDEOS: próximamente desde YouTube -->
 
