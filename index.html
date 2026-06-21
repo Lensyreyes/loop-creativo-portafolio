@@ -634,53 +634,52 @@
     /* ── SERVICIOS / PRECIOS ── */
     #servicios { background: var(--gray); }
     .servicios-intro { max-width: 1100px; margin: 0 auto; }
-    .precios-grid {
+    .servicios-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
-    .precio-card {
+    .servicio-cat-card {
       background: var(--dark);
       border: 1px solid rgba(255,68,32,0.12);
       border-radius: 16px;
       padding: 28px 24px;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
-    .precio-card:hover {
+    .servicio-cat-card:hover {
       transform: translateY(-6px);
       border-color: var(--orange);
       box-shadow: 0 16px 40px rgba(255,68,32,0.15);
     }
-    .precio-card h3 {
-      font-family: 'DiloWorld', sans-serif;
-      font-size: 1.3rem;
+    .servicio-cat-card h3 {
+      font-family: 'Nexa', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
       color: var(--orange);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       padding-bottom: 12px;
       border-bottom: 1px solid rgba(255,68,32,0.2);
-    }
-    .precio-item {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .servicio-item {
+      display: flex;
       align-items: flex-start;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(245,240,232,0.06);
-    }
-    .precio-item:last-child { border-bottom: none; }
-    .precio-item .name {
-      font-size: 0.82rem;
-      color: rgba(245,240,232,0.75);
-      line-height: 1.4;
-      flex: 1;
-    }
-    .precio-item .price {
-      font-weight: 800;
+      gap: 10px;
+      padding: 8px 0;
       font-size: 0.85rem;
-      color: var(--cream);
-      white-space: nowrap;
+      color: rgba(245,240,232,0.78);
+      line-height: 1.4;
+    }
+    .servicio-item::before {
+      content: '✦';
+      color: var(--orange);
+      font-size: 0.7rem;
+      margin-top: 3px;
+      flex-shrink: 0;
     }
     .terminos {
       max-width: 1100px;
@@ -1208,103 +1207,15 @@
   <section id="servicios">
     <div class="servicios-intro reveal">
       <p class="section-label">Lo que ofrezco</p>
-      <h2 class="section-title">Servicios & <span>Precios</span></h2>
+      <h2 class="section-title">Nuestros <span>Servicios</span></h2>
       <div class="divider"></div>
     </div>
 
-    <div class="precios-grid">
-
-      <div class="precio-card reveal">
-        <h3>🎨 Diseño Gráfico</h3>
-        <div class="precio-item">
-          <span class="name">Arte Digital (Solo Vectores)</span>
-          <span class="price">RD$ 1,000</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Arte Digital (Imágenes y Vectores)</span>
-          <span class="price">RD$ 1,200</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Arte Impreso (Hasta 2 páginas)</span>
-          <span class="price">RD$ 1,550</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Arte Impreso (+2 páginas)</span>
-          <span class="price">RD$ 1,800</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Arte Impreso (+7 páginas)</span>
-          <span class="price">RD$ 2,500</span>
-        </div>
-      </div>
-
-      <div class="precio-card reveal">
-        <h3>📄 Documentos</h3>
-        <div class="precio-item">
-          <span class="name">Currículum Vitae (No Editable)</span>
-          <span class="price">RD$ 1,000</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Currículum Vitae (Editable)</span>
-          <span class="price">RD$ 1,300</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Plantilla PowerPoint (No Editable)</span>
-          <span class="price">RD$ 1,500</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Plantilla PowerPoint (Editable)</span>
-          <span class="price">RD$ 1,800</span>
-        </div>
-      </div>
-
-      <div class="precio-card reveal">
-        <h3>📸 Fotografía</h3>
-        <div class="precio-item">
-          <span class="name">Sesión Fotográfica (20 fotos)</span>
-          <span class="price">RD$ 6,000</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Edición Fotográfica Única (Extras de sesión)</span>
-          <span class="price">RD$ 200</span>
-        </div>
-      </div>
-
-      <div class="precio-card reveal">
-        <h3>📱 Manejo de Redes</h3>
-        <div class="precio-item">
-          <span class="name">Gestión mensual de redes sociales</span>
-          <span class="price">Cotizar</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Estrategia de contenido</span>
-          <span class="price">Cotizar</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Creación y programación de posts</span>
-          <span class="price">Cotizar</span>
-        </div>
-      </div>
-
-      <div class="precio-card reveal">
-        <h3>🎬 Videos para Redes</h3>
-        <div class="precio-item">
-          <span class="name">Reel (1 min máx.) — Sin grabación</span>
-          <span class="price">RD$ 2,000</span>
-        </div>
-        <div class="precio-item">
-          <span class="name">Grabación + Edición de Reel (1 min, 1h de grabación)</span>
-          <span class="price">RD$ 3,500</span>
-        </div>
-      </div>
-
-    </div>
+    <div class="servicios-grid" id="servicios-grid"></div>
 
     <div class="terminos reveal">
-      <strong>Términos del servicio:</strong><br/>
-      • <strong>Cambios:</strong> Incluye hasta 3 ajustes tras la aprobación. Cambio adicional: 10% extra por cada modificación.<br/>
-      • <strong>Cobertura:</strong> Precios válidos solo para el Distrito Nacional.<br/>
-      • <strong>Otros:</strong> Servicios fuera de la ciudad bajo cotización previa.
+      <strong>¿Cómo cotizamos?</strong><br/>
+      Cada proyecto es distinto — el precio depende del alcance, la duración y la complejidad. Usa el <strong>cotizador</strong> más abajo para indicarnos qué necesitas, o escríbenos directo por WhatsApp.
     </div>
   </section>
 
@@ -1321,9 +1232,7 @@
         <span class="calc-step-sep">›</span>
         <div class="calc-step-dot" id="sdot-2"><div class="dot">2</div> Servicio</div>
         <span class="calc-step-sep">›</span>
-        <div class="calc-step-dot" id="sdot-3"><div class="dot">3</div> Cantidad</div>
-        <span class="calc-step-sep">›</span>
-        <div class="calc-step-dot" id="sdot-4"><div class="dot">4</div> Total</div>
+        <div class="calc-step-dot" id="sdot-3"><div class="dot">3</div> Listo</div>
       </div>
 
       <div class="calc-box reveal">
@@ -1342,53 +1251,23 @@
           <select class="calc-select" id="calc-service-select" onchange="calcServiceChanged()">
             <option value="">— Selecciona un servicio —</option>
           </select>
-          <div class="calc-total" id="calc-price-preview" style="display:none">
-            <div>
-              <div class="total-label">Precio base</div>
-              <div class="total-unit" id="calc-unit-label"></div>
-            </div>
-            <div class="total-amount" id="calc-price-display">RD$ 0</div>
-          </div>
           <div class="calc-nav">
             <button class="btn btn-outline" onclick="calcGoStep(1)">← Atrás</button>
-            <button class="btn btn-primary" id="btn-to-step3" onclick="calcGoStep(3)" style="display:none">Siguiente →</button>
+            <button class="btn btn-primary" id="btn-to-step3" onclick="calcGoStep(3)" style="display:none">Ver resumen →</button>
           </div>
         </div>
 
-        <!-- PASO 3: CANTIDAD -->
+        <!-- PASO 3: RESULTADO -->
         <div id="calc-step-3" style="display:none">
-          <h3>¿Cuántas unidades necesitas?</h3>
-          <div class="calc-qty-wrap">
-            <label>Cantidad:</label>
-            <button class="qty-btn" onclick="changeQty(-1)">−</button>
-            <span class="qty-display" id="qty-val">1</span>
-            <button class="qty-btn" onclick="changeQty(1)">+</button>
-          </div>
-          <div class="calc-total" style="margin-top:20px">
-            <div>
-              <div class="total-label">Total estimado</div>
-              <div class="total-unit">Precio × Cantidad</div>
-            </div>
-            <div class="total-amount" id="calc-total-display">RD$ 0</div>
-          </div>
-          <div class="calc-nav">
-            <button class="btn btn-outline" onclick="calcGoStep(2)">← Atrás</button>
-            <button class="btn btn-primary" onclick="calcGoStep(4)">Ver resumen →</button>
-          </div>
-        </div>
-
-        <!-- PASO 4: RESULTADO -->
-        <div id="calc-step-4" style="display:none">
           <div class="calc-result">
             <div class="result-icon">🎉</div>
-            <h3>Tu cotización estimada</h3>
-            <div class="big-total"><span>RD$</span> <span id="result-total">0</span></div>
+            <h3>¡Listo para cotizar!</h3>
             <p id="result-desc">—</p>
             <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
               <a id="btn-wa-quote" href="#" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;background:#25D366">
-                💬 Enviar cotización por WhatsApp
+                💬 Cotizar por WhatsApp
               </a>
-              <a href="#formulario" class="btn btn-outline" style="width:100%;justify-content:center">
+              <a href="https://forms.gle/TDN9NZ88FWkXLWnH6" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center">
                 📋 Llenar formulario completo
               </a>
               <button class="btn btn-outline" onclick="calcReset()" style="width:100%;justify-content:center">
@@ -1817,6 +1696,84 @@
           { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/DSC0225029.jpg', alt: 'Summer Session 6' },
         ]
       },
+      {
+        title: 'CPS',
+        cat: 'diseno',
+        sub: 'Diseño Gráfico · Redes Sociales',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Portada.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/🌟 Nos complace anunciar nuestra nueva sucursal en Av. Independencia #409, Santo Domingo D.N.📍D.jpg', alt: 'CPS 1' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Aprovecha un 30% de descuento en el flete al pagar con tu tarjeta Qik💳•Promoción aplica para pa.jpg', alt: 'CPS 2' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/CPS Prime te premia🏆 En este mes de mayo estaremos seleccionando 50 clientes Prime al azar , qu.jpg', alt: 'CPS 3' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Llegó el Blue Month a CPS, un mes lleno de descuentos y concursos🥳💙¡Te traemos un 20% de descu.jpg', alt: 'CPS 4' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/xz.jpg', alt: 'CPS 5' },
+        ]
+      },
+      {
+        title: 'EGO',
+        cat: 'diseno',
+        sub: 'Diseño Gráfico · Redes Sociales',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/EGO/Portada.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/EGO/Nos complace anunciar que somos el calzado oficial de @missmundodominicanaoficial 🙌🏼🙌🏼.jpg', alt: 'EGO 1' },
+        ]
+      },
+      {
+        title: 'EGO Shoes',
+        cat: 'foto',
+        sub: 'Fotografía de Producto · Calzado',
+        cover: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Portada.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/¡Caminemos juntas hacia la diversión y el estilo en el regreso a clases! 😍Shop Online 🛍️ WWW.E (1).jpg', alt: 'EGO Shoes 1' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/¡Caminemos juntas hacia la diversión y el estilo en el regreso a clases! 😍Shop Online 🛍️ WWW.E.jpg', alt: 'EGO Shoes 2' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/¡Hey fashion girl! esta belleza está esperando por ti, Y lo más chulo de todo es que es fabricad.jpg', alt: 'EGO Shoes 3' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/¿Quieres ser el centro de atención en tu próxima fiesta Nuestra cartera y calzado pink metalizad.jpg', alt: 'EGO Shoes 4' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/¿Zapato social ligero, cómodo y elegante Conoce nuestra línea de calzado masculino elegante de n.jpg', alt: 'EGO Shoes 5' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/1..2..3..4..5..6 cuéntanos cual es tu color favorito y qué planes tienes con el COMPRA EN LÍNEA  (1).jpg', alt: 'EGO Shoes 6' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/1..2..3..4..5..6 cuéntanos cual es tu color favorito y qué planes tienes con el COMPRA EN LÍNEA  (2).jpg', alt: 'EGO Shoes 7' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/1..2..3..4..5..6 cuéntanos cual es tu color favorito y qué planes tienes con el COMPRA EN LÍNEA  (3).jpg', alt: 'EGO Shoes 8' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/1..2..3..4..5..6 cuéntanos cual es tu color favorito y qué planes tienes con el COMPRA EN LÍNEA .jpg', alt: 'EGO Shoes 9' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Armate de colores este 20233 de la cabeza a los pies, sobre todo en los pies! Y estarás trendy e.jpg', alt: 'EGO Shoes 10' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Bolsos de colores pastel.jpg', alt: 'EGO Shoes 11' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Brilla con confianza con nuestras plataformas azules metalizadas. Tu elegancia se reflejara en .jpg', alt: 'EGO Shoes 12' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Comenzó la temporada oficial de los zapatos de fiesta, y ya estamos  listos para mostrarte los d.jpg', alt: 'EGO Shoes 13' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Comodidad extra para disfrutar en este verano que es la temporada más movida de todas 🌴COMPRA E.jpg', alt: 'EGO Shoes 14' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Cuando el brillo nunca es suficiente para destacarte hasta causar ceguera… estas sandalias con t.jpg', alt: 'EGO Shoes 15' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/cx.jpg', alt: 'EGO Shoes 16' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Después de buscar el vestido de fiesta correcto, llega el momento de dar el sí, pero a los zapat.jpg', alt: 'EGO Shoes 17' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/El verano es la época más mágica del año y sin duda alguna tenerlo todo el año es un privilegio! (1).jpg', alt: 'EGO Shoes 18' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/El verano es la época más mágica del año y sin duda alguna tenerlo todo el año es un privilegio!.jpg', alt: 'EGO Shoes 19' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Encontrar vestidos de fiesta ideales sí es posible, pero sin duda hallar el calzado perfecto es .jpg', alt: 'EGO Shoes 20' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Entra en el mundo de la moda con estos tacones de aguja en nude, ¡tu declaración de estilo! ❤ .jpg', alt: 'EGO Shoes 21' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Es oficial! Llegó la época más mágica del año 🎄! La época de las fiestas, de los encuentros con.jpg', alt: 'EGO Shoes 22' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Este Bolso combina la artesanía con materiales lujosos para crear formas elegantes, líneas única (1).jpg', alt: 'EGO Shoes 23' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Este Bolso combina la artesanía con materiales lujosos para crear formas elegantes, líneas única.jpg', alt: 'EGO Shoes 24' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estilo y comodidad en cada paso. Nuestros calzados escolares  son los complementos  perfecto par.jpg', alt: 'EGO Shoes 25' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos dias de calor, envuelvete en el estilo de vida campestre, haz ese viaje al campo y conecta.jpg', alt: 'EGO Shoes 26' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos sneakers  son ideales para sentirte cómodo en un paseo por el parque, el centro comercial .jpg', alt: 'EGO Shoes 27' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos sneakers serán los protagonistas en los juntes de verano ! ☺Shop Online 🛍️ WWW.EGO.DO#ego (1).jpg', alt: 'EGO Shoes 28' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos sneakers serán los protagonistas en los juntes de verano ! ☺Shop Online 🛍️ WWW.EGO.DO#ego.jpg', alt: 'EGO Shoes 29' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos sneakers son el comodín de tu closet que le darán un estilo diferente a los outfits de pap (1).jpg', alt: 'EGO Shoes 30' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos sneakers son el comodín de tu closet que le darán un estilo diferente a los outfits de pap.jpg', alt: 'EGO Shoes 31' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Estos sneakers te enamoraran  por  la comodidad, por las tonalidades y del estilo ☺COMPRA EN LÍN.jpg', alt: 'EGO Shoes 32' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Explora el estilo y la funcionalidad con las mochilas escolares Capodarte. Son perfectas para u (1).jpg', alt: 'EGO Shoes 33' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Explora el estilo y la funcionalidad con las mochilas escolares Capodarte. Son perfectas para u (2).jpg', alt: 'EGO Shoes 34' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Explora el estilo y la funcionalidad con las mochilas escolares Capodarte. Son perfectas para u.jpg', alt: 'EGO Shoes 35' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Las opciones que el verano trae para nuestras #EGOLOVERS ❤Shop Online 🛍️ WWW.EGO.DO#ego #egosho.jpg', alt: 'EGO Shoes 36' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Llegó el verano y con él los días largos, por esto, escoge  wedges  abiertas que te acomoden tod.jpg', alt: 'EGO Shoes 37' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Los oxfords- pieza clave que se ha convertido en referencia de estilo femenino. Shop Online 🛍️  (1).jpg', alt: 'EGO Shoes 38' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Los oxfords- pieza clave que se ha convertido en referencia de estilo femenino. Shop Online 🛍️ .jpg', alt: 'EGO Shoes 39' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Necesitas inspiración para armar tus looks en este 2023 Empieza por la pieza clave! Unos especta.jpg', alt: 'EGO Shoes 40' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Quién dijo fiesta ya estamos listas! en la vida campestre lo mejor es que solo necesitas ropita  (1).jpg', alt: 'EGO Shoes 41' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Quién dijo fiesta ya estamos listas! en la vida campestre lo mejor es que solo necesitas ropita .jpg', alt: 'EGO Shoes 42' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/shine, shine, shine es la tendencia que llegó y nunca se fue, mucho color, mucha altura y mucho  (1).jpg', alt: 'EGO Shoes 43' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/shine, shine, shine es la tendencia que llegó y nunca se fue, mucho color, mucha altura y mucho .jpg', alt: 'EGO Shoes 44' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Si no es ahora, ¿cuándo Atrévete con las tendencias de Alta Costura #Otoño 2022 para hacer combi.jpg', alt: 'EGO Shoes 45' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Un diseño tropical ⛱para lucirte en estas vacaciones. Exactamente esto harás con este hermoso bo.jpg', alt: 'EGO Shoes 46' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/Uno de los grandes beneficios de visitar el  campo es que se gana mucho en tranquilidad. Esto pu.jpg', alt: 'EGO Shoes 47' },
+          { src: 'Portafolio diigital de trabajos/Fotos/EGO SHOES/vamos a darle un giro 360 grados a los aburridos zapatos negros, las chicas quieren comodidad y .jpg', alt: 'EGO Shoes 48' },
+        ]
+      },
     ];
 
     function renderProjectCards() {
@@ -1925,31 +1882,42 @@
     });
 
     // ── DATOS DESDE ADMIN (localStorage) ──
-    const DEFAULT_SERVICES = [
-      { category:'Diseño Gráfico', icon:'🎨', items:[
-        {name:'Arte Digital (Solo Vectores)',price:1000,unit:'',active:true},
-        {name:'Arte Digital (Imágenes y Vectores)',price:1200,unit:'',active:true},
-        {name:'Arte Impreso (Hasta 2 páginas)',price:1550,unit:'',active:true},
-        {name:'Arte Impreso (+2 páginas)',price:1800,unit:'',active:true},
-        {name:'Arte Impreso (+7 páginas)',price:2500,unit:'',active:true},
+    const SERVICE_CATEGORIES = [
+      { name: 'Branding & Diseño', icon: '🎨', services: [
+        'Identidad & Branding Corporativo',
+        'Manuales de Imagen Corporativa',
+        'Diseño de Empaques y Packaging',
+        'Diseño Gráfico Publicitario',
       ]},
-      { category:'Documentos', icon:'📄', items:[
-        {name:'Currículum Vitae (No Editable)',price:1000,unit:'',active:true},
-        {name:'Currículum Vitae (Editable)',price:1300,unit:'',active:true},
-        {name:'Plantilla PowerPoint (No Editable)',price:1500,unit:'',active:true},
-        {name:'Plantilla PowerPoint (Editable)',price:1800,unit:'',active:true},
+      { name: 'Desarrollo Web & Apps', icon: '💻', services: [
+        'Creación de Sitios Web',
+        'Tiendas Virtuales / E-Commerce',
+        'IA & Automatización de Procesos',
+        'Analítica Digital y Datos',
       ]},
-      { category:'Fotografía', icon:'📸', items:[
-        {name:'Sesión Fotográfica (20 fotos)',price:6000,unit:'',active:true},
-        {name:'Edición Fotográfica Única',price:200,unit:'por foto',active:true},
+      { name: 'Publicidad Digital & Ads', icon: '📢', services: [
+        'Google Ads (SEM)',
+        'YouTube Ads',
+        'Facebook Ads',
+        'Instagram Ads',
+        'TikTok Ads',
+        'LinkedIn Ads',
+        'WhatsApp Ads',
+        'Publicidad Programática',
       ]},
-      { category:'Manejo de Redes', icon:'📱', items:[
-        {name:'Gestión mensual básica',price:0,unit:'cotizar',active:true},
-        {name:'Estrategia de contenido',price:0,unit:'cotizar',active:true},
+      { name: 'Marketing & Growth', icon: '📈', services: [
+        'Posicionamiento SEO',
+        'Estrategias de Marketing Digital',
+        'Aumento de Ventas & Comercial',
+        'Performance y Leads',
+        'Email Marketing',
+        'Administración de Redes (CM)',
       ]},
-      { category:'Videos para Redes', icon:'🎬', items:[
-        {name:'Reel (1 min máx.) — Sin grabación',price:2000,unit:'',active:true},
-        {name:'Grabación + Edición de Reel',price:3500,unit:'',active:true},
+      { name: 'Producción & Experiencias', icon: '🎬', services: [
+        'Producción Audiovisual YouTube',
+        'Contenidos para Redes Sociales',
+        'Activaciones de Marca BTL',
+        'Eventos y Shows BTL',
       ]},
     ];
 
@@ -1960,74 +1928,61 @@
       } catch(e) { return null; }
     }
 
-    // ── ACTUALIZAR PRECIOS EN SECCIÓN DE SERVICIOS ──
+    // ── RENDER SECCIÓN DE SERVICIOS ──
+    function renderServiciosGrid() {
+      const grid = document.getElementById('servicios-grid');
+      if (!grid) return;
+      grid.innerHTML = SERVICE_CATEGORIES.map(cat => `
+        <div class="servicio-cat-card reveal">
+          <h3>${cat.icon} ${cat.name}</h3>
+          ${cat.services.map(s => `<div class="servicio-item">${s}</div>`).join('')}
+        </div>
+      `).join('');
+      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    // ── ACTUALIZAR CONTACTO DESDE ADMIN ──
     function applyAdminData() {
       const data = getLCData();
-      if (!data) return;
-
-      // Actualizar contacto
-      if (data.contact) {
-        const c = data.contact;
-        document.querySelectorAll('a[href*="whatsapp.com"]').forEach(a => {
-          a.href = `https://api.whatsapp.com/send?phone=${c.wa}&utm_source=portfolio`;
-        });
-        const emailEl = document.querySelector('a[href^="mailto:"]');
-        if (emailEl) emailEl.href = `mailto:${c.email}`;
-        const igEl = document.querySelector('a[title="Instagram"]');
-        if (igEl) igEl.href = c.ig;
-        const fbEl = document.querySelector('a[title="Facebook"]');
-        if (fbEl) fbEl.href = c.fb;
-        const ytEl = document.querySelector('a[title="YouTube"]');
-        if (ytEl) ytEl.href = c.yt;
-        const ttEl = document.querySelector('a[title="TikTok"]');
-        if (ttEl) ttEl.href = c.tt;
-        const formEl = document.querySelector('.form-cta-box');
-        if (formEl && c.form) formEl.href = c.form;
-      }
-
-      // Actualizar precios en cards de servicios
-      if (data.services) {
-        const priceItems = document.querySelectorAll('.precio-item');
-        let globalIdx = 0;
-        data.services.forEach(cat => {
-          cat.items.forEach(item => {
-            if (priceItems[globalIdx]) {
-              const nameEl = priceItems[globalIdx].querySelector('.name');
-              const priceEl = priceItems[globalIdx].querySelector('.price');
-              if (nameEl) nameEl.textContent = item.name;
-              if (priceEl) priceEl.textContent = item.price > 0
-                ? `RD$ ${item.price.toLocaleString()}`
-                : 'Cotizar';
-            }
-            globalIdx++;
-          });
-        });
-      }
+      if (!data || !data.contact) return;
+      const c = data.contact;
+      document.querySelectorAll('a[href*="whatsapp.com"]').forEach(a => {
+        a.href = `https://api.whatsapp.com/send?phone=${c.wa}&utm_source=portfolio`;
+      });
+      const emailEl = document.querySelector('a[href^="mailto:"]');
+      if (emailEl) emailEl.href = `mailto:${c.email}`;
+      const igEl = document.querySelector('a[title="Instagram"]');
+      if (igEl) igEl.href = c.ig;
+      const fbEl = document.querySelector('a[title="Facebook"]');
+      if (fbEl) fbEl.href = c.fb;
+      const ytEl = document.querySelector('a[title="YouTube"]');
+      if (ytEl) ytEl.href = c.yt;
+      const ttEl = document.querySelector('a[title="TikTok"]');
+      if (ttEl) ttEl.href = c.tt;
+      const formEl = document.querySelector('.form-cta-box');
+      if (formEl && c.form) formEl.href = c.form;
     }
     applyAdminData();
 
-    // ── CALCULADORA ──
-    const calcServices = getLCData()?.services || DEFAULT_SERVICES;
-    let calcState = { catIdx: null, itemIdx: null, qty: 1 };
+    // ── COTIZADOR ──
+    let calcState = { catIdx: null, serviceIdx: null };
 
     function calcInit() {
       const grid = document.getElementById('calc-cats');
       if (!grid) return;
       grid.innerHTML = '';
-      calcServices.forEach((cat, i) => {
-        const activeCount = cat.items.filter(x => x.active).length;
+      SERVICE_CATEGORIES.forEach((cat, i) => {
         const div = document.createElement('div');
         div.className = 'calc-option';
         div.dataset.idx = i;
         div.innerHTML = `<div class="opt-icon">${cat.icon}</div>
-          <div class="opt-name">${cat.category}</div>
-          <div class="opt-count">${activeCount} servicio${activeCount!==1?'s':''}</div>`;
+          <div class="opt-name">${cat.name}</div>
+          <div class="opt-count">${cat.services.length} servicios</div>`;
         div.onclick = () => {
           document.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
           div.classList.add('selected');
           calcState.catIdx = i;
-          calcState.itemIdx = null;
-          calcState.qty = 1;
+          calcState.serviceIdx = null;
           document.getElementById('btn-to-step2').style.display = 'inline-flex';
         };
         grid.appendChild(div);
@@ -2036,7 +1991,7 @@
     calcInit();
 
     function calcGoStep(step) {
-      [1,2,3,4].forEach(s => {
+      [1,2,3].forEach(s => {
         document.getElementById('calc-step-'+s).style.display = s===step ? 'block' : 'none';
         const dot = document.getElementById('sdot-'+s);
         if (dot) dot.classList.toggle('active', s<=step);
@@ -2044,31 +1999,22 @@
       if (step === 2) {
         const sel = document.getElementById('calc-service-select');
         sel.innerHTML = '<option value="">— Selecciona un servicio —</option>';
-        const cat = calcServices[calcState.catIdx];
-        cat.items.filter(x=>x.active).forEach((item, i) => {
+        const cat = SERVICE_CATEGORIES[calcState.catIdx];
+        cat.services.forEach((service, i) => {
           const opt = document.createElement('option');
           opt.value = i;
-          opt.textContent = item.name + (item.price > 0 ? ` — RD$ ${item.price.toLocaleString()}` : ' — Cotizar');
+          opt.textContent = service;
           sel.appendChild(opt);
         });
-        document.getElementById('calc-price-preview').style.display = 'none';
         document.getElementById('btn-to-step3').style.display = 'none';
       }
       if (step === 3) {
-        document.getElementById('qty-val').textContent = calcState.qty;
-        updateTotal();
-      }
-      if (step === 4) {
-        const cat = calcServices[calcState.catIdx];
-        const activeItems = cat.items.filter(x=>x.active);
-        const item = activeItems[calcState.itemIdx];
-        const total = item.price * calcState.qty;
-        document.getElementById('result-total').textContent = total.toLocaleString();
-        document.getElementById('result-desc').textContent =
-          `${calcState.qty}x ${item.name} — ${cat.category}`;
+        const cat = SERVICE_CATEGORIES[calcState.catIdx];
+        const service = cat.services[calcState.serviceIdx];
+        document.getElementById('result-desc').textContent = `${service} — ${cat.name}`;
         const wa = getLCData()?.contact?.wa || '18093162624';
         const msg = encodeURIComponent(
-          `Hola Loop Creativo 👋\n\nQuiero cotizar:\n✅ ${calcState.qty}x ${item.name}\n📂 Categoría: ${cat.category}\n💰 Total estimado: RD$ ${total.toLocaleString()}\n\n¿Podemos hablar?`
+          `Hola Loop Creativo 👋\n\nQuiero cotizar:\n📂 Categoría: ${cat.name}\n✅ Servicio: ${service}\n\n¿Podemos hablar?`
         );
         document.getElementById('btn-wa-quote').href =
           `https://api.whatsapp.com/send?phone=${wa}&text=${msg}`;
@@ -2079,44 +2025,15 @@
       const sel = document.getElementById('calc-service-select');
       const val = sel.value;
       if (val === '') {
-        document.getElementById('calc-price-preview').style.display = 'none';
         document.getElementById('btn-to-step3').style.display = 'none';
         return;
       }
-      calcState.itemIdx = parseInt(val);
-      const cat = calcServices[calcState.catIdx];
-      const activeItems = cat.items.filter(x=>x.active);
-      const item = activeItems[calcState.itemIdx];
-      const priceEl = document.getElementById('calc-price-display');
-      const unitEl = document.getElementById('calc-unit-label');
-      priceEl.textContent = item.price > 0 ? `RD$ ${item.price.toLocaleString()}` : 'A cotizar';
-      unitEl.textContent = item.unit || '';
-      document.getElementById('calc-price-preview').style.display = 'flex';
-      document.getElementById('btn-to-step3').style.display = item.price > 0 ? 'inline-flex' : 'none';
-      if (item.price === 0) {
-        document.getElementById('btn-to-step3').style.display = 'none';
-        const wa = getLCData()?.contact?.wa || '18093162624';
-        const msg = encodeURIComponent(`Hola Loop Creativo 👋\nQuiero cotizar: ${item.name}`);
-        priceEl.innerHTML = `<a href="https://api.whatsapp.com/send?phone=${wa}&text=${msg}" target="_blank" style="color:#25D366;font-size:0.9rem;">💬 Consultar precio</a>`;
-      }
-    }
-
-    function changeQty(delta) {
-      calcState.qty = Math.max(1, (calcState.qty || 1) + delta);
-      document.getElementById('qty-val').textContent = calcState.qty;
-      updateTotal();
-    }
-
-    function updateTotal() {
-      const cat = calcServices[calcState.catIdx];
-      const activeItems = cat.items.filter(x=>x.active);
-      const item = activeItems[calcState.itemIdx];
-      const total = item.price * calcState.qty;
-      document.getElementById('calc-total-display').textContent = `RD$ ${total.toLocaleString()}`;
+      calcState.serviceIdx = parseInt(val);
+      document.getElementById('btn-to-step3').style.display = 'inline-flex';
     }
 
     function calcReset() {
-      calcState = { catIdx: null, itemIdx: null, qty: 1 };
+      calcState = { catIdx: null, serviceIdx: null };
       document.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
       document.getElementById('btn-to-step2').style.display = 'none';
       calcGoStep(1);
@@ -2133,6 +2050,8 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+
+    renderServiciosGrid();
   </script>
 </body>
 </html>
