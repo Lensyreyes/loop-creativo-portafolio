@@ -517,6 +517,7 @@
 
     /* ── MARCAS / MARQUEE ── */
     #marcas { background: var(--gray); padding-bottom: 70px; overflow: hidden; }
+    #marcas .section-title { font-size: clamp(1.5rem, 3vw, 2.2rem); }
     .marquee-wrap {
       position: relative;
       width: 100%;
@@ -534,9 +535,9 @@
     }
     .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
     .marquee-logo {
-      height: 56px;
+      height: 90px;
       width: auto;
-      max-width: 160px;
+      max-width: 240px;
       object-fit: contain;
       filter: grayscale(100%) brightness(1.8);
       opacity: 0.6;
@@ -1306,27 +1307,6 @@
     <div class="reels-grid" id="reels-grid"></div>
   </section>
 
-  <!-- INSTAGRAM FEED -->
-  <section id="instagram-feed">
-    <div class="port-header reveal">
-      <p class="section-label">Síguenos</p>
-      <h2 class="section-title">Lo último en <span>Instagram</span></h2>
-      <div class="divider"></div>
-    </div>
-
-    <!-- Cuando tengas tu código de LightWidget, reemplaza este div completo por el <iframe> que te den -->
-    <div class="ig-cta reveal">
-      <div class="ig-cta-icon">
-        <img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/instagram.png" alt="Instagram"/>
-      </div>
-      <h3>@loop.dr</h3>
-      <p>Síguenos para ver nuestro trabajo más reciente, detrás de cámaras y novedades del estudio.</p>
-      <a href="https://www.instagram.com/loop.dr/" target="_blank" rel="noopener" class="btn btn-primary">
-        Ver perfil en Instagram →
-      </a>
-    </div>
-  </section>
-
   <!-- SERVICIOS / PRECIOS -->
   <section id="servicios">
     <div class="servicios-intro reveal">
@@ -1454,6 +1434,27 @@
     </div>
   </section>
 
+  <!-- INSTAGRAM FEED -->
+  <section id="instagram-feed">
+    <div class="port-header reveal">
+      <p class="section-label">Síguenos</p>
+      <h2 class="section-title">Lo último en <span>Instagram</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Cuando tengas tu código de LightWidget, reemplaza este div completo por el <iframe> que te den -->
+    <div class="ig-cta reveal">
+      <div class="ig-cta-icon">
+        <img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/instagram.png" alt="Instagram"/>
+      </div>
+      <h3>@loop.dr</h3>
+      <p>Síguenos para ver nuestro trabajo más reciente, detrás de cámaras y novedades del estudio.</p>
+      <a href="https://www.instagram.com/loop.dr/" target="_blank" rel="noopener" class="btn btn-primary">
+        Ver perfil en Instagram →
+      </a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <img src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
@@ -1493,6 +1494,10 @@
       { id: 'orLIMD1FC-I', title: 'Reel 2' },
       { id: '3kST34ucObw', title: 'Reel 3' },
       { id: 'cFhLo2SO_uM', title: 'Reel 4' },
+      { id: 'RG12Si9JQs0', title: 'Reel 5' },
+      { id: 'mJ9Nu74_26s', title: 'Reel 6' },
+      { id: 'QEFt533vuZQ', title: 'Reel 7' },
+      { id: 'QroClb7qFzk', title: 'Reel 8' },
     ];
 
     function renderReels() {
@@ -1684,6 +1689,10 @@
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Semi full.jpg', alt: 'Isuzu Semi Full' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/dmax_Mesa de trabajo 1.jpg', alt: 'D-Max' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Expofomenta_Mesa de trabajo 1 (1).jpg', alt: 'Expofomenta' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Aprovecha la Feria Fleximóvil BHD y llévate tu nueva Isuzu MU-X con condiciones especiales. Es e.jpg', alt: 'Feria Fleximóvil BHD' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/¡Este 2026 se arranca Bien Montao con Isuzu y Scotiabank! 🚗💨¿Buscas la aventura de una SUV, .jpg', alt: 'Bien Montao Scotiabank 1' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/¡Este 2026 se arranca Bien Montao con Isuzu y Scotiabank! 🚗💨¿Buscas la aventura de una SUV,  (1).jpg', alt: 'Bien Montao Scotiabank 2' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/¡Este 2026 se arranca Bien Montao con Isuzu y Scotiabank! 🚗💨¿Buscas la aventura de una SUV,  (2).jpg', alt: 'Bien Montao Scotiabank 3' },
         ]
       },
       {
@@ -1853,9 +1862,9 @@
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Portada.jpg',
         images: [
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/🌟 Nos complace anunciar nuestra nueva sucursal en Av. Independencia #409, Santo Domingo D.N.📍D.jpg', alt: 'CPS 1' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Aprovecha un 30% de descuento en el flete al pagar con tu tarjeta Qik💳•Promoción aplica para pa.jpg', alt: 'CPS 2' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Aprovecha 30 descuento flete Qik.jpg', alt: 'CPS 2' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/CPS Prime te premia🏆 En este mes de mayo estaremos seleccionando 50 clientes Prime al azar , qu.jpg', alt: 'CPS 3' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Llegó el Blue Month a CPS, un mes lleno de descuentos y concursos🥳💙¡Te traemos un 20% de descu.jpg', alt: 'CPS 4' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Blue Month CPS 20 descuento.jpg', alt: 'CPS 4' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/xz.jpg', alt: 'CPS 5' },
         ]
       },
