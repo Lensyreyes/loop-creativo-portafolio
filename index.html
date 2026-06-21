@@ -461,6 +461,44 @@
       display: block;
     }
 
+    /* ── MARCAS / MARQUEE ── */
+    #marcas { background: var(--gray); padding-bottom: 70px; overflow: hidden; }
+    .marquee-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 40px;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: max-content;
+      animation: marqueeScroll 28s linear infinite;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    .marquee-logo {
+      height: 56px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      filter: grayscale(100%) brightness(1.8);
+      opacity: 0.6;
+      transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+      flex-shrink: 0;
+    }
+    .marquee-logo:hover {
+      filter: grayscale(0%) brightness(1);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     /* ── PROJECT CARDS ── */
     .projects-grid {
       display: grid;
@@ -958,6 +996,7 @@
       text-decoration: none;
       transition: all 0.25s;
     }
+    .social-link img { width: 22px; height: 22px; object-fit: contain; }
     .social-link:hover {
       background: var(--orange);
       border-color: var(--orange);
@@ -1027,6 +1066,7 @@
       transition: transform 0.2s, box-shadow 0.2s;
       animation: waPulse 2.5s ease-in-out infinite;
     }
+    .wa-float img { width: 30px; height: 30px; }
     .wa-float:hover {
       transform: scale(1.1);
       box-shadow: 0 10px 30px rgba(37,211,102,0.6);
@@ -1080,7 +1120,7 @@
   <!-- WHATSAPP FLOTANTE -->
   <a href="https://api.whatsapp.com/send?phone=18093162624&utm_source=portfolio&utm_medium=web&utm_content=boton_flotante"
      class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-    💬
+    <img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp"/>
   </a>
 
   <!-- NAVBAR -->
@@ -1172,6 +1212,15 @@
     <div class="gallery" id="gallery">
       <!-- PROYECTOS: se generan por JS desde PROJECTS_DATA -->
       <div id="project-cards-diseno"></div>
+    </div>
+  </section>
+
+  <!-- MARCAS CON LAS QUE HEMOS COLABORADO -->
+  <section id="marcas">
+    <p class="section-label reveal" style="text-align:center">Confían en nosotros</p>
+    <h2 class="section-title reveal" style="text-align:center">Marcas que han <span>colaborado</span> con nosotros</h2>
+    <div class="marquee-wrap reveal">
+      <div class="marquee-track" id="marquee-track"></div>
     </div>
   </section>
 
@@ -1310,16 +1359,16 @@
           <a href="mailto:loopcreativord@gmail.com">loopcreativord@gmail.com</a>
         </div>
         <div class="social-links reveal">
-          <a href="https://www.instagram.com/loop.dr/" class="social-link" target="_blank" rel="noopener" title="Instagram">📸</a>
-          <a href="https://www.facebook.com/loopcreativo.dr" class="social-link" target="_blank" rel="noopener" title="Facebook">👤</a>
-          <a href="https://www.youtube.com/@Loop.creativo" class="social-link" target="_blank" rel="noopener" title="YouTube">▶️</a>
-          <a href="https://www.tiktok.com/@loop.dr" class="social-link" target="_blank" rel="noopener" title="TikTok">🎵</a>
-          <a href="https://wa.me/18093162624" class="social-link" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+          <a href="https://www.instagram.com/loop.dr/" class="social-link" target="_blank" rel="noopener" title="Instagram"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/instagram.png" alt="Instagram"/></a>
+          <a href="https://www.facebook.com/loopcreativo.dr" class="social-link" target="_blank" rel="noopener" title="Facebook"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/communication.png" alt="Facebook"/></a>
+          <a href="https://www.youtube.com/@Loop.creativo" class="social-link" target="_blank" rel="noopener" title="YouTube"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/youtube.png" alt="YouTube"/></a>
+          <a href="https://www.tiktok.com/@loop.dr" class="social-link" target="_blank" rel="noopener" title="TikTok"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/tik-tok.png" alt="TikTok"/></a>
+          <a href="https://wa.me/18093162624" class="social-link" target="_blank" rel="noopener" title="WhatsApp"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp"/></a>
         </div>
       </div>
 
       <div class="wa-big reveal">
-        <div class="wa-icon">💬</div>
+        <div class="wa-icon"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp" style="width:48px;height:48px;"/></div>
         <h3 style="font-family:'DiloWorld',sans-serif; font-size:1.6rem; margin-bottom:10px; color:#fff;">¿Prefieres WhatsApp?</h3>
         <p>Escríbeme directo y con gusto te atiendo. Respondo rápido.</p>
         <a href="https://api.whatsapp.com/send?phone=18093162624&utm_source=portfolio&utm_medium=web&utm_content=seccion_contacto"
@@ -1383,6 +1432,32 @@
       `).join('');
     }
     renderReels();
+
+    // ── MARCAS / MARQUEE ──
+    const CLIENT_LOGOS = [
+      { name: 'Isuzu', file: 'Isuzu.png' },
+      { name: 'EGO', file: 'EGO.png' },
+      { name: 'CPS', file: 'CPS.png' },
+      { name: 'Legendarios', file: 'Legendarios.png' },
+      { name: 'Jeep', file: 'Jeep.png' },
+      { name: 'Ram', file: 'Ram.png' },
+      { name: 'Reid', file: 'Reid.png' },
+      { name: 'Smart Tech', file: 'Smart Tech.png' },
+      { name: 'BeLife', file: 'BELIFE.png' },
+      { name: 'ML Príncipe Auto Adornos', file: 'ML PRINCIPE AUTO ADORNOS.png' },
+      { name: 'Mlopez Luxury Auto Import', file: 'Mlopez Luxury Auto Import.png' },
+    ];
+    function renderMarquee() {
+      const track = document.getElementById('marquee-track');
+      if (!track) return;
+      const base = 'Portafolio diigital de trabajos/Logos de Empresas con las que hemos coaborado/';
+      const logosHtml = CLIENT_LOGOS.map(l =>
+        `<img class="marquee-logo" src="${base}${l.file}" alt="${l.name}" loading="lazy"/>`
+      ).join('');
+      // Duplicado para loop infinito sin cortes
+      track.innerHTML = logosHtml + logosHtml;
+    }
+    renderMarquee();
 
     // ── PROYECTOS (cards + modal) ──
     // Vacío a propósito: se llenará cuando Lensy suba sus carpetas organizadas.
