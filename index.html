@@ -461,60 +461,6 @@
       display: block;
     }
 
-    /* ── INSTAGRAM CTA ── */
-    #instagram-feed { background: var(--gray); }
-    .ig-cta {
-      max-width: 520px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 48px 32px;
-      border-radius: 24px;
-      position: relative;
-      background: var(--dark);
-      overflow: hidden;
-    }
-    .ig-cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      padding: 2px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7, #f9ce34);
-      background-size: 300% 300%;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: igGradientShift 6s ease infinite;
-    }
-    @keyframes igGradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .ig-cta-icon {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 20px;
-      animation: igFloat 3.5s ease-in-out infinite;
-    }
-    .ig-cta-icon img { width: 100%; height: 100%; }
-    @keyframes igFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(4deg); }
-    }
-    .ig-cta h3 {
-      font-family: 'Nexa', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--cream);
-      margin-bottom: 10px;
-    }
-    .ig-cta p {
-      color: rgba(245,240,232,0.6);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 26px;
-    }
-
     /* ── MARCAS / MARQUEE ── */
     #marcas { background: var(--gray); padding-bottom: 70px; overflow: hidden; }
     #marcas .section-title { font-size: clamp(1.5rem, 3vw, 2.2rem); }
@@ -1431,27 +1377,6 @@
           💬 Escríbeme ahora
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM FEED -->
-  <section id="instagram-feed">
-    <div class="port-header reveal">
-      <p class="section-label">Síguenos</p>
-      <h2 class="section-title">Lo último en <span>Instagram</span></h2>
-      <div class="divider"></div>
-    </div>
-
-    <!-- Cuando tengas tu código de LightWidget, reemplaza este div completo por el <iframe> que te den -->
-    <div class="ig-cta reveal">
-      <div class="ig-cta-icon">
-        <img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/instagram.png" alt="Instagram"/>
-      </div>
-      <h3>@loop.dr</h3>
-      <p>Síguenos para ver nuestro trabajo más reciente, detrás de cámaras y novedades del estudio.</p>
-      <a href="https://www.instagram.com/loop.dr/" target="_blank" rel="noopener" class="btn btn-primary">
-        Ver perfil en Instagram →
-      </a>
     </div>
   </section>
 
