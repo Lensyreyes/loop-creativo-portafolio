@@ -1361,7 +1361,8 @@
           </select>
           <div class="calc-nav">
             <button class="btn btn-outline" onclick="calcGoStep(1)">← Atrás</button>
-            <button class="btn btn-primary" id="btn-add-service" onclick="calcAddService()" style="display:none">+ Agregar al cotizador</button>
+            <button class="btn btn-outline" id="btn-add-service" onclick="calcAddService()" style="display:none">+ Añadir otro servicio</button>
+            <button class="btn btn-primary" id="btn-send-request" onclick="calcSendRequest()" style="display:none;background:#25D366">✓ Enviar solicitud</button>
           </div>
         </div>
 
@@ -2150,6 +2151,7 @@
           sel.appendChild(opt);
         });
         document.getElementById('btn-add-service').style.display = 'none';
+        document.getElementById('btn-send-request').style.display = 'none';
       }
       if (step === 3) {
         renderCalcSummary();
@@ -2159,24 +2161,36 @@
     function calcServiceChanged() {
       const sel = document.getElementById('calc-service-select');
       const val = sel.value;
-      const btn = document.getElementById('btn-add-service');
-      if (val === '' || calcState.selections.length >= MAX_SERVICES) {
-        btn.style.display = 'none';
+      const addBtn = document.getElementById('btn-add-service');
+      const sendBtn = document.getElementById('btn-send-request');
+      if (val === '') {
+        addBtn.style.display = 'none';
+        sendBtn.style.display = 'none';
         return;
       }
       calcState.serviceIdx = parseInt(val);
-      btn.style.display = 'inline-flex';
+      sendBtn.style.display = 'inline-flex';
+      addBtn.style.display = calcState.selections.length >= MAX_SERVICES - 1 ? 'none' : 'inline-flex';
+    }
+
+    function calcPushCurrentSelection() {
+      const cat = SERVICE_CATEGORIES[calcState.catIdx];
+      const service = cat.services[calcState.serviceIdx];
+      const exists = calcState.selections.some(s => s.catIdx === calcState.catIdx && s.serviceIdx === calcState.serviceIdx);
+      if (!exists && calcState.selections.length < MAX_SERVICES) {
+        calcState.selections.push({ catIdx: calcState.catIdx, serviceIdx: calcState.serviceIdx, catName: cat.name, service });
+      }
+      renderSelectedChips();
+    }
+
+    function calcSendRequest() {
+      calcPushCurrentSelection();
+      calcGoStep(3);
     }
 
     function calcAddService() {
       if (calcState.selections.length >= MAX_SERVICES) return;
-      const cat = SERVICE_CATEGORIES[calcState.catIdx];
-      const service = cat.services[calcState.serviceIdx];
-      const exists = calcState.selections.some(s => s.catIdx === calcState.catIdx && s.serviceIdx === calcState.serviceIdx);
-      if (!exists) {
-        calcState.selections.push({ catIdx: calcState.catIdx, serviceIdx: calcState.serviceIdx, catName: cat.name, service });
-      }
-      renderSelectedChips();
+      calcPushCurrentSelection();
       document.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
       calcState.catIdx = null;
       calcState.serviceIdx = null;
