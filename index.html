@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Loop Creativo — Agencia de Diseño & Contenido Digital</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H5RP7EHWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3H5RP7EHWX');
+  </script>
   <style>
     /* ── FUENTES ── */
     @font-face {
@@ -347,6 +357,35 @@
       line-height: 1.3;
       text-align: center;
       box-shadow: 0 8px 24px rgba(255,68,32,0.4);
+    }
+    .sobre-social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 2px solid rgba(255,68,32,0.25);
+      background: rgba(255,68,32,0.08);
+    }
+    .social-btn img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+    .social-btn:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255,68,32,0.3);
     }
     .sobre-content p {
       font-size: 1rem;
@@ -1156,6 +1195,29 @@
       letter-spacing: 1px;
     }
     footer span { color: var(--orange); }
+    .youtube-widget {
+      display: inline-block;
+      margin-top: 16px;
+    }
+    .youtube-widget a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #c41e3a, #ff0000);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .youtube-widget a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(192,30,58,0.4);
+    }
 
     /* ── WHATSAPP FLOTANTE ── */
     .wa-float {
@@ -1242,8 +1304,7 @@
       <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#reels">Reels</a></li>
-      <li><a href="#calculadora">Cotizador</a></li>
+      <li><a href="#formulario">Formulario</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -1256,7 +1317,7 @@
     <a href="#sobre" onclick="closeMobile()">Sobre mí</a>
     <a href="#portafolio" onclick="closeMobile()">Portafolio</a>
     <a href="#servicios" onclick="closeMobile()">Servicios</a>
-    <a href="#calculadora" onclick="closeMobile()">Cotizador</a>
+    <a href="#formulario" onclick="closeMobile()">Formulario</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
   </div>
 
@@ -1288,6 +1349,12 @@
              src="Portafolio diigital de trabajos/Fotos/Foto del CEO/foto-ceo.jpg.png"
              alt="Lensy Reyes CEO Loop Creativo" />
         <div class="sobre-img-badge">Lensy Reyes<br/>CEO</div>
+        <div class="sobre-social-links">
+          <a href="https://www.instagram.com/loop.dr/" target="_blank" rel="noopener" class="social-btn" title="Instagram"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/instagram.png" alt="Instagram"/></a>
+          <a href="https://www.facebook.com/loopcreativo.dr" target="_blank" rel="noopener" class="social-btn" title="Facebook"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/communication.png" alt="Facebook"/></a>
+          <a href="https://www.tiktok.com/@loop.dr" target="_blank" rel="noopener" class="social-btn" title="TikTok"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/tik-tok.png" alt="TikTok"/></a>
+          <a href="https://www.youtube.com/@Loop.creativo" target="_blank" rel="noopener" class="social-btn youtube" title="YouTube"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/youtube.png" alt="YouTube"/></a>
+        </div>
       </div>
       <div class="sobre-content reveal">
         <p class="section-label">Sobre nuestro CEO</p>
@@ -1450,12 +1517,13 @@
     </div>
   </section>
 
-  <!-- CTA COTIZACIÓN -->
-  <section id="cotizacion">
-    <p class="section-label" style="text-align:center">¿Listo para empezar?</p>
-    <h2 class="section-title reveal">Tienes un <span>proyecto</span> en mente?</h2>
-    <p class="reveal">Completa el formulario y cuéntame sobre tu proyecto. Te respondo en menos de 24 horas.</p>
-    <a href="https://forms.gle/TDN9NZ88FWkXLWnH6" target="_blank" rel="noopener" class="btn btn-primary reveal">Llenar formulario</a>
+  <!-- FORMULARIO PARA PROYECTOS -->
+  <section id="formulario">
+    <p class="section-label" style="text-align:center">Cuéntame tu proyecto</p>
+    <h2 class="section-title reveal">¿Tienes un <span>proyecto</span> en mente?</h2>
+    <div class="divider" style="margin: 0 auto 40px;"></div>
+    <p class="reveal" style="max-width:600px;margin:0 auto 36px;text-align:center;">Completa el formulario a continuación y cuéntame sobre tu proyecto. Te respondo en menos de 24 horas.</p>
+    <a href="https://forms.gle/TDN9NZ88FWkXLWnH6" target="_blank" rel="noopener" class="btn btn-primary reveal">Llenar formulario de proyecto</a>
   </section>
 
 
@@ -1490,11 +1558,11 @@
 
       <div class="wa-big reveal">
         <div class="wa-icon"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp" style="width:48px;height:48px;"/></div>
-        <h3 style="font-family:'DiloWorld',sans-serif; font-size:1.6rem; margin-bottom:10px; color:#fff;">¿Prefieres WhatsApp?</h3>
-        <p>Escríbeme directo y con gusto te atiendo. Respondo rápido.</p>
+        <h3 style="font-family:'DiloWorld',sans-serif; font-size:1.6rem; margin-bottom:10px; color:#fff;">Preferencias de contacto</h3>
+        <p>¿Prefieres WhatsApp? Escríbeme directo y con gusto te atiendo. Respondo muy rápido.</p>
         <a href="https://api.whatsapp.com/send?phone=18093162624&utm_source=portfolio&utm_medium=web&utm_content=seccion_contacto"
            class="btn-wa" target="_blank" rel="noopener">
-          💬 Escríbeme ahora
+          💬 Escríbeme por WhatsApp
         </a>
       </div>
     </div>
@@ -1504,6 +1572,11 @@
   <footer>
     <img src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
          alt="Loop Creativo" />
+    <div class="youtube-widget">
+      <a href="https://www.youtube.com/@Loop.creativo" target="_blank" rel="noopener" title="Canal de YouTube">
+        ▶ Suscríbete a YouTube
+      </a>
+    </div>
     <p>© 2025 <span>Loop Creativo</span> · Lensy Reyes · Todos los derechos reservados</p>
   </footer>
 
