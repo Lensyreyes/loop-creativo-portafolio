@@ -511,25 +511,25 @@
 
     /* ── CANAL DE YOUTUBE (compacto) ── */
     .yt-channel-card {
-      max-width: 460px;
+      max-width: 600px;
       margin: 50px auto 0;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 20px;
       background: var(--gray);
       border: 1px solid rgba(255,68,32,0.15);
-      border-radius: 14px;
-      padding: 12px;
+      border-radius: 16px;
+      padding: 18px;
       text-decoration: none;
       transition: border-color 0.25s, transform 0.25s;
     }
     .yt-channel-card:hover { border-color: var(--orange); transform: translateY(-2px); }
     .yt-thumb {
       position: relative;
-      width: 96px;
-      height: 64px;
+      width: 150px;
+      height: 100px;
       flex-shrink: 0;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
       background: #000;
     }
@@ -542,28 +542,29 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 1.2rem;
       background: rgba(0,0,0,0.25);
     }
     .yt-channel-info { flex: 1; min-width: 0; }
     .yt-channel-info .yt-label {
-      font-size: 0.66rem;
+      font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .yt-channel-info .yt-title {
-      font-size: 0.82rem;
+      font-size: 1.1rem;
       color: var(--cream);
       font-weight: 800;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-bottom: 2px;
     }
     .yt-channel-info .yt-sub {
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       color: rgba(245,240,232,0.5);
     }
 
@@ -1185,19 +1186,24 @@
     footer {
       background: #111;
       text-align: center;
-      padding: 30px 5%;
+      padding: 34px 5%;
       border-top: 1px solid rgba(255,68,32,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
     }
-    footer img { height: 36px; margin-bottom: 14px; opacity: 0.7; }
+    footer img { height: 40px; opacity: 0.7; margin: 0; }
     footer p {
       font-size: 0.75rem;
       color: rgba(245,240,232,0.35);
       letter-spacing: 1px;
+      margin: 0;
     }
     footer span { color: var(--orange); }
     .youtube-widget {
-      display: inline-block;
-      margin-top: 16px;
+      display: flex;
+      justify-content: center;
     }
     .youtube-widget a {
       display: inline-flex;
