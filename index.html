@@ -2418,6 +2418,35 @@
 
     renderServiciosGrid();
     renderYtChannelCard();
+
+    // ── RASTREO DE CLICS (Google Analytics) ──
+    // Detecta clics hacia YouTube y WhatsApp y los reporta a Analytics
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (!link || typeof gtag !== 'function') return;
+      const href = link.href || '';
+      if (href.includes('youtube.com') || href.includes('youtu.be')) {
+        gtag('event', 'clic_youtube', {
+          event_category: 'Redes Sociales',
+          event_label: 'Canal de YouTube',
+          link_url: href
+        });
+      } else if (href.includes('wa.me') || href.includes('api.whatsapp.com')) {
+        gtag('event', 'clic_whatsapp', {
+          event_category: 'Contacto',
+          event_label: 'WhatsApp',
+          link_url: href
+        });
+      } else if (href.includes('instagram.com')) {
+        gtag('event', 'clic_instagram', { event_category: 'Redes Sociales', event_label: 'Instagram' });
+      } else if (href.includes('tiktok.com')) {
+        gtag('event', 'clic_tiktok', { event_category: 'Redes Sociales', event_label: 'TikTok' });
+      } else if (href.includes('facebook.com')) {
+        gtag('event', 'clic_facebook', { event_category: 'Redes Sociales', event_label: 'Facebook' });
+      } else if (href.includes('forms.gle') || href.includes('docs.google.com/forms')) {
+        gtag('event', 'clic_formulario', { event_category: 'Conversion', event_label: 'Formulario de proyecto' });
+      }
+    });
   </script>
 </body>
 </html>
