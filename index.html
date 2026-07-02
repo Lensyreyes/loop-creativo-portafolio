@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loop Creativo — Agencia de Diseño & Contenido Digital</title>
+  <title>Loop Creativo | Agencia de Diseño y Contenido Digital en Santo Domingo, RD</title>
+  <meta name="description" content="Loop Creativo es una agencia de diseño gráfico, fotografía, contenido digital y manejo de redes sociales en Santo Domingo, República Dominicana. CEO: Lensy Reyes." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Loop Creativo | Agencia de Diseño y Contenido Digital en Santo Domingo, RD" />
+  <meta property="og:description" content="Agencia de diseño gráfico, fotografía, contenido digital y redes sociales en Santo Domingo, RD." />
+  <meta property="og:image" content="https://loopcreativord.com/Portafolio%20diigital%20de%20trabajos/Logos%20de%20la%20agencia%20y%20paleta%20de%20colores/Loop%20Creativo%20Logo%20agencia.png" />
+  <meta property="og:url" content="https://loopcreativord.com" />
+  <meta property="og:type" content="website" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H5RP7EHWX"></script>
@@ -171,7 +179,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px 5% 60px;
+      padding: 70px 5% 70px;
       position: relative;
       overflow: hidden;
     }
@@ -270,7 +278,7 @@
     .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
     .scroll-hint {
       position: absolute;
-      bottom: 30px;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -584,12 +592,14 @@
       margin-bottom: 4px;
     }
     .yt-channel-info .yt-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--cream);
       font-weight: 800;
-      white-space: nowrap;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
-      text-overflow: ellipsis;
       margin-bottom: 2px;
     }
     .yt-channel-info .yt-sub {
@@ -636,7 +646,57 @@
       to { transform: translateX(-50%); }
     }
 
+    /* ── EQUIPO ── */
+    #equipo { background: var(--dark); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .team-card {
+      background: var(--gray);
+      border: 1px solid rgba(255,68,32,0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .team-card:hover { border-color: var(--orange); transform: translateY(-4px); }
+    .team-card img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .team-card-info { padding: 18px 16px 22px; }
+    .team-card-name {
+      font-family: 'DiloWorld', sans-serif;
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .team-card-role {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .team-card-socials {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+    .team-card-socials img { width: 22px; height: 22px; aspect-ratio: 1; }
+
     /* ── PROJECT CARDS ── */
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1118,8 +1178,204 @@
       flex-shrink: 0;
     }
 
+    /* ── BLOG ── */
+    #blog { background: var(--dark); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .blog-card {
+      background: var(--gray);
+      border: 1px solid rgba(255,68,32,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .blog-card:hover { border-color: var(--orange); transform: translateY(-4px); }
+    .blog-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+    .blog-card-body {
+      padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .blog-card-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.45);
+      margin-bottom: 10px;
+    }
+    .blog-card-meta .blog-date { color: var(--orange); }
+    .blog-card-title {
+      font-family: 'DiloWorld', sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.25;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+    .blog-card-excerpt {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(245,240,232,0.65);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .blog-read-more {
+      align-self: flex-start;
+      background: transparent;
+      border: 2px solid var(--orange);
+      color: var(--orange);
+      font-family: 'Nexa', sans-serif;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .blog-read-more:hover { background: var(--orange); color: #fff; }
+
+    /* Modal de artículo */
+    #blog-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 40px 5%;
+    }
+    #blog-modal.open { display: block; }
+    .blog-article {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--gray);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .blog-article-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .blog-article-body { padding: 30px 34px 40px; }
+    .blog-article-body h2 {
+      font-family: 'DiloWorld', sans-serif;
+      font-size: 1.7rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .blog-article-body h3 {
+      font-family: 'Nexa', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--orange);
+      margin: 24px 0 8px;
+    }
+    .blog-article-body p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.75);
+      margin-bottom: 14px;
+    }
+    .blog-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      margin: 12px;
+      background: var(--orange);
+      border: none;
+      color: #fff;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 2;
+    }
+    @media (max-width: 480px) {
+      .blog-article-body { padding: 22px 20px 30px; }
+    }
+
     /* ── CONTACTO ── */
     #contacto { background: var(--gray); }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--dark);
+      border: 1px solid rgba(255,68,32,0.2);
+      border-radius: 16px;
+      padding: 26px 24px;
+    }
+    .contact-form label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(245,240,232,0.05);
+      border: 1px solid rgba(245,240,232,0.15);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--cream);
+      font-family: 'Nexa', sans-serif;
+      font-weight: 300;
+      font-size: 0.92rem;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      background: rgba(255,68,32,0.06);
+    }
+    .contact-form textarea { resize: vertical; min-height: 110px; }
+    .contact-form button[type="submit"] {
+      margin-top: 4px;
+      width: 100%;
+      justify-content: center;
+    }
+    .form-status {
+      display: none;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+    .form-status.success {
+      display: block;
+      background: rgba(37,211,102,0.12);
+      border: 1px solid rgba(37,211,102,0.4);
+      color: #25D366;
+    }
+    .form-status.error {
+      display: block;
+      background: rgba(255,68,32,0.12);
+      border: 1px solid rgba(255,68,32,0.4);
+      color: var(--orange);
+    }
     .contacto-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1305,7 +1561,12 @@
       section { padding: 70px 4%; }
     }
     @media (max-width: 480px) {
-      .hero-btns { flex-direction: column; align-items: center; }
+      #hero { padding: 80px 5% 90px; }
+      .hero-logo-main { width: min(280px, 72vw); }
+      .hero-tag { margin-bottom: 18px; }
+      .hero-ceo-badge { margin: 16px 0 20px; }
+      .hero-sub { margin: 0 0 24px; }
+      .hero-btns { flex-direction: column; align-items: center; width: 100%; }
       .btn { width: 100%; justify-content: center; }
       .gallery { grid-template-columns: 1fr 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
@@ -1340,6 +1601,7 @@
       <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#formulario">Formulario</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -1353,6 +1615,7 @@
     <a href="#portafolio" onclick="closeMobile()">Portafolio</a>
     <a href="#servicios" onclick="closeMobile()">Servicios</a>
     <a href="#formulario" onclick="closeMobile()">Formulario</a>
+    <a href="#blog" onclick="closeMobile()">Blog</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
   </div>
 
@@ -1409,6 +1672,34 @@
     </div>
   </section>
 
+  <!--
+  ═══════════════════════════════════════════════════════════════
+  SECCIÓN "NUESTRO EQUIPO" — LISTA PARA ACTIVAR
+  Cuando el equipo crezca, quita este comentario y agrega una
+  .team-card por cada miembro (foto en carpeta Fotos/Equipo/).
+  Los estilos ya están definidos en el CSS (busca "── EQUIPO ──").
+  ═══════════════════════════════════════════════════════════════
+  <section id="equipo">
+    <div class="port-header reveal">
+      <p class="section-label">Quiénes somos</p>
+      <h2 class="section-title">Nuestro <span>Equipo</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img src="RUTA/A/LA/FOTO.jpg" alt="Nombre del miembro" loading="lazy"/>
+        <div class="team-card-info">
+          <div class="team-card-name">Nombre Apellido</div>
+          <div class="team-card-role">Fotógrafo</div>
+          <div class="team-card-socials">
+            <a href="https://instagram.com/usuario" target="_blank" rel="noopener"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/instagram.png" alt="Instagram"/></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
   <!-- PORTAFOLIO -->
   <section id="portafolio">
     <div class="port-header reveal">
@@ -1420,6 +1711,10 @@
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
       <button class="filter-btn" data-filter="foto">Fotografía</button>
+      <button class="filter-btn" data-filter="video">Video / Reels</button>
+      <button class="filter-btn" data-filter="redes">Redes Sociales</button>
+      <button class="filter-btn" data-filter="eventos">Eventos</button>
+      <button class="filter-btn" data-filter="publicidad">Publicidad Digital</button>
     </div>
     <div class="gallery" id="gallery">
       <!-- PROYECTOS: se generan por JS desde PROJECTS_DATA -->
@@ -1593,6 +1888,25 @@
   </section>
 
 
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="port-header reveal">
+      <p class="section-label">Aprende con nosotros</p>
+      <h2 class="section-title">Nuestro <span>Blog</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="blog-grid" id="blog-grid"></div>
+  </section>
+
+  <!-- MODAL DE ARTÍCULO -->
+  <div id="blog-modal">
+    <div class="blog-article">
+      <button class="blog-close" onclick="closeBlogArticle()">✕</button>
+      <img class="blog-article-img" id="blog-article-img" src="" alt="" />
+      <div class="blog-article-body" id="blog-article-body"></div>
+    </div>
+  </div>
+
   <!-- CONTACTO -->
   <section id="contacto">
     <div class="contacto-grid">
@@ -1622,14 +1936,39 @@
         </div>
       </div>
 
-      <div class="wa-big reveal">
-        <div class="wa-icon"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp" style="width:48px;height:48px;"/></div>
-        <h3 style="font-family:'DiloWorld',sans-serif; font-size:1.6rem; margin-bottom:10px; color:#fff;">Preferencias de contacto</h3>
-        <p>¿Prefieres WhatsApp? Escríbeme directo y con gusto te atiendo. Respondo muy rápido.</p>
-        <a href="https://api.whatsapp.com/send?phone=18093162624&utm_source=portfolio&utm_medium=web&utm_content=seccion_contacto"
-           class="btn-wa" target="_blank" rel="noopener">
-          💬 Escríbeme por WhatsApp
-        </a>
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/ajax/loopcreativord@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde loopcreativord.com" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+          <div>
+            <label for="cf-nombre">Nombre completo *</label>
+            <input type="text" id="cf-nombre" name="nombre" required placeholder="Tu nombre" />
+          </div>
+          <div>
+            <label for="cf-email">Correo electrónico *</label>
+            <input type="email" id="cf-email" name="email" required placeholder="tucorreo@ejemplo.com" />
+          </div>
+          <div>
+            <label for="cf-tel">WhatsApp / Teléfono</label>
+            <input type="tel" id="cf-tel" name="telefono" placeholder="809-000-0000" />
+          </div>
+          <div>
+            <label for="cf-msg">Mensaje o descripción del proyecto *</label>
+            <textarea id="cf-msg" name="mensaje" rows="4" required placeholder="Cuéntanos qué necesitas..."></textarea>
+          </div>
+          <div class="form-status" id="form-status"></div>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+
+        <div class="wa-big reveal">
+          <div class="wa-icon"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp" style="width:48px;height:48px;"/></div>
+          <h3 style="font-family:'DiloWorld',sans-serif; font-size:1.6rem; margin-bottom:10px; color:#fff;">¿Prefieres WhatsApp?</h3>
+          <p>Escríbeme directo y con gusto te atiendo. Respondo muy rápido.</p>
+          <a href="https://api.whatsapp.com/send?phone=18093162624&utm_source=portfolio&utm_medium=web&utm_content=seccion_contacto"
+             class="btn-wa" target="_blank" rel="noopener">
+            💬 Escríbeme por WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -2152,6 +2491,34 @@
       },
     ];
 
+    // Categorías extra por proyecto (un proyecto puede pertenecer a varias)
+    const EXTRA_CATS = {
+      'Coach Rammy TV': 'redes',
+      'Artes de Legendarios': 'redes eventos',
+      'Blessed Handbags': 'publicidad redes',
+      'Fotos Legendarios': 'eventos',
+      'ML Príncipe Auto Adornos': 'redes',
+      'Mlopez Luxury Auto Import': 'redes publicidad',
+      'BeLife': 'redes',
+      'Resistencia CA': 'eventos',
+      'Smart Tech': 'redes publicidad',
+      'Isuzu': 'publicidad',
+      'Jeep': 'publicidad',
+      'La Summer': 'eventos redes',
+      'Ram': 'publicidad',
+      'Reid y Compañía Equipos Pesados': 'redes publicidad',
+      'Asonahores 2025': 'eventos',
+      'Expo Puerto Plata 2025': 'eventos',
+      'Jeep Wrangler 2026': 'publicidad',
+      'Polo In The City - Maserati': 'eventos',
+      'Premiación Fed. Dom. Deportes Ecuestres': 'eventos',
+      'Rally Playero 2025': 'eventos',
+      'Summer Session 2025': 'eventos',
+      'CPS': 'redes',
+      'EGO': 'redes',
+      'EGO Shoes': 'publicidad',
+    };
+
     function renderProjectCards() {
       const container = document.getElementById('project-cards-diseno');
       if (!container) return;
@@ -2163,7 +2530,7 @@
         return;
       }
       container.innerHTML = PROJECTS_DATA.map((p, i) => `
-        <div class="project-card" data-cat="${p.cat || 'diseno'}" onclick="openProjectModal(${i})">
+        <div class="project-card" data-cat="${((p.cat || 'diseno') + ' ' + (EXTRA_CATS[p.title] || '')).trim()}" onclick="openProjectModal(${i})">
           <img src="${p.cover}" alt="${p.title}" loading="lazy"/>
           <span class="project-card-tag">Proyecto</span>
           <div class="project-card-overlay">
@@ -2195,19 +2562,38 @@
       document.body.style.overflow = 'hidden';
     }
 
-    // ── FILTRO PORTAFOLIO ──
+    // ── FILTRO PORTAFOLIO (multi-categoría + transición suave) ──
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
+        let visibles = 0;
         document.querySelectorAll('.project-card').forEach(item => {
-          if (filter === 'all' || item.dataset.cat === filter) {
+          const cats = (item.dataset.cat || '').split(' ');
+          if (filter === 'all' || cats.includes(filter)) {
             item.classList.remove('hidden');
+            item.style.animation = 'none';
+            void item.offsetWidth; // reinicia la animación
+            item.style.animation = 'cardFadeIn 0.3s ease';
+            visibles++;
           } else {
             item.classList.add('hidden');
           }
         });
+        // Estado vacío: dirige a las secciones de video
+        let empty = document.getElementById('filter-empty');
+        if (visibles === 0) {
+          if (!empty) {
+            empty = document.createElement('div');
+            empty.id = 'filter-empty';
+            empty.style.cssText = 'grid-column:1/-1; text-align:center; padding:40px 20px; color:rgba(245,240,232,0.6); font-size:0.95rem;';
+            empty.innerHTML = '🎬 Nuestro trabajo en video está más abajo: <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a> y <a href="#videos-youtube" style="color:var(--orange); font-weight:800;">Videos en YouTube</a>';
+            document.getElementById('project-cards-diseno').appendChild(empty);
+          }
+        } else if (empty) {
+          empty.remove();
+        }
       });
     });
 
@@ -2254,6 +2640,7 @@
       if (e.key === 'Escape') {
         closeLightbox();
         closeProjectModal();
+        closeBlogArticle();
       }
     });
 
@@ -2489,6 +2876,142 @@
     renderServiciosGrid();
     renderYtChannelCard();
 
+    // ── BLOG ──
+    const BLOG_ARTICLES = [
+      {
+        title: '¿Por qué tu marca necesita Reels en 2026?',
+        date: '15 Jun 2026',
+        readTime: '3 min de lectura',
+        cover: 'https://img.youtube.com/vi/mJ9Nu74_26s/hqdefault.jpg',
+        excerpt: 'El video corto dejó de ser una tendencia: es el formato que decide quién gana la atención en redes. Te contamos por qué tu marca no puede quedarse fuera.',
+        content: `
+          <h3>El video corto domina la atención</h3>
+          <p>Los Reels son hoy el formato con mayor alcance orgánico en Instagram, TikTok y YouTube. Las plataformas los priorizan en sus algoritmos, lo que significa que una marca con video corto llega a mucha más gente que una que solo publica imágenes.</p>
+          <h3>Conexión real con tu audiencia</h3>
+          <p>Un Reel bien producido muestra la personalidad de tu marca en segundos. La gente no compra productos: compra historias, personas y confianza — y el video es el medio más directo para transmitirlas.</p>
+          <h3>¿Qué necesitas para empezar?</h3>
+          <p>No hace falta un estudio de cine. Con una estrategia clara, buena iluminación y una edición ágil pensada para los primeros 3 segundos, tu marca puede competir con cualquiera. En Loop Creativo producimos Reels desde la idea hasta la publicación.</p>
+          <p><strong style="color:var(--orange)">¿Listo para que tu marca aparezca en el feed de todos? Escríbenos.</strong></p>
+        `
+      },
+      {
+        title: '5 errores comunes en el diseño de redes sociales',
+        date: '02 Jun 2026',
+        readTime: '4 min de lectura',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Coach Rammy TV/Portada.png',
+        excerpt: 'Publicar por publicar es el error número uno. Estos son los 5 fallos de diseño que vemos a diario en redes — y cómo evitarlos para que tu marca se vea profesional.',
+        content: `
+          <h3>1. Demasiado texto en la imagen</h3>
+          <p>El arte debe captar la atención; el texto largo va en el caption. Si tu diseño parece un documento, la gente sigue de largo.</p>
+          <h3>2. No respetar la identidad visual</h3>
+          <p>Cambiar de colores y tipografías en cada publicación confunde. Una marca reconocible usa siempre su misma paleta y estilo.</p>
+          <h3>3. Baja calidad de imagen</h3>
+          <p>Fotos pixeladas o mal recortadas transmiten descuido. Cada pieza que publicas habla de la calidad de tu negocio.</p>
+          <h3>4. Ignorar los formatos de cada plataforma</h3>
+          <p>Un arte cuadrado estirado a historia vertical se ve mal. Cada red tiene sus medidas y hay que diseñar para ellas.</p>
+          <h3>5. Publicar sin estrategia</h3>
+          <p>El diseño es solo la mitad: sin un calendario de contenido y objetivos claros, hasta el mejor arte se pierde. En Loop Creativo unimos diseño + estrategia para que cada publicación trabaje por tu marca.</p>
+        `
+      },
+      {
+        title: 'Cómo prepararte para una sesión de fotografía de producto',
+        date: '20 May 2026',
+        readTime: '3 min de lectura',
+        cover: 'Portafolio diigital de trabajos/Fotos/Fotos Para Blessed Handbags/Portada.jpg',
+        excerpt: 'Una buena sesión de producto empieza antes de encender la cámara. Esta guía rápida te ayuda a sacar el máximo provecho de tu inversión en fotografía.',
+        content: `
+          <h3>Define el objetivo de las fotos</h3>
+          <p>¿Son para catálogo, redes sociales o publicidad? Cada uso pide un estilo distinto de iluminación, fondo y composición. Definirlo antes ahorra tiempo y dinero.</p>
+          <h3>Prepara tus productos</h3>
+          <p>Limpia, plancha y revisa cada pieza antes de la sesión. La cámara capta todo: una mancha pequeña puede arruinar una toma perfecta.</p>
+          <h3>Piensa en la historia</h3>
+          <p>Los productos venden más cuando se muestran en contexto: una cartera en manos de alguien, un zapato en movimiento. Trae ideas de cómo quieres que tu cliente se imagine usando tu producto.</p>
+          <h3>Confía en el equipo</h3>
+          <p>Un fotógrafo profesional sabe de ángulos, luz y postproducción. Comparte tu visión y deja que la experiencia haga el resto. En Loop Creativo hacemos sesiones de producto de 20 fotos con edición incluida.</p>
+        `
+      },
+    ];
+
+    function renderBlog() {
+      const grid = document.getElementById('blog-grid');
+      if (!grid) return;
+      grid.innerHTML = BLOG_ARTICLES.map((a, i) => `
+        <article class="blog-card reveal">
+          <img class="blog-card-img" src="${a.cover}" alt="${a.title}" loading="lazy"/>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-date">${a.date}</span>
+              <span>·</span>
+              <span>${a.readTime}</span>
+            </div>
+            <div class="blog-card-title">${a.title}</div>
+            <div class="blog-card-excerpt">${a.excerpt}</div>
+            <button class="blog-read-more" onclick="openBlogArticle(${i})">Leer más →</button>
+          </div>
+        </article>
+      `).join('');
+      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    function openBlogArticle(idx) {
+      const a = BLOG_ARTICLES[idx];
+      document.getElementById('blog-article-img').src = a.cover;
+      document.getElementById('blog-article-img').alt = a.title;
+      document.getElementById('blog-article-body').innerHTML = `
+        <h2>${a.title}</h2>
+        <div class="blog-card-meta" style="margin-bottom:18px"><span class="blog-date">${a.date}</span><span>·</span><span>${a.readTime}</span></div>
+        ${a.content}
+      `;
+      document.getElementById('blog-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (typeof gtag === 'function') {
+        gtag('event', 'lectura_blog', { event_category: 'Blog', event_label: a.title });
+      }
+    }
+    function closeBlogArticle() {
+      document.getElementById('blog-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('blog-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('blog-modal')) closeBlogArticle();
+    });
+    renderBlog();
+
+    // ── FORMULARIO DE CONTACTO (FormSubmit) ──
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const status = document.getElementById('form-status');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+        status.className = 'form-status';
+        try {
+          const res = await fetch(contactForm.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(contactForm)
+          });
+          if (res.ok) {
+            status.textContent = '✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas.';
+            status.classList.add('success');
+            contactForm.reset();
+            if (typeof gtag === 'function') {
+              gtag('event', 'envio_formulario_contacto', { event_category: 'Conversion', event_label: 'Formulario de contacto' });
+            }
+          } else {
+            throw new Error('Respuesta no OK');
+          }
+        } catch (err) {
+          status.textContent = '✗ No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+          status.classList.add('error');
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensaje';
+      });
+    }
+
     // ── RASTREO DE CLICS (Google Analytics) ──
     // Detecta clics hacia YouTube y WhatsApp y los reporta a Analytics
     document.addEventListener('click', function(e) {
@@ -2517,6 +3040,35 @@
         gtag('event', 'clic_formulario', { event_category: 'Conversion', event_label: 'Formulario de proyecto' });
       }
     });
+  </script>
+
+  <!-- Schema.org LocalBusiness (SEO local) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Loop Creativo",
+    "description": "Agencia de diseño gráfico, contenido digital, fotografía y manejo de redes sociales en Santo Domingo, República Dominicana.",
+    "url": "https://loopcreativord.com",
+    "telephone": "+18093162624",
+    "email": "loopcreativord@gmail.com",
+    "image": "https://loopcreativord.com/Portafolio%20diigital%20de%20trabajos/Logos%20de%20la%20agencia%20y%20paleta%20de%20colores/Loop%20Creativo%20Logo%20agencia.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santo Domingo",
+      "addressCountry": "DO"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Lensy Reyes"
+    },
+    "sameAs": [
+      "https://www.instagram.com/loop.dr/",
+      "https://www.facebook.com/loopcreativo.dr",
+      "https://www.tiktok.com/@loop.dr",
+      "https://www.youtube.com/@Loop.creativo"
+    ]
+  }
   </script>
 </body>
 </html>
