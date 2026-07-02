@@ -5,3 +5,8 @@ client_secret_*.json
 .claude/
 node_modules/
 .next/
+# Carpetas de trabajo privadas (no publicar en la web)
+Video de Francisco/
+cv-lensy/
+my-video/
+propuesta_induscon/

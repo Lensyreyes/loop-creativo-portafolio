@@ -509,6 +509,35 @@
       display: block;
     }
 
+    /* ── VIDEOS DE YOUTUBE (16:9) ── */
+    #videos-youtube { background: var(--dark); }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .video-card {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #000;
+      border: 1px solid rgba(255,68,32,0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .video-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .videos-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+
     /* ── CANAL DE YOUTUBE (compacto) ── */
     .yt-channel-card {
       max-width: 600px;
@@ -1436,6 +1465,37 @@
       <div class="divider"></div>
     </div>
     <div class="reels-grid" id="reels-grid"></div>
+  </section>
+
+  <!-- VIDEOS DE YOUTUBE -->
+  <section id="videos-youtube">
+    <div class="port-header reveal">
+      <p class="section-label">Producción Audiovisual</p>
+      <h2 class="section-title">Videos en <span>YouTube</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="videos-grid">
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/enWc7Taigr0" title="Video de YouTube 1"
+          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/bFGfQGjnxSo" title="Video de YouTube 2"
+          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/zzD8lulF1ik" title="Video de YouTube 3"
+          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-card reveal">
+        <iframe src="https://www.youtube.com/embed/ixZ3Y96HDlQ" title="Video de YouTube 4"
+          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICIOS / PRECIOS -->
