@@ -517,33 +517,66 @@
       display: block;
     }
 
-    /* ── VIDEOS DE YOUTUBE (16:9) ── */
-    #videos-youtube { background: var(--dark); }
+    /* ── VIDEOS DE YOUTUBE (compacto) ── */
+    #videos-youtube { background: var(--dark); padding-top: 60px; padding-bottom: 60px; }
     .videos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 1100px;
+      gap: 14px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .video-card {
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      background: #000;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--gray);
       border: 1px solid rgba(255,68,32,0.15);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border-radius: 14px;
+      padding: 10px;
+      text-decoration: none;
       transition: border-color 0.25s, transform 0.25s;
     }
-    .video-card:hover { border-color: var(--orange); transform: translateY(-3px); }
-    .video-card iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
+    .video-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .video-thumb {
+      position: relative;
+      width: 110px;
+      height: 66px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-thumb::after {
+      content: '▶';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      background: rgba(0,0,0,0.3);
+    }
+    .video-info { flex: 1; min-width: 0; }
+    .video-info .video-title {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .video-info .video-sub {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.5);
+      margin-top: 3px;
     }
     @media (max-width: 768px) {
-      .videos-grid { grid-template-columns: 1fr; gap: 16px; }
+      .videos-grid { grid-template-columns: 1fr; gap: 10px; }
     }
 
     /* ── CANAL DE YOUTUBE (compacto) ── */
@@ -748,6 +781,8 @@
       padding: 5px 12px;
       border-radius: 30px;
     }
+    .project-card-tag.tag-foto { background: var(--navy); }
+    .ver-mas-wrap { text-align: center; margin-top: 34px; }
     .project-card-title {
       font-family: 'Nexa', sans-serif;
       font-weight: 800;
@@ -1178,139 +1213,6 @@
       flex-shrink: 0;
     }
 
-    /* ── BLOG ── */
-    #blog { background: var(--dark); }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .blog-card {
-      background: var(--gray);
-      border: 1px solid rgba(255,68,32,0.12);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .blog-card:hover { border-color: var(--orange); transform: translateY(-4px); }
-    .blog-card-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-      background: #000;
-    }
-    .blog-card-body {
-      padding: 20px 20px 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .blog-card-meta {
-      display: flex;
-      gap: 12px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(245,240,232,0.45);
-      margin-bottom: 10px;
-    }
-    .blog-card-meta .blog-date { color: var(--orange); }
-    .blog-card-title {
-      font-family: 'DiloWorld', sans-serif;
-      font-size: 1.2rem;
-      line-height: 1.25;
-      color: var(--cream);
-      margin-bottom: 10px;
-    }
-    .blog-card-excerpt {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: rgba(245,240,232,0.65);
-      margin-bottom: 18px;
-      flex: 1;
-    }
-    .blog-read-more {
-      align-self: flex-start;
-      background: transparent;
-      border: 2px solid var(--orange);
-      color: var(--orange);
-      font-family: 'Nexa', sans-serif;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 10px 22px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .blog-read-more:hover { background: var(--orange); color: #fff; }
-
-    /* Modal de artículo */
-    #blog-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 1000;
-      overflow-y: auto;
-      padding: 40px 5%;
-    }
-    #blog-modal.open { display: block; }
-    .blog-article {
-      max-width: 720px;
-      margin: 0 auto;
-      background: var(--gray);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .blog-article-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-    .blog-article-body { padding: 30px 34px 40px; }
-    .blog-article-body h2 {
-      font-family: 'DiloWorld', sans-serif;
-      font-size: 1.7rem;
-      color: var(--cream);
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    .blog-article-body h3 {
-      font-family: 'Nexa', sans-serif;
-      font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--orange);
-      margin: 24px 0 8px;
-    }
-    .blog-article-body p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: rgba(245,240,232,0.75);
-      margin-bottom: 14px;
-    }
-    .blog-close {
-      position: sticky;
-      top: 0;
-      float: right;
-      margin: 12px;
-      background: var(--orange);
-      border: none;
-      color: #fff;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      z-index: 2;
-    }
-    @media (max-width: 480px) {
-      .blog-article-body { padding: 22px 20px 30px; }
-    }
-
     /* ── CONTACTO ── */
     #contacto { background: var(--gray); }
     .contact-form {
@@ -1601,7 +1503,6 @@
       <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#formulario">Formulario</a></li>
-      <li><a href="#blog">Blog</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -1615,7 +1516,6 @@
     <a href="#portafolio" onclick="closeMobile()">Portafolio</a>
     <a href="#servicios" onclick="closeMobile()">Servicios</a>
     <a href="#formulario" onclick="closeMobile()">Formulario</a>
-    <a href="#blog" onclick="closeMobile()">Blog</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
   </div>
 
@@ -1770,26 +1670,34 @@
       <div class="divider"></div>
     </div>
     <div class="videos-grid">
-      <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/enWc7Taigr0" title="Video de YouTube 1"
-          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/bFGfQGjnxSo" title="Video de YouTube 2"
-          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/zzD8lulF1ik" title="Video de YouTube 3"
-          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="video-card reveal">
-        <iframe src="https://www.youtube.com/embed/ixZ3Y96HDlQ" title="Video de YouTube 4"
-          loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=enWc7Taigr0" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/enWc7Taigr0/hqdefault.jpg" alt="Ricardo Céspedes Jr." loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">Conociendo la rutina de un profesional — Ricardo Céspedes Jr.</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=bFGfQGjnxSo" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/bFGfQGjnxSo/hqdefault.jpg" alt="Serie del Caribe 2021" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">Serie del Caribe 2021 — Hall of Fame | El Fogón</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=zzD8lulF1ik" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/zzD8lulF1ik/hqdefault.jpg" alt="El Fogón Podcast Cap. 2" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">El Fogón Podcast (Cap. 2): Cambio de Nolan Arenado</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=ixZ3Y96HDlQ" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/ixZ3Y96HDlQ/hqdefault.jpg" alt="Yankees vs Boston" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">Yankees vs Boston (Video Reacción)</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -1887,25 +1795,6 @@
     <a href="https://forms.gle/TDN9NZ88FWkXLWnH6" target="_blank" rel="noopener" class="btn btn-primary reveal">Llenar formulario de proyecto</a>
   </section>
 
-
-  <!-- BLOG -->
-  <section id="blog">
-    <div class="port-header reveal">
-      <p class="section-label">Aprende con nosotros</p>
-      <h2 class="section-title">Nuestro <span>Blog</span></h2>
-      <div class="divider"></div>
-    </div>
-    <div class="blog-grid" id="blog-grid"></div>
-  </section>
-
-  <!-- MODAL DE ARTÍCULO -->
-  <div id="blog-modal">
-    <div class="blog-article">
-      <button class="blog-close" onclick="closeBlogArticle()">✕</button>
-      <img class="blog-article-img" id="blog-article-img" src="" alt="" />
-      <div class="blog-article-body" id="blog-article-body"></div>
-    </div>
-  </div>
 
   <!-- CONTACTO -->
   <section id="contacto">
@@ -2272,19 +2161,6 @@
         ]
       },
       {
-        title: 'La Summer',
-        cat: 'diseno',
-        sub: 'Diseño Gráfico · Eventos Deportivos',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/La Summer/Portada.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/La Summer/#GAME DAYYYYYYY!! #Lobos vs #Spartan - #TEAMICE vs #losinevitables.jpg', alt: 'Game Day' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/La Summer/Tenemos nueva Fecha !!! .Primer Torneo Inter-Ligas de la Liga Brotherhood📍- Club Villa Olímpica.jpg', alt: 'Nueva Fecha' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/La Summer/🏀 ¡El juego que lo decide todo! 🏆LA SUMMER VOL. 2 - SEMIFINALES🔥 Team Ice vs Spartan 🔥💥 Dos.jpg', alt: 'Semifinales' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/La Summer/🏀🔥 ¡Hoy se prende la cancha! 🔥🏀Dos juegos, cuatro equipos, y un solo objetivo- ¡la gloria!Te.jpg', alt: 'Hoy se prende la cancha' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/La Summer/🔥 ¡Hoy es noche de acción en la cancha! 🏀No te pierdas los enfrentamientos épicos-⏰ 7-30 PM- T.jpg', alt: 'Noche de Acción' },
-        ]
-      },
-      {
         title: 'Ram',
         cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
@@ -2398,42 +2274,6 @@
         ]
       },
       {
-        title: 'Summer Session 2025',
-        cat: 'foto',
-        sub: 'Fotografía de Evento',
-        cover: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/Portada.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/cs.jpg', alt: 'Summer Session 1' },
-          { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/DSC02145.jpg', alt: 'Summer Session 2' },
-          { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/DSC02149.jpg', alt: 'Summer Session 3' },
-          { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/DSC02195.jpg', alt: 'Summer Session 4' },
-          { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/DSC022333.jpg', alt: 'Summer Session 5' },
-          { src: 'Portafolio diigital de trabajos/Fotos/Summer Session 2025/DSC0225029.jpg', alt: 'Summer Session 6' },
-        ]
-      },
-      {
-        title: 'CPS',
-        cat: 'diseno',
-        sub: 'Diseño Gráfico · Redes Sociales',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Portada.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/🌟 Nos complace anunciar nuestra nueva sucursal en Av. Independencia #409, Santo Domingo D.N.📍D.jpg', alt: 'CPS 1' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Aprovecha 30 descuento flete Qik.jpg', alt: 'CPS 2' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/CPS Prime te premia🏆 En este mes de mayo estaremos seleccionando 50 clientes Prime al azar , qu.jpg', alt: 'CPS 3' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/Blue Month CPS 20 descuento.jpg', alt: 'CPS 4' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/CPS/xz.jpg', alt: 'CPS 5' },
-        ]
-      },
-      {
-        title: 'EGO',
-        cat: 'diseno',
-        sub: 'Diseño Gráfico · Redes Sociales',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/EGO/Portada.jpg',
-        images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/EGO/Nos complace anunciar que somos el calzado oficial de @missmundodominicanaoficial 🙌🏼🙌🏼.jpg', alt: 'EGO 1' },
-        ]
-      },
-      {
         title: 'EGO Shoes',
         cat: 'foto',
         sub: 'Fotografía de Producto · Calzado',
@@ -2504,7 +2344,6 @@
       'Smart Tech': 'redes publicidad',
       'Isuzu': 'publicidad',
       'Jeep': 'publicidad',
-      'La Summer': 'eventos redes',
       'Ram': 'publicidad',
       'Reid y Compañía Equipos Pesados': 'redes publicidad',
       'Asonahores 2025': 'eventos',
@@ -2513,11 +2352,25 @@
       'Polo In The City - Maserati': 'eventos',
       'Premiación Fed. Dom. Deportes Ecuestres': 'eventos',
       'Rally Playero 2025': 'eventos',
-      'Summer Session 2025': 'eventos',
-      'CPS': 'redes',
-      'EGO': 'redes',
       'EGO Shoes': 'publicidad',
     };
+
+    // Proyectos destacados (se muestran por defecto; el resto tras "Ver más")
+    const FEATURED = [
+      'Coach Rammy TV', 'Artes de Legendarios', 'Mlopez Luxury Auto Import', 'BeLife',
+      'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
+    ];
+    // Orden visual: diseño primero, luego fotografía, agrupados por afinidad de color
+    const CARD_ORDER = [
+      'Coach Rammy TV', 'Artes de Legendarios', 'BeLife', 'Mlopez Luxury Auto Import',
+      'ML Príncipe Auto Adornos', 'Smart Tech', 'Reid y Compañía Equipos Pesados',
+      'Isuzu', 'Jeep', 'Ram',
+      'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
+      'Expo Puerto Plata 2025', 'Polo In The City - Maserati',
+      'Premiación Fed. Dom. Deportes Ecuestres', 'Rally Playero 2025',
+      'Resistencia CA', 'EGO Shoes',
+    ];
+    let showAllProjects = false;
 
     function renderProjectCards() {
       const container = document.getElementById('project-cards-diseno');
@@ -2529,16 +2382,35 @@
         </div>`;
         return;
       }
-      container.innerHTML = PROJECTS_DATA.map((p, i) => `
-        <div class="project-card" data-cat="${((p.cat || 'diseno') + ' ' + (EXTRA_CATS[p.title] || '')).trim()}" onclick="openProjectModal(${i})">
+      const sorted = PROJECTS_DATA.map((p, i) => ({ p, i }))
+        .sort((a, b) => {
+          const oa = CARD_ORDER.indexOf(a.p.title), ob = CARD_ORDER.indexOf(b.p.title);
+          return (oa === -1 ? 999 : oa) - (ob === -1 ? 999 : ob);
+        });
+      container.innerHTML = sorted.map(({ p, i }) => `
+        <div class="project-card${FEATURED.includes(p.title) ? '' : ' extra hidden'}"
+             data-featured="${FEATURED.includes(p.title) ? '1' : '0'}"
+             data-cat="${((p.cat || 'diseno') + ' ' + (EXTRA_CATS[p.title] || '')).trim()}"
+             onclick="openProjectModal(${i})">
           <img src="${p.cover}" alt="${p.title}" loading="lazy"/>
-          <span class="project-card-tag">Proyecto</span>
+          <span class="project-card-tag ${p.cat === 'foto' ? 'tag-foto' : ''}">${p.cat === 'foto' ? 'Fotografía' : 'Diseño'}</span>
           <div class="project-card-overlay">
             <div class="project-card-title">${p.title}</div>
             <div class="project-card-count">${p.images.length} piezas · Ver proyecto →</div>
           </div>
         </div>
-      `).join('');
+      `).join('') + `
+        <div class="ver-mas-wrap" id="ver-mas-wrap" style="grid-column:1/-1;">
+          <button class="btn btn-outline" id="btn-ver-mas" onclick="verMasProyectos()">Ver más proyectos ↓</button>
+        </div>`;
+    }
+    function verMasProyectos() {
+      showAllProjects = true;
+      document.querySelectorAll('.project-card.extra').forEach(c => {
+        c.classList.remove('hidden');
+        c.style.animation = 'cardFadeIn 0.3s ease';
+      });
+      document.getElementById('ver-mas-wrap').style.display = 'none';
     }
     renderProjectCards();
 
@@ -2571,7 +2443,8 @@
         let visibles = 0;
         document.querySelectorAll('.project-card').forEach(item => {
           const cats = (item.dataset.cat || '').split(' ');
-          if (filter === 'all' || cats.includes(filter)) {
+          const matches = filter === 'all' ? (showAllProjects || item.dataset.featured === '1') : cats.includes(filter);
+          if (matches) {
             item.classList.remove('hidden');
             item.style.animation = 'none';
             void item.offsetWidth; // reinicia la animación
@@ -2581,6 +2454,8 @@
             item.classList.add('hidden');
           }
         });
+        const verMas = document.getElementById('ver-mas-wrap');
+        if (verMas) verMas.style.display = (filter === 'all' && !showAllProjects) ? '' : 'none';
         // Estado vacío: dirige a las secciones de video
         let empty = document.getElementById('filter-empty');
         if (visibles === 0) {
@@ -2640,7 +2515,6 @@
       if (e.key === 'Escape') {
         closeLightbox();
         closeProjectModal();
-        closeBlogArticle();
       }
     });
 
@@ -2875,107 +2749,6 @@
 
     renderServiciosGrid();
     renderYtChannelCard();
-
-    // ── BLOG ──
-    const BLOG_ARTICLES = [
-      {
-        title: '¿Por qué tu marca necesita Reels en 2026?',
-        date: '15 Jun 2026',
-        readTime: '3 min de lectura',
-        cover: 'https://img.youtube.com/vi/mJ9Nu74_26s/hqdefault.jpg',
-        excerpt: 'El video corto dejó de ser una tendencia: es el formato que decide quién gana la atención en redes. Te contamos por qué tu marca no puede quedarse fuera.',
-        content: `
-          <h3>El video corto domina la atención</h3>
-          <p>Los Reels son hoy el formato con mayor alcance orgánico en Instagram, TikTok y YouTube. Las plataformas los priorizan en sus algoritmos, lo que significa que una marca con video corto llega a mucha más gente que una que solo publica imágenes.</p>
-          <h3>Conexión real con tu audiencia</h3>
-          <p>Un Reel bien producido muestra la personalidad de tu marca en segundos. La gente no compra productos: compra historias, personas y confianza — y el video es el medio más directo para transmitirlas.</p>
-          <h3>¿Qué necesitas para empezar?</h3>
-          <p>No hace falta un estudio de cine. Con una estrategia clara, buena iluminación y una edición ágil pensada para los primeros 3 segundos, tu marca puede competir con cualquiera. En Loop Creativo producimos Reels desde la idea hasta la publicación.</p>
-          <p><strong style="color:var(--orange)">¿Listo para que tu marca aparezca en el feed de todos? Escríbenos.</strong></p>
-        `
-      },
-      {
-        title: '5 errores comunes en el diseño de redes sociales',
-        date: '02 Jun 2026',
-        readTime: '4 min de lectura',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Coach Rammy TV/Portada.png',
-        excerpt: 'Publicar por publicar es el error número uno. Estos son los 5 fallos de diseño que vemos a diario en redes — y cómo evitarlos para que tu marca se vea profesional.',
-        content: `
-          <h3>1. Demasiado texto en la imagen</h3>
-          <p>El arte debe captar la atención; el texto largo va en el caption. Si tu diseño parece un documento, la gente sigue de largo.</p>
-          <h3>2. No respetar la identidad visual</h3>
-          <p>Cambiar de colores y tipografías en cada publicación confunde. Una marca reconocible usa siempre su misma paleta y estilo.</p>
-          <h3>3. Baja calidad de imagen</h3>
-          <p>Fotos pixeladas o mal recortadas transmiten descuido. Cada pieza que publicas habla de la calidad de tu negocio.</p>
-          <h3>4. Ignorar los formatos de cada plataforma</h3>
-          <p>Un arte cuadrado estirado a historia vertical se ve mal. Cada red tiene sus medidas y hay que diseñar para ellas.</p>
-          <h3>5. Publicar sin estrategia</h3>
-          <p>El diseño es solo la mitad: sin un calendario de contenido y objetivos claros, hasta el mejor arte se pierde. En Loop Creativo unimos diseño + estrategia para que cada publicación trabaje por tu marca.</p>
-        `
-      },
-      {
-        title: 'Cómo prepararte para una sesión de fotografía de producto',
-        date: '20 May 2026',
-        readTime: '3 min de lectura',
-        cover: 'Portafolio diigital de trabajos/Fotos/Fotos Para Blessed Handbags/Portada.jpg',
-        excerpt: 'Una buena sesión de producto empieza antes de encender la cámara. Esta guía rápida te ayuda a sacar el máximo provecho de tu inversión en fotografía.',
-        content: `
-          <h3>Define el objetivo de las fotos</h3>
-          <p>¿Son para catálogo, redes sociales o publicidad? Cada uso pide un estilo distinto de iluminación, fondo y composición. Definirlo antes ahorra tiempo y dinero.</p>
-          <h3>Prepara tus productos</h3>
-          <p>Limpia, plancha y revisa cada pieza antes de la sesión. La cámara capta todo: una mancha pequeña puede arruinar una toma perfecta.</p>
-          <h3>Piensa en la historia</h3>
-          <p>Los productos venden más cuando se muestran en contexto: una cartera en manos de alguien, un zapato en movimiento. Trae ideas de cómo quieres que tu cliente se imagine usando tu producto.</p>
-          <h3>Confía en el equipo</h3>
-          <p>Un fotógrafo profesional sabe de ángulos, luz y postproducción. Comparte tu visión y deja que la experiencia haga el resto. En Loop Creativo hacemos sesiones de producto de 20 fotos con edición incluida.</p>
-        `
-      },
-    ];
-
-    function renderBlog() {
-      const grid = document.getElementById('blog-grid');
-      if (!grid) return;
-      grid.innerHTML = BLOG_ARTICLES.map((a, i) => `
-        <article class="blog-card reveal">
-          <img class="blog-card-img" src="${a.cover}" alt="${a.title}" loading="lazy"/>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-date">${a.date}</span>
-              <span>·</span>
-              <span>${a.readTime}</span>
-            </div>
-            <div class="blog-card-title">${a.title}</div>
-            <div class="blog-card-excerpt">${a.excerpt}</div>
-            <button class="blog-read-more" onclick="openBlogArticle(${i})">Leer más →</button>
-          </div>
-        </article>
-      `).join('');
-      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    function openBlogArticle(idx) {
-      const a = BLOG_ARTICLES[idx];
-      document.getElementById('blog-article-img').src = a.cover;
-      document.getElementById('blog-article-img').alt = a.title;
-      document.getElementById('blog-article-body').innerHTML = `
-        <h2>${a.title}</h2>
-        <div class="blog-card-meta" style="margin-bottom:18px"><span class="blog-date">${a.date}</span><span>·</span><span>${a.readTime}</span></div>
-        ${a.content}
-      `;
-      document.getElementById('blog-modal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      if (typeof gtag === 'function') {
-        gtag('event', 'lectura_blog', { event_category: 'Blog', event_label: a.title });
-      }
-    }
-    function closeBlogArticle() {
-      document.getElementById('blog-modal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('blog-modal').addEventListener('click', e => {
-      if (e.target === document.getElementById('blog-modal')) closeBlogArticle();
-    });
-    renderBlog();
 
     // ── FORMULARIO DE CONTACTO (FormSubmit) ──
     const contactForm = document.getElementById('contact-form');
