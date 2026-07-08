@@ -128,6 +128,25 @@
       transition: color 0.25s;
     }
     .nav-links a:hover { color: var(--orange); }
+    .lang-btn {
+      background: transparent;
+      border: 2px solid rgba(255,68,32,0.5);
+      color: var(--orange);
+      font-family: 'Nexa', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      padding: 7px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-left: 18px;
+      white-space: nowrap;
+    }
+    .lang-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+    @media (max-width: 768px) {
+      .lang-btn { margin-left: auto; margin-right: 14px; }
+    }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -1505,6 +1524,7 @@
       <li><a href="#formulario">Formulario</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()" aria-label="Cambiar idioma">🌐 EN</button>
     <button class="hamburger" id="hamburger" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
@@ -1875,6 +1895,41 @@
   </footer>
 
   <script>
+    // ── IDIOMA (ES/EN) ──
+    let LANG = localStorage.getItem('lc-lang') || 'es';
+    // Traducciones de textos generados por JS (servicios, categorías, subtítulos)
+    const TR = {
+      'Branding & Diseño': 'Branding & Design',
+      'Desarrollo Web & Apps': 'Web & App Development',
+      'Publicidad Digital & Ads': 'Digital Advertising & Ads',
+      'Producción & Experiencias': 'Production & Experiences',
+      'Identidad & Branding Corporativo': 'Corporate Identity & Branding',
+      'Manuales de Imagen Corporativa': 'Brand Guidelines',
+      'Diseño de Empaques y Packaging': 'Packaging Design',
+      'Diseño Gráfico Publicitario': 'Advertising Graphic Design',
+      'Creación de Sitios Web': 'Website Creation',
+      'Tiendas Virtuales / E-Commerce': 'Online Stores / E-Commerce',
+      'IA & Automatización de Procesos': 'AI & Process Automation',
+      'Analítica Digital y Datos': 'Digital Analytics & Data',
+      'Publicidad Programática': 'Programmatic Advertising',
+      'Posicionamiento SEO': 'SEO Positioning',
+      'Estrategias de Marketing Digital': 'Digital Marketing Strategy',
+      'Aumento de Ventas & Comercial': 'Sales Growth & Commercial',
+      'Performance y Leads': 'Performance & Leads',
+      'Administración de Redes (CM)': 'Social Media Management (CM)',
+      'Producción Audiovisual YouTube': 'YouTube Audiovisual Production',
+      'Contenidos para Redes Sociales': 'Social Media Content',
+      'Activaciones de Marca BTL': 'BTL Brand Activations',
+      'Eventos y Shows BTL': 'BTL Events & Shows',
+      'Diseño Gráfico · Redes Sociales': 'Graphic Design · Social Media',
+      'Fotografía de Producto': 'Product Photography',
+      'Fotografía de Evento': 'Event Photography',
+      'Fotografía de Evento · Rueda de Prensa': 'Event Photography · Press Conference',
+      'Fotografía de Producto · Calzado': 'Product Photography · Footwear',
+    };
+    function t(s) { return LANG === 'en' ? (TR[s] || s) : s; }
+    function L(es, en) { return LANG === 'en' ? en : es; }
+
     // ── LOADER ──
     window.addEventListener('load', () => {
       setTimeout(() => {
@@ -2393,15 +2448,15 @@
              data-cat="${((p.cat || 'diseno') + ' ' + (EXTRA_CATS[p.title] || '')).trim()}"
              onclick="openProjectModal(${i})">
           <img src="${p.cover}" alt="${p.title}" loading="lazy"/>
-          <span class="project-card-tag ${p.cat === 'foto' ? 'tag-foto' : ''}">${p.cat === 'foto' ? 'Fotografía' : 'Diseño'}</span>
+          <span class="project-card-tag ${p.cat === 'foto' ? 'tag-foto' : ''}">${p.cat === 'foto' ? L('Fotografía','Photography') : L('Diseño','Design')}</span>
           <div class="project-card-overlay">
             <div class="project-card-title">${p.title}</div>
-            <div class="project-card-count">${p.images.length} piezas · Ver proyecto →</div>
+            <div class="project-card-count">${p.images.length} ${L('piezas · Ver proyecto →','pieces · View project →')}</div>
           </div>
         </div>
       `).join('') + `
         <div class="ver-mas-wrap" id="ver-mas-wrap" style="grid-column:1/-1;">
-          <button class="btn btn-outline" id="btn-ver-mas" onclick="verMasProyectos()">Ver más proyectos ↓</button>
+          <button class="btn btn-outline" id="btn-ver-mas" onclick="verMasProyectos()">${L('Ver más proyectos ↓','See more projects ↓')}</button>
         </div>`;
     }
     function verMasProyectos() {
@@ -2417,7 +2472,7 @@
     function openProjectModal(idx) {
       const p = PROJECTS_DATA[idx];
       document.getElementById('pm-title').textContent = p.title;
-      document.getElementById('pm-sub').textContent = p.sub;
+      document.getElementById('pm-sub').textContent = t(p.sub);
       document.getElementById('pm-body').innerHTML = p.images.map(img =>
         `<img src="${img.src}" alt="${img.alt}" loading="lazy" onclick="openLightboxSrc('${img.src}','${img.alt}')"/>`
       ).join('');
@@ -2463,7 +2518,8 @@
             empty = document.createElement('div');
             empty.id = 'filter-empty';
             empty.style.cssText = 'grid-column:1/-1; text-align:center; padding:40px 20px; color:rgba(245,240,232,0.6); font-size:0.95rem;';
-            empty.innerHTML = '🎬 Nuestro trabajo en video está más abajo: <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a> y <a href="#videos-youtube" style="color:var(--orange); font-weight:800;">Videos en YouTube</a>';
+            empty.innerHTML = L('🎬 Nuestro trabajo en video está más abajo: <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a> y <a href="#videos-youtube" style="color:var(--orange); font-weight:800;">Videos en YouTube</a>',
+              '🎬 Our video work is further down: <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a> and <a href="#videos-youtube" style="color:var(--orange); font-weight:800;">YouTube Videos</a>');
             document.getElementById('project-cards-diseno').appendChild(empty);
           }
         } else if (empty) {
@@ -2571,8 +2627,8 @@
       if (!grid) return;
       grid.innerHTML = SERVICE_CATEGORIES.map(cat => `
         <div class="servicio-cat-card reveal">
-          <h3>${cat.icon} ${cat.name}</h3>
-          ${cat.services.map(s => `<div class="servicio-item">${s}</div>`).join('')}
+          <h3>${cat.icon} ${t(cat.name)}</h3>
+          ${cat.services.map(s => `<div class="servicio-item">${t(s)}</div>`).join('')}
         </div>
       `).join('');
       grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
@@ -2614,8 +2670,8 @@
         div.className = 'calc-option';
         div.dataset.idx = i;
         div.innerHTML = `<div class="opt-icon">${cat.icon}</div>
-          <div class="opt-name">${cat.name}</div>
-          <div class="opt-count">${cat.services.length} servicios</div>`;
+          <div class="opt-name">${t(cat.name)}</div>
+          <div class="opt-count">${cat.services.length} ${L('servicios','services')}</div>`;
         div.onclick = () => {
           document.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
           div.classList.add('selected');
@@ -2636,12 +2692,12 @@
       });
       if (step === 2) {
         const sel = document.getElementById('calc-service-select');
-        sel.innerHTML = '<option value="">— Selecciona un servicio —</option>';
+        sel.innerHTML = `<option value="">${L('— Selecciona un servicio —','— Select a service —')}</option>`;
         const cat = SERVICE_CATEGORIES[calcState.catIdx];
         cat.services.forEach((service, i) => {
           const opt = document.createElement('option');
           opt.value = i;
-          opt.textContent = service;
+          opt.textContent = t(service);
           sel.appendChild(opt);
         });
         document.getElementById('btn-add-service').style.display = 'none';
@@ -2710,19 +2766,20 @@
       bar.style.display = 'block';
       count.textContent = calcState.selections.length;
       chipsWrap.innerHTML = calcState.selections.map((s, i) =>
-        `<div class="calc-chip">${s.service}<button onclick="calcRemoveService(${i})">✕</button></div>`
+        `<div class="calc-chip">${t(s.service)}<button onclick="calcRemoveService(${i})">✕</button></div>`
       ).join('');
       skipBtn.style.display = 'inline-flex';
-      skipBtn.textContent = `Ver resumen (${calcState.selections.length}) →`;
+      skipBtn.textContent = `${L('Ver resumen','See summary')} (${calcState.selections.length}) →`;
     }
 
     function renderCalcSummary() {
-      const lines = calcState.selections.map(s => `${s.service} — ${s.catName}`);
+      const lines = calcState.selections.map(s => `${t(s.service)} — ${t(s.catName)}`);
       document.getElementById('result-desc').textContent = lines.join(' · ');
       const wa = getLCData()?.contact?.wa || '18093162624';
-      const listText = calcState.selections.map((s,i) => `${i+1}. ${s.service} (${s.catName})`).join('\n');
+      const listText = calcState.selections.map((s,i) => `${i+1}. ${t(s.service)} (${t(s.catName)})`).join('\n');
       const msg = encodeURIComponent(
-        `Hola Loop Creativo 👋\n\nQuiero cotizar estos servicios:\n${listText}\n\n¿Podemos hablar?`
+        L(`Hola Loop Creativo 👋\n\nQuiero cotizar estos servicios:\n${listText}\n\n¿Podemos hablar?`,
+          `Hi Loop Creativo 👋\n\nI'd like a quote for these services:\n${listText}\n\nCan we talk?`)
       );
       document.getElementById('btn-wa-quote').href = `https://api.whatsapp.com/send?phone=${wa}&text=${msg}`;
     }
@@ -2758,7 +2815,7 @@
         const status = document.getElementById('form-status');
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando...';
+        submitBtn.textContent = L('Enviando...','Sending...');
         status.className = 'form-status';
         try {
           const res = await fetch(contactForm.action, {
@@ -2767,7 +2824,7 @@
             body: new FormData(contactForm)
           });
           if (res.ok) {
-            status.textContent = '✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas.';
+            status.textContent = L('✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas.','✓ Message sent! We reply within 24 hours.');
             status.classList.add('success');
             contactForm.reset();
             if (typeof gtag === 'function') {
@@ -2777,11 +2834,11 @@
             throw new Error('Respuesta no OK');
           }
         } catch (err) {
-          status.textContent = '✗ No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+          status.textContent = L('✗ No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.','✗ Could not send. Try again or message us on WhatsApp.');
           status.classList.add('error');
         }
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar mensaje';
+        submitBtn.textContent = L('Enviar mensaje','Send message');
       });
     }
 
@@ -2813,6 +2870,129 @@
         gtag('event', 'clic_formulario', { event_category: 'Conversion', event_label: 'Formulario de proyecto' });
       }
     });
+
+    // ── TRADUCCIONES ESTÁTICAS (selector → HTML en inglés) ──
+    const I18N = [
+      ['#loader-text', 'Building your experience...'],
+      ['a[href="#sobre"].nav-link-i, .nav-links a[href="#sobre"], .mobile-menu a[href="#sobre"]', 'About me'],
+      ['.nav-links a[href="#portafolio"], .mobile-menu a[href="#portafolio"]', 'Portfolio'],
+      ['.nav-links a[href="#servicios"], .mobile-menu a[href="#servicios"]', 'Services'],
+      ['.nav-links a[href="#formulario"], .mobile-menu a[href="#formulario"]', 'Project Form'],
+      ['.nav-links a[href="#contacto"], .mobile-menu a[href="#contacto"]', 'Contact'],
+      ['.hero-tag', '📍 Santo Domingo, Dominican Republic'],
+      ['.hero-sub', 'Graphic Design · Digital Content · Photography · Social Media Management'],
+      ['.hero-btns .btn-primary', 'See my work'],
+      ['.hero-btns .btn-outline', 'Get a quote'],
+      ['#sobre .section-label', 'About our CEO'],
+      ['#sobre .section-title', 'Behind <span>Loop Creativo</span>'],
+      ['#sobre .sobre-content p:nth-of-type(2)', 'Founder of <strong style="color:var(--orange)">Loop Creativo</strong>, an advertising and digital content agency based in Santo Domingo. I specialize in audiovisual production focused 100% on the digital environment and social media.'],
+      ['#sobre .sobre-content p:nth-of-type(3)', 'My work combines photography, clean visual design, and dynamic, agile videos built to capture attention on today\'s platforms. At Loop Creativo we bring your brand to life, producing the visual content you need and managing your social media so you connect with your audience in a real, direct and effective way.'],
+      ['.sobre-skills .skill-tag:nth-child(1)', 'Graphic Design'],
+      ['.sobre-skills .skill-tag:nth-child(2)', 'Social Media'],
+      ['.sobre-skills .skill-tag:nth-child(3)', 'Digital Content'],
+      ['.sobre-skills .skill-tag:nth-child(4)', 'Photography'],
+      ['.sobre-skills .skill-tag:nth-child(5)', 'Video Editing'],
+      ['.sobre-skills .skill-tag:nth-child(6)', 'Mockups'],
+      ['#portafolio .section-label', 'Work'],
+      ['#portafolio .section-title', 'My <span>Portfolio</span>'],
+      ['.filter-btn[data-filter="all"]', 'All'],
+      ['.filter-btn[data-filter="diseno"]', 'Graphic Design'],
+      ['.filter-btn[data-filter="foto"]', 'Photography'],
+      ['.filter-btn[data-filter="redes"]', 'Social Media'],
+      ['.filter-btn[data-filter="eventos"]', 'Events'],
+      ['.filter-btn[data-filter="publicidad"]', 'Digital Ads'],
+      ['.yt-label', 'Our Channel'],
+      ['.yt-title', 'Loop Creativo on YouTube'],
+      ['.yt-sub', 'Watch our videos →'],
+      ['#marcas .section-label', 'They trust us'],
+      ['#marcas .section-title', 'Brands that have <span>worked</span> with us'],
+      ['#reels .section-label', 'Digital Content'],
+      ['#reels .section-title', 'Reels for <span>Social Media</span>'],
+      ['#videos-youtube .section-label', 'Audiovisual Production'],
+      ['#videos-youtube .section-title', 'Videos on <span>YouTube</span>'],
+      ['.video-sub', 'Watch on YouTube →'],
+      ['#servicios .section-label', 'What we offer'],
+      ['#servicios .section-title', 'Our <span>Services</span>'],
+      ['#servicios .terminos', '<strong>How do we quote?</strong><br/>Every project is different — pricing depends on scope, duration and complexity. Use the <strong>quote builder</strong> below to tell us what you need, or message us directly on WhatsApp.'],
+      ['#calculadora .section-label', 'Interactive quote builder'],
+      ['#calculadora .section-title', 'How much does <span>your project</span> cost?'],
+      ['#sdot-1', '<div class="dot">1</div> Category'],
+      ['#sdot-2', '<div class="dot">2</div> Service'],
+      ['#sdot-3', '<div class="dot">3</div> Done'],
+      ['.calc-selected-label', 'Selected services (<span id="calc-selected-count">0</span>/3)'],
+      ['#calc-step-1 h3', 'What type of service do you need?'],
+      ['#btn-to-step2', 'Next →'],
+      ['#calc-step-2 h3', 'Which specific service?'],
+      ['#calc-step-2 .calc-nav button:nth-child(1)', '← Back'],
+      ['#btn-add-service', '+ Add another service'],
+      ['#btn-send-request', '✓ Send request'],
+      ['.calc-result h3', 'Ready for your quote!'],
+      ['#btn-wa-quote', '💬 Get a quote on WhatsApp'],
+      ['#calc-step-3 a.btn-outline', '📋 Fill out the full form'],
+      ['#calc-step-3 button.btn-outline', '🔄 New quote'],
+      ['#formulario .section-label', 'Tell me about your project'],
+      ['#formulario .section-title', 'Have a <span>project</span> in mind?'],
+      ['#formulario > p.reveal', 'Fill out the form below and tell me about your project. I reply within 24 hours.'],
+      ['#formulario a.btn-primary', 'Fill out project form'],
+      ['#contacto .section-label', 'Contact'],
+      ['#contacto .section-title', 'Let\'s talk about your <span>idea</span>'],
+      ['#contacto .contacto-info > p.reveal', 'I\'m available for design, digital content and photography projects, and more. Don\'t hesitate to reach out.'],
+      ['#contacto .contacto-item span', 'Santo Domingo, Dominican Republic'],
+      ['label[for="cf-nombre"]', 'Full name *'],
+      ['label[for="cf-email"]', 'Email *'],
+      ['label[for="cf-tel"]', 'WhatsApp / Phone'],
+      ['label[for="cf-msg"]', 'Message or project description *'],
+      ['#contact-form button[type="submit"]', 'Send message'],
+      ['.wa-big h3', 'Prefer WhatsApp?'],
+      ['.wa-big p', 'Message me directly and I\'ll be glad to help. I reply fast.'],
+      ['.btn-wa', '💬 Message me on WhatsApp'],
+      ['.youtube-widget a', '▶ Subscribe on YouTube'],
+      ['footer p', '© 2025 <span>Loop Creativo</span> · Lensy Reyes · All rights reserved'],
+    ];
+    const I18N_PLACEHOLDERS = [
+      ['#cf-nombre', 'Your name'],
+      ['#cf-msg', 'Tell us what you need...'],
+    ];
+
+    function setLang(lang) {
+      LANG = lang;
+      localStorage.setItem('lc-lang', lang);
+      document.documentElement.lang = lang;
+      document.title = lang === 'en'
+        ? 'Loop Creativo | Design & Digital Content Agency in Santo Domingo, DR'
+        : 'Loop Creativo | Agencia de Diseño y Contenido Digital en Santo Domingo, RD';
+      // Textos estáticos: guarda el español original y alterna
+      I18N.forEach(([sel, en]) => {
+        document.querySelectorAll(sel).forEach(el => {
+          if (!el.dataset.esHtml) el.dataset.esHtml = el.innerHTML;
+          el.innerHTML = lang === 'en' ? en : el.dataset.esHtml;
+        });
+      });
+      I18N_PLACEHOLDERS.forEach(([sel, en]) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        if (!el.dataset.esPh) el.dataset.esPh = el.placeholder;
+        el.placeholder = lang === 'en' ? en : el.dataset.esPh;
+      });
+      // Botón del conmutador muestra el idioma destino
+      document.querySelectorAll('.lang-btn').forEach(b => b.textContent = lang === 'en' ? '🌐 ES' : '🌐 EN');
+      // Re-renderizar contenido generado por JS
+      renderProjectCards();
+      if (showAllProjects) {
+        document.querySelectorAll('.project-card.extra').forEach(c => c.classList.remove('hidden'));
+        const w = document.getElementById('ver-mas-wrap');
+        if (w) w.style.display = 'none';
+      }
+      const activeFilter = document.querySelector('.filter-btn.active');
+      if (activeFilter && activeFilter.dataset.filter !== 'all') activeFilter.click();
+      renderServiciosGrid();
+      calcInit();
+      renderSelectedChips();
+      document.querySelectorAll('#portafolio .project-card, #servicios .servicio-cat-card').forEach(el => el.classList.add('visible'));
+      if (typeof gtag === 'function') gtag('event', 'cambio_idioma', { event_category: 'UI', event_label: lang });
+    }
+    function toggleLang() { setLang(LANG === 'en' ? 'es' : 'en'); }
+    if (LANG === 'en') setLang('en');
   </script>
 
   <!-- Schema.org LocalBusiness (SEO local) -->
