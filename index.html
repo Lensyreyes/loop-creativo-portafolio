@@ -1641,13 +1641,6 @@
           <div class="video-sub">Ver en YouTube →</div>
         </div>
       </a>
-      <a class="video-card reveal" href="https://www.youtube.com/watch?v=wHo18GS1mJQ" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/wHo18GS1mJQ/hqdefault.jpg" alt="Lodo Off Road 2026" loading="lazy"/></div>
-        <div class="video-info">
-          <div class="video-title">LODO OFF ROAD 2026 Villa Pajón Constanza | Aventura 4x4 Extrema</div>
-          <div class="video-sub">Ver en YouTube →</div>
-        </div>
-      </a>
     </div>
   </section>
 
@@ -2011,25 +2004,27 @@
 
     // ── REELS PARA REDES SOCIALES ──
     const REELS_DATA = [
-      { id: '4-IEVy1lRZQ', title: 'Reel 1' },
-      { id: 'orLIMD1FC-I', title: 'Reel 2' },
-      { id: '3kST34ucObw', title: 'Reel 3' },
-      { id: 'cFhLo2SO_uM', title: 'Reel 4' },
-      { id: 'RG12Si9JQs0', title: 'Reel 5' },
-      { id: 'mJ9Nu74_26s', title: 'Reel 6' },
-      { id: 'QEFt533vuZQ', title: 'Reel 7' },
-      { id: 'QroClb7qFzk', title: 'Reel 8' },
+      { id: '4-IEVy1lRZQ', title: 'Video del Día de las Madres — Mlopez Luxury Auto Import' },
+      { id: 'orLIMD1FC-I', title: 'Semana Santa 2026 | Me tocó trabajar' },
+      { id: '3kST34ucObw', title: 'Vlog del día — Marketing Digital' },
+      { id: 'cFhLo2SO_uM', title: 'Cómo hacer un video siendo Project Manager' },
+      { id: 'RG12Si9JQs0', title: 'Campaña CPS PRIME — Contenido' },
+      { id: 'mJ9Nu74_26s', title: 'Campaña CPS Delivery — 24 horas' },
+      { id: 'QEFt533vuZQ', title: 'Campaña CPS PRIME' },
+      { id: 'QroClb7qFzk', title: 'RD Fashion Week 2023 — Colaboración con EGO' },
     ];
 
     function renderReels() {
       const container = document.getElementById('reels-grid');
       if (!container) return;
+      container.className = 'videos-grid';
       container.innerHTML = REELS_DATA.map(r => `
-        <a class="reel-card" href="https://www.youtube.com/shorts/${r.id}" target="_blank" rel="noopener" title="${r.title}">
-          <img src="https://img.youtube.com/vi/${r.id}/oardefault.jpg"
-               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${r.id}/hqdefault.jpg'"
-               alt="${r.title}" loading="lazy"/>
-          <span class="reel-sub">${L('Ver en YouTube →','Watch on YouTube →')}</span>
+        <a class="video-card" href="https://www.youtube.com/watch?v=${r.id}" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/${r.id}/hqdefault.jpg" alt="${r.title}" loading="lazy"/></div>
+          <div class="video-info">
+            <div class="video-title">${r.title}</div>
+            <div class="video-sub">${L('Ver en YouTube →','Watch on YouTube →')}</div>
+          </div>
         </a>
       `).join('');
     }
@@ -2064,6 +2059,7 @@
     // ── CANAL DE YOUTUBE ──
     const YOUTUBE_CHANNEL_VIDEOS = [
       { id: 'GJPuIE1zi8U' },
+      { id: 'wHo18GS1mJQ' }, // LODO OFF ROAD 2026 — el más reciente se usa como miniatura
     ];
     function renderYtChannelCard() {
       const card = document.getElementById('yt-channel-card');
