@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loop Creativo | Agencia de Diseño y Contenido Digital en Santo Domingo, RD</title>
-  <meta name="description" content="Loop Creativo es una agencia de diseño gráfico, fotografía, contenido digital y manejo de redes sociales en Santo Domingo, República Dominicana. CEO: Lensy Reyes." />
+  <title>Loop Creativo | Agencia de Marketing y Contenido Deportivo en RD — Béisbol, Atletas y Academias</title>
+  <meta name="description" content="Loop Creativo es la agencia de marketing y contenido deportivo de Santo Domingo, República Dominicana. Producción audiovisual, fotografía y redes sociales para béisbol, academias, atletas y gimnasios. CEO: Lensy Reyes." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Loop Creativo | Agencia de Diseño y Contenido Digital en Santo Domingo, RD" />
-  <meta property="og:description" content="Agencia de diseño gráfico, fotografía, contenido digital y redes sociales en Santo Domingo, RD." />
+  <meta property="og:title" content="Loop Creativo | Agencia de Marketing y Contenido Deportivo en RD" />
+  <meta property="og:description" content="Contenido deportivo que llena tu academia y hace crecer atletas. Béisbol · Basket · Gym. Producción audiovisual y redes sociales en Santo Domingo, RD." />
   <meta property="og:image" content="https://loopcreativord.com/Portafolio%20diigital%20de%20trabajos/Logos%20de%20la%20agencia%20y%20paleta%20de%20colores/Loop%20Creativo%20Logo%20agencia.png" />
   <meta property="og:url" content="https://loopcreativord.com" />
   <meta property="og:type" content="website" />
@@ -260,6 +260,16 @@
       letter-spacing: 1px;
     }
     .hero-ceo-badge strong { color: var(--cream); }
+    .hero-title {
+      font-family: 'DiloWorld', sans-serif;
+      font-size: clamp(1.6rem, 4.5vw, 3rem);
+      line-height: 1.15;
+      color: var(--cream);
+      max-width: 760px;
+      margin: 0 0 16px;
+      animation: fadeUp 0.7s ease 1.95s both;
+    }
+    .hero-title span { color: var(--orange); }
     .hero-sub {
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       font-weight: 300;
@@ -523,21 +533,53 @@
     }
     .reel-card {
       position: relative;
-      border-radius: 16px;
+      display: block;
+      border-radius: 14px;
       overflow: hidden;
       aspect-ratio: 9/16;
       background: #000;
+      border: 1px solid rgba(255,68,32,0.15);
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: border-color 0.25s, transform 0.25s;
+      text-decoration: none;
     }
-    .reel-card iframe {
+    .reel-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+    .reel-card img {
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: cover;
       display: block;
+    }
+    .reel-card::after {
+      content: '▶';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.6rem;
+      background: rgba(0,0,0,0.22);
+      transition: background 0.25s;
+    }
+    .reel-card:hover::after { background: rgba(0,0,0,0.05); }
+    .reel-card .reel-sub {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      padding: 10px 12px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
     }
 
     /* ── VIDEOS DE YOUTUBE (compacto) ── */
-    #videos-youtube { background: var(--dark); padding-top: 60px; padding-bottom: 60px; }
+    #deportes { background: var(--dark); padding-top: 60px; padding-bottom: 60px; }
     .videos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1518,6 +1560,7 @@
          src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
          alt="Loop Creativo" />
     <ul class="nav-links">
+      <li><a href="#deportes">Deportes</a></li>
       <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#servicios">Servicios</a></li>
@@ -1532,6 +1575,7 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#deportes" onclick="closeMobile()">Deportes</a>
     <a href="#sobre" onclick="closeMobile()">Sobre mí</a>
     <a href="#portafolio" onclick="closeMobile()">Portafolio</a>
     <a href="#servicios" onclick="closeMobile()">Servicios</a>
@@ -1542,7 +1586,7 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
-    <p class="hero-tag">📍 Santo Domingo, República Dominicana</p>
+    <p class="hero-tag">⚾ Marketing Deportivo · Santo Domingo, RD</p>
     <img class="hero-logo-main"
          src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
          alt="Loop Creativo" />
@@ -1551,12 +1595,60 @@
            onerror="this.style.display='none'" />
       <span>CEO: <strong>Lensy Reyes</strong></span>
     </div>
-    <p class="hero-sub">Diseño Gráfico · Contenido Digital · Fotografía · Manejo de Redes Sociales</p>
+    <h1 class="hero-title">Contenido deportivo que llena tu academia y hace <span>crecer atletas</span></h1>
+    <p class="hero-sub">Béisbol · Basket · Gym — Producción audiovisual, fotografía, diseño y manejo de redes para marcas, academias y atletas.</p>
     <div class="hero-btns">
-      <a href="#portafolio" class="btn btn-primary">Ver mi trabajo</a>
+      <a href="#deportes" class="btn btn-primary">Ver trabajo deportivo</a>
       <a href="#formulario" class="btn btn-outline">Cotiza aquí</a>
     </div>
     <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- DEPORTES -->
+  <section id="deportes">
+    <div class="port-header reveal">
+      <p class="section-label">Nuestra Especialidad</p>
+      <h2 class="section-title">Marketing <span>Deportivo</span></h2>
+      <div class="divider"></div>
+      <p class="deportes-intro" style="max-width:680px; color:rgba(245,240,232,0.65); margin:-24px 0 40px; font-size:1rem; line-height:1.6;">Del terreno a las redes: coberturas de béisbol, historias de atletas y producción audiovisual deportiva. Así se ve el deporte cuando lo cuenta Loop Creativo.</p>
+    </div>
+    <div class="videos-grid">
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=enWc7Taigr0" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/enWc7Taigr0/hqdefault.jpg" alt="Ricardo Céspedes Jr." loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">Conociendo la rutina de un profesional — Ricardo Céspedes Jr.</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=bFGfQGjnxSo" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/bFGfQGjnxSo/hqdefault.jpg" alt="Serie del Caribe 2021" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">Serie del Caribe 2021 — Hall of Fame | El Fogón</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=zzD8lulF1ik" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/zzD8lulF1ik/hqdefault.jpg" alt="El Fogón Podcast Cap. 2" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">El Fogón Podcast (Cap. 2): Cambio de Nolan Arenado</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=ixZ3Y96HDlQ" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/ixZ3Y96HDlQ/hqdefault.jpg" alt="Yankees vs Boston" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">Yankees vs Boston (Video Reacción)</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+      <a class="video-card reveal" href="https://www.youtube.com/watch?v=wHo18GS1mJQ" target="_blank" rel="noopener">
+        <div class="video-thumb"><img src="https://img.youtube.com/vi/wHo18GS1mJQ/hqdefault.jpg" alt="Lodo Off Road 2026" loading="lazy"/></div>
+        <div class="video-info">
+          <div class="video-title">LODO OFF ROAD 2026 Villa Pajón Constanza | Aventura 4x4 Extrema</div>
+          <div class="video-sub">Ver en YouTube →</div>
+        </div>
+      </a>
+    </div>
   </section>
 
   <!-- SOBRE MÍ -->
@@ -1629,6 +1721,7 @@
     </div>
     <div class="filter-btns reveal">
       <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="deportes">Deportes</button>
       <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
       <button class="filter-btn" data-filter="foto">Fotografía</button>
       <button class="filter-btn" data-filter="video">Video / Reels</button>
@@ -1680,45 +1773,6 @@
       <div class="divider"></div>
     </div>
     <div class="reels-grid" id="reels-grid"></div>
-  </section>
-
-  <!-- VIDEOS DE YOUTUBE -->
-  <section id="videos-youtube">
-    <div class="port-header reveal">
-      <p class="section-label">Producción Audiovisual</p>
-      <h2 class="section-title">Videos en <span>YouTube</span></h2>
-      <div class="divider"></div>
-    </div>
-    <div class="videos-grid">
-      <a class="video-card reveal" href="https://www.youtube.com/watch?v=enWc7Taigr0" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/enWc7Taigr0/hqdefault.jpg" alt="Ricardo Céspedes Jr." loading="lazy"/></div>
-        <div class="video-info">
-          <div class="video-title">Conociendo la rutina de un profesional — Ricardo Céspedes Jr.</div>
-          <div class="video-sub">Ver en YouTube →</div>
-        </div>
-      </a>
-      <a class="video-card reveal" href="https://www.youtube.com/watch?v=bFGfQGjnxSo" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/bFGfQGjnxSo/hqdefault.jpg" alt="Serie del Caribe 2021" loading="lazy"/></div>
-        <div class="video-info">
-          <div class="video-title">Serie del Caribe 2021 — Hall of Fame | El Fogón</div>
-          <div class="video-sub">Ver en YouTube →</div>
-        </div>
-      </a>
-      <a class="video-card reveal" href="https://www.youtube.com/watch?v=zzD8lulF1ik" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/zzD8lulF1ik/hqdefault.jpg" alt="El Fogón Podcast Cap. 2" loading="lazy"/></div>
-        <div class="video-info">
-          <div class="video-title">El Fogón Podcast (Cap. 2): Cambio de Nolan Arenado</div>
-          <div class="video-sub">Ver en YouTube →</div>
-        </div>
-      </a>
-      <a class="video-card reveal" href="https://www.youtube.com/watch?v=ixZ3Y96HDlQ" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/ixZ3Y96HDlQ/hqdefault.jpg" alt="Yankees vs Boston" loading="lazy"/></div>
-        <div class="video-info">
-          <div class="video-title">Yankees vs Boston (Video Reacción)</div>
-          <div class="video-sub">Ver en YouTube →</div>
-        </div>
-      </a>
-    </div>
   </section>
 
   <!-- SERVICIOS / PRECIOS -->
@@ -1971,11 +2025,12 @@
       const container = document.getElementById('reels-grid');
       if (!container) return;
       container.innerHTML = REELS_DATA.map(r => `
-        <div class="reel-card">
-          <iframe src="https://www.youtube.com/embed/${r.id}" title="${r.title}"
-            loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
+        <a class="reel-card" href="https://www.youtube.com/shorts/${r.id}" target="_blank" rel="noopener" title="${r.title}">
+          <img src="https://img.youtube.com/vi/${r.id}/oardefault.jpg"
+               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${r.id}/hqdefault.jpg'"
+               alt="${r.title}" loading="lazy"/>
+          <span class="reel-sub">${L('Ver en YouTube →','Watch on YouTube →')}</span>
+        </a>
       `).join('');
     }
     renderReels();
@@ -2033,13 +2088,15 @@
     // Vacío a propósito: se llenará cuando Lensy suba sus carpetas organizadas.
     const PROJECTS_DATA = [
       {
-        title: 'Coach Rammy TV',
+        title: 'Baseball Flyers',
         cat: 'diseno',
         sub: 'Diseño Gráfico · Redes Sociales',
-        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Coach Rammy TV/Portada.png',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Baseball Flyers no oficial/Portada.jpg',
         images: [
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Coach Rammy TV/Fernando Tatis JR.png', alt: 'Fernando Tatis Jr.' },
-          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Coach Rammy TV/Caminero.png', alt: 'Caminero' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Baseball Flyers no oficial/Fernando Tatis JR.png', alt: 'Fernando Tatis Jr.' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Baseball Flyers no oficial/Caminero.png', alt: 'Caminero' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Baseball Flyers no oficial/De Guaymate a la Northwest League.Felnin Celesten, @felnincelesten 20 años, prospecto #7 de los .jpg', alt: 'Felnin Celesten' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Baseball Flyers no oficial/Leo De Vries encendió el Futures Game- 1 Hit, 1 Carrera y 2 Bases Robadas. 🔥 El futuro de Oakla.jpg', alt: 'Leo De Vries' },
         ]
       },
       {
@@ -2388,7 +2445,7 @@
 
     // Categorías extra por proyecto (un proyecto puede pertenecer a varias)
     const EXTRA_CATS = {
-      'Coach Rammy TV': 'redes',
+      'Baseball Flyers': 'redes',
       'Artes de Legendarios': 'redes eventos',
       'Blessed Handbags': 'publicidad redes',
       'Fotos Legendarios': 'eventos',
@@ -2412,12 +2469,12 @@
 
     // Proyectos destacados (se muestran por defecto; el resto tras "Ver más")
     const FEATURED = [
-      'Coach Rammy TV', 'Artes de Legendarios', 'Mlopez Luxury Auto Import', 'BeLife',
+      'Baseball Flyers', 'Artes de Legendarios', 'Mlopez Luxury Auto Import', 'BeLife',
       'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
     ];
     // Orden visual: diseño primero, luego fotografía, agrupados por afinidad de color
     const CARD_ORDER = [
-      'Coach Rammy TV', 'Artes de Legendarios', 'BeLife', 'Mlopez Luxury Auto Import',
+      'Baseball Flyers', 'Artes de Legendarios', 'BeLife', 'Mlopez Luxury Auto Import',
       'ML Príncipe Auto Adornos', 'Smart Tech', 'Reid y Compañía Equipos Pesados',
       'Isuzu', 'Jeep', 'Ram',
       'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
@@ -2518,8 +2575,8 @@
             empty = document.createElement('div');
             empty.id = 'filter-empty';
             empty.style.cssText = 'grid-column:1/-1; text-align:center; padding:40px 20px; color:rgba(245,240,232,0.6); font-size:0.95rem;';
-            empty.innerHTML = L('🎬 Nuestro trabajo en video está más abajo: <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a> y <a href="#videos-youtube" style="color:var(--orange); font-weight:800;">Videos en YouTube</a>',
-              '🎬 Our video work is further down: <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a> and <a href="#videos-youtube" style="color:var(--orange); font-weight:800;">YouTube Videos</a>');
+            empty.innerHTML = L('🎬 Nuestro trabajo en video está en: <a href="#deportes" style="color:var(--orange); font-weight:800;">Marketing Deportivo</a> y <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a>',
+              '🎬 Our video work lives in: <a href="#deportes" style="color:var(--orange); font-weight:800;">Sports Marketing</a> and <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a>');
             document.getElementById('project-cards-diseno').appendChild(empty);
           }
         } else if (empty) {
@@ -2988,6 +3045,7 @@
       renderServiciosGrid();
       calcInit();
       renderSelectedChips();
+      renderReels();
       document.querySelectorAll('#portafolio .project-card, #servicios .servicio-cat-card').forEach(el => el.classList.add('visible'));
       if (typeof gtag === 'function') gtag('event', 'cambio_idioma', { event_category: 'UI', event_label: lang });
     }
