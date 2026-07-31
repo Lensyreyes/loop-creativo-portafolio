@@ -2549,12 +2549,17 @@
              data-featured="${FEATURED.includes(p.title) ? '1' : '0'}"
              data-cat="${((p.cat || 'diseno') + ' ' + (EXTRA_CATS[p.title] || '')).trim()}"
              onclick="openProjectModal(${i})">
-          ${p.carousel
-            ? `<div class="card-carousel">
-                 ${p.images.map((im, j) => `<img src="${im.src}" alt="${im.alt}" class="${j === 0 ? 'on' : ''}" loading="lazy"/>`).join('')}
-                 <div class="cc-dots">${p.images.map((_, j) => `<span class="${j === 0 ? 'on' : ''}"></span>`).join('')}</div>
-               </div>`
-            : `<img src="${p.cover}" alt="${p.title}" loading="lazy"/>`}
+          ${(() => {
+            // Portada + primeras imágenes distintas, máx. 5 por tarjeta
+            const slides = [{ src: p.cover, alt: p.title }]
+              .concat(p.images.filter(im => im.src !== p.cover))
+              .slice(0, 5);
+            if (slides.length < 2) return `<img src="${p.cover}" alt="${p.title}" loading="lazy"/>`;
+            return `<div class="card-carousel">
+                 ${slides.map((im, j) => `<img src="${im.src}" alt="${im.alt}" class="${j === 0 ? 'on' : ''}" loading="lazy"/>`).join('')}
+                 <div class="cc-dots">${slides.map((_, j) => `<span class="${j === 0 ? 'on' : ''}"></span>`).join('')}</div>
+               </div>`;
+          })()}
           <span class="project-card-tag ${p.carousel ? 'tag-rebrand' : (p.cat === 'foto' ? 'tag-foto' : '')}">${p.carousel ? 'Rebrand' : (p.cat === 'foto' ? L('Fotografía','Photography') : L('Diseño','Design'))}</span>
           <div class="project-card-overlay">
             <div class="project-card-title">${p.title}</div>
