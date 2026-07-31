@@ -334,7 +334,7 @@
     }
 
     /* ── SECCIONES GENERALES ── */
-    section { padding: 90px 5%; }
+    section { padding: 64px 5%; }
     .section-label {
       font-size: 0.7rem;
       font-weight: 800;
@@ -583,28 +583,28 @@
     .videos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      max-width: 900px;
+      gap: 10px;
+      max-width: 780px;
       margin: 0 auto;
     }
     .video-card {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       background: var(--gray);
       border: 1px solid rgba(255,68,32,0.15);
-      border-radius: 14px;
-      padding: 10px;
+      border-radius: 12px;
+      padding: 8px;
       text-decoration: none;
       transition: border-color 0.25s, transform 0.25s;
     }
     .video-card:hover { border-color: var(--orange); transform: translateY(-2px); }
     .video-thumb {
       position: relative;
-      width: 110px;
-      height: 66px;
+      width: 92px;
+      height: 55px;
       flex-shrink: 0;
-      border-radius: 8px;
+      border-radius: 7px;
       overflow: hidden;
       background: #000;
     }
@@ -622,7 +622,7 @@
     }
     .video-info { flex: 1; min-width: 0; }
     .video-info .video-title {
-      font-size: 0.86rem;
+      font-size: 0.8rem;
       font-weight: 800;
       color: var(--cream);
       line-height: 1.35;
@@ -642,25 +642,25 @@
 
     /* ── CANAL DE YOUTUBE (compacto) ── */
     .yt-channel-card {
-      max-width: 600px;
-      margin: 50px auto 0;
+      max-width: 480px;
+      margin: 40px auto 0;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 14px;
       background: var(--gray);
       border: 1px solid rgba(255,68,32,0.15);
-      border-radius: 16px;
-      padding: 18px;
+      border-radius: 14px;
+      padding: 12px;
       text-decoration: none;
       transition: border-color 0.25s, transform 0.25s;
     }
     .yt-channel-card:hover { border-color: var(--orange); transform: translateY(-2px); }
     .yt-thumb {
       position: relative;
-      width: 150px;
-      height: 100px;
+      width: 116px;
+      height: 74px;
       flex-shrink: 0;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
       background: #000;
     }
@@ -686,7 +686,7 @@
       margin-bottom: 4px;
     }
     .yt-channel-info .yt-title {
-      font-size: 1.05rem;
+      font-size: 0.92rem;
       color: var(--cream);
       font-weight: 800;
       white-space: normal;
@@ -793,8 +793,8 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 14px;
       max-width: 1200px;
       margin: 0 auto 16px;
       grid-column: 1 / -1;
@@ -879,7 +879,7 @@
     .project-card-title {
       font-family: 'Nexa', sans-serif;
       font-weight: 800;
-      font-size: 1.15rem;
+      font-size: 0.98rem;
       color: #fff;
       line-height: 1.25;
       margin-bottom: 4px;
@@ -999,16 +999,16 @@
     .servicios-intro { max-width: 1100px; margin: 0 auto; }
     .servicios-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .servicio-cat-card {
       background: var(--dark);
       border: 1px solid rgba(255,68,32,0.12);
-      border-radius: 16px;
-      padding: 28px 24px;
+      border-radius: 14px;
+      padding: 20px 18px;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
     .servicio-cat-card:hover {
@@ -2581,18 +2581,34 @@
     }
     renderProjectCards();
 
-    // Rotación automática de las portadas tipo carrusel
-    setInterval(() => {
-      document.querySelectorAll('.card-carousel').forEach(car => {
-        const imgs = [...car.querySelectorAll('img')];
-        const dots = [...car.querySelectorAll('.cc-dots span')];
-        if (imgs.length < 2) return;
-        const i = imgs.findIndex(x => x.classList.contains('on'));
-        const n = (i + 1) % imgs.length;
-        imgs.forEach((x, j) => x.classList.toggle('on', j === n));
-        dots.forEach((x, j) => x.classList.toggle('on', j === n));
-      });
-    }, 3000);
+    // Carrusel de portada: rota solo al pasar el mouse o tocar la tarjeta
+    function ccAdvance(car) {
+      const imgs = [...car.querySelectorAll('img')];
+      const dots = [...car.querySelectorAll('.cc-dots span')];
+      if (imgs.length < 2) return;
+      const i = imgs.findIndex(x => x.classList.contains('on'));
+      const n = (i + 1) % imgs.length;
+      imgs.forEach((x, j) => x.classList.toggle('on', j === n));
+      dots.forEach((x, j) => x.classList.toggle('on', j === n));
+    }
+    let ccHoverCar = null, ccHoverTimer = null;
+    document.addEventListener('pointerover', e => {
+      const card = e.target.closest ? e.target.closest('.project-card') : null;
+      const car = card ? card.querySelector('.card-carousel') : null;
+      if (!car || car === ccHoverCar) return;
+      clearInterval(ccHoverTimer);
+      ccHoverCar = car;
+      ccAdvance(car);
+      ccHoverTimer = setInterval(() => ccAdvance(car), 1100);
+    });
+    document.addEventListener('pointerout', e => {
+      const card = e.target.closest ? e.target.closest('.project-card') : null;
+      if (!card || !ccHoverCar || !card.contains(ccHoverCar)) return;
+      const dest = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('.project-card') : null;
+      if (dest === card) return;
+      clearInterval(ccHoverTimer);
+      ccHoverCar = null;
+    });
 
     function openProjectModal(idx) {
       const p = PROJECTS_DATA[idx];
