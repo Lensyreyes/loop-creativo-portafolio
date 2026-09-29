@@ -1719,7 +1719,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
       gap: 48px;
       align-items: center;
       width: 100%;
@@ -1983,11 +1983,109 @@
     .project-card-tag.tag-rebrand::before { display: none; }
     .cc-dots span.on { background: var(--orange); }
 
-    /* Videos (audiovisual + reels) */
+    /* Videos (audiovisual + reels): tarjetas cuadradas, más pequeñas que las de proyectos */
     #reels { background: var(--gray); }
-    .videos-grid { max-width: 900px; }
-    .video-card { background: var(--dark); border-color: var(--line); }
-    .video-card:hover { border-color: var(--orange); }
+    .videos-grid {
+      max-width: 1240px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .video-card {
+      position: relative;
+      display: block;
+      aspect-ratio: 1;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--dark);
+      border: 1px solid var(--line);
+    }
+    .video-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,91,0,0.6);
+      box-shadow: 0 20px 40px -20px rgba(255,91,0,0.55);
+    }
+    .video-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+    .video-thumb img { transition: transform 0.5s ease; }
+    .video-thumb img.letterbox { transform: scale(1.34); }
+    .video-card:hover .video-thumb img { transform: scale(1.06); }
+    .video-card:hover .video-thumb img.letterbox { transform: scale(1.42); }
+    .video-thumb::after {
+      content: '▶';
+      top: 12px; left: auto; right: 12px; bottom: auto;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      padding-left: 2px;
+      background: var(--orange-grad);
+      color: #0A0A0A;
+      box-shadow: 0 6px 16px -4px rgba(0,0,0,0.6);
+    }
+    .video-info {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 30px 12px 11px;
+      background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.6) 55%, transparent 100%);
+    }
+    .video-info .video-title { font-size: 0.78rem; line-height: 1.3; }
+    .video-info .video-sub {
+      font-size: 0.68rem;
+      color: var(--orange);
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s, opacity 0.3s, margin 0.3s;
+    }
+    .video-card:hover .video-info .video-sub { max-height: 20px; opacity: 1; }
+
+    /* Mascota del hero */
+    .hero-mascot {
+      position: relative;
+      width: min(470px, 100%);
+      aspect-ratio: 673 / 672;
+      cursor: pointer;
+      transform-origin: 50% 85%;
+    }
+    .hero-mascot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 50px rgba(0,0,0,0.55));
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+    .mascot-wink { opacity: 0; }
+    .hero-mascot.intro { animation: mascotIn 0.9s cubic-bezier(0.22, 1.25, 0.36, 1) both; }
+    @keyframes mascotIn {
+      0%   { opacity: 0; transform: translateY(40px) scale(0.72) rotate(-10deg); }
+      60%  { opacity: 1; transform: translateY(-6px) scale(1.04) rotate(3deg); }
+      100% { opacity: 1; transform: none; }
+    }
+    .hero-mascot.winking { animation: winkTilt 0.6s ease both; }
+    .hero-mascot.winking .mascot-wink { animation: winkShow 0.6s steps(1, end) both; }
+    .hero-mascot.winking .mascot-base { animation: winkHide 0.6s steps(1, end) both; }
+    @keyframes winkTilt {
+      0%, 100% { transform: none; }
+      35% { transform: rotate(-5deg) scale(1.03); }
+    }
+    @keyframes winkShow { 0% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes winkHide { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* Footer centrado */
+    .footer-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
     /* Marcas */
     #marcas { background: var(--dark); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -2286,7 +2384,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 22px;
     }
     .footer-big {
       display: inline-flex;
@@ -2306,7 +2404,7 @@
     .footer-big:hover span { transform: translateX(0.18em); }
     .footer-mail {
       display: inline-block;
-      margin-top: 22px;
+      margin-top: clamp(36px, 5vw, 60px);
       color: var(--cream);
       font-size: clamp(1rem, 2vw, 1.35rem);
       text-decoration: underline;
@@ -2337,6 +2435,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 28px; }
       .hero-visual { order: -1; flex-direction: row; justify-content: flex-start; }
       .hero-logo-main { width: min(200px, 46vw); }
+      .hero-mascot { width: min(240px, 58vw); }
       .hero-glow { width: 80%; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .process-step:nth-child(2) { border-right: 0; }
@@ -2354,6 +2453,17 @@
       .hero-title { font-size: clamp(2.4rem, 11vw, 3.4rem); }
       .hero-btns { align-items: stretch; }
       .hero-tag { font-size: 0.62rem; letter-spacing: 0.08em; padding: 7px 12px; }
+      .hero-mascot { width: min(150px, 42vw); }
+      #hero { padding-top: 82px; }
+      .hero-grid { gap: 16px; }
+      .hero-tag { margin-bottom: 18px; }
+      .hero-title { margin-bottom: 18px; }
+      .hero-sub { margin-bottom: 24px; }
+      .videos-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .video-card { border-radius: 10px; }
+      .video-info { padding: 22px 7px 7px; }
+      .video-info .video-title { font-size: 0.64rem; -webkit-line-clamp: 3; }
+      .video-thumb::after { top: 6px; right: 6px; width: 22px; height: 22px; font-size: 0.55rem; }
       .hero-stats { margin-top: 32px; gap: 20px; }
       .stat strong { font-size: 1.6rem; }
       .filter-btns {
@@ -2458,13 +2568,9 @@
       </div>
       <div class="hero-visual">
         <div class="hero-glow"></div>
-        <img class="hero-logo-main"
-             src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
-             alt="Loop Creativo" />
-        <div class="hero-ceo-badge">
-          <img src="Portafolio diigital de trabajos/Fotos/Foto del CEO/foto-ceo.jpg.png" alt="Lensy Reyes CEO"
-               onerror="this.style.display='none'" />
-          <span>CEO: <strong>Lensy Reyes</strong></span>
+        <div class="hero-mascot" id="hero-mascot" role="img" aria-label="Mascota de Loop Creativo">
+          <img class="mascot-base" src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/mascota-loop.png" alt="" />
+          <img class="mascot-wink" src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/mascota-loop-guino.png" alt="" />
         </div>
       </div>
     </div>
@@ -2572,28 +2678,28 @@
     </div>
     <div class="videos-grid">
       <a class="video-card reveal" href="https://www.youtube.com/watch?v=enWc7Taigr0" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/enWc7Taigr0/hqdefault.jpg" alt="Ricardo Céspedes Jr." loading="lazy"/></div>
+        <div class="video-thumb"><img src="https://i.ytimg.com/vi/enWc7Taigr0/hq720.jpg" alt="Ricardo Céspedes Jr." loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/enWc7Taigr0/hqdefault.jpg';this.classList.add('letterbox')"/></div>
         <div class="video-info">
           <div class="video-title">Conociendo la rutina de un profesional — Ricardo Céspedes Jr.</div>
           <div class="video-sub">Ver en YouTube →</div>
         </div>
       </a>
       <a class="video-card reveal" href="https://www.youtube.com/watch?v=bFGfQGjnxSo" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/bFGfQGjnxSo/hqdefault.jpg" alt="Serie del Caribe 2021" loading="lazy"/></div>
+        <div class="video-thumb"><img src="https://i.ytimg.com/vi/bFGfQGjnxSo/hq720.jpg" alt="Serie del Caribe 2021" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/bFGfQGjnxSo/hqdefault.jpg';this.classList.add('letterbox')"/></div>
         <div class="video-info">
           <div class="video-title">Serie del Caribe 2021 — Hall of Fame | El Fogón</div>
           <div class="video-sub">Ver en YouTube →</div>
         </div>
       </a>
       <a class="video-card reveal" href="https://www.youtube.com/watch?v=zzD8lulF1ik" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/zzD8lulF1ik/hqdefault.jpg" alt="El Fogón Podcast Cap. 2" loading="lazy"/></div>
+        <div class="video-thumb"><img src="https://i.ytimg.com/vi/zzD8lulF1ik/hq720.jpg" alt="El Fogón Podcast Cap. 2" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/zzD8lulF1ik/hqdefault.jpg';this.classList.add('letterbox')"/></div>
         <div class="video-info">
           <div class="video-title">El Fogón Podcast (Cap. 2): Cambio de Nolan Arenado</div>
           <div class="video-sub">Ver en YouTube →</div>
         </div>
       </a>
       <a class="video-card reveal" href="https://www.youtube.com/watch?v=ixZ3Y96HDlQ" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/ixZ3Y96HDlQ/hqdefault.jpg" alt="Yankees vs Boston" loading="lazy"/></div>
+        <div class="video-thumb"><img src="https://i.ytimg.com/vi/ixZ3Y96HDlQ/hq720.jpg" alt="Yankees vs Boston" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/ixZ3Y96HDlQ/hqdefault.jpg';this.classList.add('letterbox')"/></div>
         <div class="video-info">
           <div class="video-title">Yankees vs Boston (Video Reacción)</div>
           <div class="video-sub">Ver en YouTube →</div>
@@ -3052,10 +3158,29 @@
     function t(s) { return LANG === 'en' ? (TR[s] || s) : s; }
     function L(es, en) { return LANG === 'en' ? en : es; }
 
+    // ── MASCOTA DEL HERO: entrada + guiño ──
+    const heroMascot = document.getElementById('hero-mascot');
+    function mascotWink() {
+      if (!heroMascot || heroMascot.classList.contains('winking') || heroMascot.classList.contains('intro')) return;
+      heroMascot.classList.add('winking');
+    }
+    if (heroMascot) {
+      heroMascot.addEventListener('animationend', e => {
+        if (e.animationName === 'mascotIn') {
+          heroMascot.classList.remove('intro');
+          setTimeout(mascotWink, 250);
+        }
+        if (e.animationName === 'winkTilt') heroMascot.classList.remove('winking');
+      });
+      heroMascot.addEventListener('pointerenter', mascotWink);
+      heroMascot.addEventListener('click', mascotWink);
+    }
+
     // ── LOADER ──
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader').classList.add('hidden');
+        if (heroMascot) heroMascot.classList.add('intro');
       }, 2200);
     });
 
@@ -3095,7 +3220,8 @@
       container.className = 'videos-grid';
       container.innerHTML = REELS_DATA.map(r => `
         <a class="video-card" href="https://www.youtube.com/watch?v=${r.id}" target="_blank" rel="noopener">
-          <div class="video-thumb"><img src="https://img.youtube.com/vi/${r.id}/hqdefault.jpg" alt="${r.title}" loading="lazy"/></div>
+          <div class="video-thumb"><img src="https://i.ytimg.com/vi/${r.id}/oardefault.jpg" alt="${r.title}" loading="lazy"
+            onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${r.id}/hqdefault.jpg';this.classList.add('letterbox')"/></div>
           <div class="video-info">
             <div class="video-title">${r.title}</div>
             <div class="video-sub">${L('Ver en YouTube →','Watch on YouTube →')}</div>
