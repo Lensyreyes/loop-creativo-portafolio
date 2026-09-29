@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loop Creativo | Agencia de Marketing y Contenido Deportivo en RD — Béisbol, Atletas y Academias</title>
-  <meta name="description" content="Loop Creativo es la agencia de marketing y contenido deportivo de Santo Domingo, República Dominicana. Producción audiovisual, fotografía y redes sociales para béisbol, academias, atletas y gimnasios. CEO: Lensy Reyes." />
+  <title>Loop Creativo | Agencia de Marketing Digital en Santo Domingo, RD</title>
+  <meta name="description" content="Loop Creativo es una agencia de marketing digital en Santo Domingo, República Dominicana: manejo de redes sociales, diseño gráfico, branding, producción audiovisual, fotografía y publicidad digital. CEO: Lensy Reyes." />
+  <meta name="theme-color" content="#0A0A0A" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Loop Creativo | Agencia de Marketing y Contenido Deportivo en RD" />
-  <meta property="og:description" content="Elevamos la imagen de marcas, academias y atletas con producción audiovisual y gestión estratégica. Santo Domingo, RD." />
+  <meta property="og:title" content="Loop Creativo | Agencia de Marketing Digital en Santo Domingo, RD" />
+  <meta property="og:description" content="Elevamos la imagen de tu marca con producción audiovisual, diseño y gestión estratégica de redes sociales. Santo Domingo, RD." />
   <meta property="og:image" content="https://loopcreativord.com/Portafolio%20diigital%20de%20trabajos/Logos%20de%20la%20agencia%20y%20paleta%20de%20colores/Loop%20Creativo%20Logo%20agencia.png" />
   <meta property="og:url" content="https://loopcreativord.com" />
   <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H5RP7EHWX"></script>
@@ -41,19 +46,25 @@
 
     /* ── VARIABLES ── */
     :root {
-      --orange: #FF4420;
-      --dark: #1a1a1a;
-      --navy: #0C1D4A;
-      --cream: #F5F0E8;
-      --gray: #2D2D2D;
-      --light-gray: #3a3a3a;
+      --orange: #FF5B00;
+      --orange-2: #FF9100;
+      --orange-grad: linear-gradient(120deg, #FF5B00 0%, #FF7300 50%, #FF9100 100%);
+      --dark: #0A0A0A;
+      --navy: #0D1A3F;
+      --cream: #F5F2EC;
+      --gray: #141414;
+      --light-gray: #1E1E1E;
+      --line: rgba(245,242,236,0.12);
+      --muted: rgba(245,242,236,0.62);
+      --font-display: 'Bricolage Grotesque', 'Nexa', system-ui, sans-serif;
+      --font-body: 'Bricolage Grotesque', 'Nexa', system-ui, sans-serif;
     }
 
     /* ── RESET ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 300;
       background: var(--dark);
       color: var(--cream);
@@ -79,7 +90,7 @@
       opacity: 0;
     }
     #loader-text {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       color: var(--orange);
       font-size: clamp(0.75rem, 2vw, 1rem);
       letter-spacing: 4px;
@@ -108,7 +119,7 @@
       padding: 14px 5%;
       background: rgba(26,26,26,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,68,32,0.15);
+      border-bottom: 1px solid rgba(255,91,0,0.15);
       transition: padding 0.3s;
     }
     nav.scrolled { padding: 10px 5%; }
@@ -130,9 +141,9 @@
     .nav-links a:hover { color: var(--orange); }
     .lang-btn {
       background: transparent;
-      border: 2px solid rgba(255,68,32,0.5);
+      border: 2px solid rgba(255,91,0,0.5);
       color: var(--orange);
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: 0.75rem;
       letter-spacing: 1px;
@@ -205,12 +216,12 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 70% 40%, rgba(255,68,32,0.12) 0%, transparent 60%),
+      background: radial-gradient(ellipse at 70% 40%, rgba(255,91,0,0.12) 0%, transparent 60%),
                   radial-gradient(ellipse at 20% 80%, rgba(12,29,74,0.4) 0%, transparent 55%);
     }
     .hero-tag {
-      background: rgba(255,68,32,0.15);
-      border: 1px solid rgba(255,68,32,0.4);
+      background: rgba(255,91,0,0.15);
+      border: 1px solid rgba(255,91,0,0.4);
       color: var(--orange);
       font-size: 0.7rem;
       font-weight: 800;
@@ -224,7 +235,7 @@
     .hero-logo-main {
       width: min(420px, 80vw);
       animation: fadeUp 0.8s ease 1.7s both, logoWink 1.1s ease 2.6s 1;
-      filter: drop-shadow(0 0 40px rgba(255,68,32,0.25));
+      filter: drop-shadow(0 0 40px rgba(255,91,0,0.25));
       transform-origin: center bottom;
     }
     @keyframes logoWink {
@@ -261,7 +272,7 @@
     }
     .hero-ceo-badge strong { color: var(--cream); }
     .hero-title {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(1.6rem, 4.5vw, 3rem);
       line-height: 1.15;
       color: var(--cream);
@@ -291,7 +302,7 @@
       gap: 8px;
       padding: 14px 32px;
       border-radius: 50px;
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: 0.85rem;
       letter-spacing: 1px;
@@ -325,7 +336,7 @@
       display: block;
       width: 1px;
       height: 40px;
-      background: linear-gradient(to bottom, rgba(255,68,32,0.6), transparent);
+      background: linear-gradient(to bottom, rgba(255,91,0,0.6), transparent);
       animation: scrollLine 1.5s ease-in-out infinite;
     }
     @keyframes scrollLine {
@@ -344,7 +355,7 @@
       margin-bottom: 12px;
     }
     .section-title {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.5rem);
       line-height: 1.1;
       color: var(--cream);
@@ -387,13 +398,13 @@
       right: -20px;
       background: var(--orange);
       color: #fff;
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: 1rem;
       padding: 16px 22px;
       border-radius: 12px;
       line-height: 1.3;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(255,68,32,0.4);
+      box-shadow: 0 8px 24px rgba(255,91,0,0.4);
     }
     .sobre-social-links {
       display: flex;
@@ -410,8 +421,8 @@
       justify-content: center;
       text-decoration: none;
       transition: all 0.25s;
-      border: 2px solid rgba(255,68,32,0.25);
-      background: rgba(255,68,32,0.08);
+      border: 2px solid rgba(255,91,0,0.25);
+      background: rgba(255,91,0,0.08);
     }
     .social-btn img {
       width: 26px;
@@ -422,7 +433,7 @@
       background: var(--orange);
       border-color: var(--orange);
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255,68,32,0.3);
+      box-shadow: 0 8px 20px rgba(255,91,0,0.3);
     }
     .sobre-content p {
       font-size: 1rem;
@@ -437,8 +448,8 @@
       margin-top: 28px;
     }
     .skill-tag {
-      background: rgba(255,68,32,0.12);
-      border: 1px solid rgba(255,68,32,0.3);
+      background: rgba(255,91,0,0.12);
+      border: 1px solid rgba(255,91,0,0.3);
       color: var(--orange);
       padding: 7px 18px;
       border-radius: 30px;
@@ -463,7 +474,7 @@
       border: none;
       padding: 9px 22px;
       border-radius: 30px;
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: 0.78rem;
       letter-spacing: 1px;
@@ -538,7 +549,7 @@
       overflow: hidden;
       aspect-ratio: 9/16;
       background: #000;
-      border: 1px solid rgba(255,68,32,0.15);
+      border: 1px solid rgba(255,91,0,0.15);
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       transition: border-color 0.25s, transform 0.25s;
       text-decoration: none;
@@ -579,7 +590,7 @@
     }
 
     /* ── VIDEOS DE YOUTUBE (compacto) ── */
-    #deportes { background: var(--dark); padding-top: 60px; padding-bottom: 60px; }
+    #audiovisual { background: var(--gray); }
     .videos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -592,7 +603,7 @@
       align-items: center;
       gap: 12px;
       background: var(--gray);
-      border: 1px solid rgba(255,68,32,0.15);
+      border: 1px solid rgba(255,91,0,0.15);
       border-radius: 12px;
       padding: 8px;
       text-decoration: none;
@@ -648,7 +659,7 @@
       align-items: center;
       gap: 14px;
       background: var(--gray);
-      border: 1px solid rgba(255,68,32,0.15);
+      border: 1px solid rgba(255,91,0,0.15);
       border-radius: 14px;
       padding: 12px;
       text-decoration: none;
@@ -751,7 +762,7 @@
     }
     .team-card {
       background: var(--gray);
-      border: 1px solid rgba(255,68,32,0.15);
+      border: 1px solid rgba(255,91,0,0.15);
       border-radius: 16px;
       overflow: hidden;
       text-align: center;
@@ -766,7 +777,7 @@
     }
     .team-card-info { padding: 18px 16px 22px; }
     .team-card-name {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.15rem;
       color: var(--cream);
       margin-bottom: 4px;
@@ -811,7 +822,7 @@
     }
     .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(255,68,32,0.18);
+      box-shadow: 0 16px 36px rgba(255,91,0,0.18);
     }
     .project-card img {
       width: 100%;
@@ -877,7 +888,7 @@
     .project-card-tag.tag-foto { background: var(--navy); }
     .ver-mas-wrap { text-align: center; margin-top: 34px; }
     .project-card-title {
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: 0.98rem;
       color: #fff;
@@ -908,14 +919,14 @@
       z-index: 5;
       background: rgba(26,26,26,0.95);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,68,32,0.2);
+      border-bottom: 1px solid rgba(255,91,0,0.2);
       padding: 20px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .pm-header-info h2 {
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: clamp(1.2rem, 3vw, 1.7rem);
       color: var(--cream);
@@ -932,15 +943,15 @@
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: rgba(255,68,32,0.12);
-      border: 1px solid rgba(255,68,32,0.3);
+      background: rgba(255,91,0,0.12);
+      border: 1px solid rgba(255,91,0,0.3);
       color: var(--orange);
       font-size: 1.4rem;
       cursor: pointer;
       flex-shrink: 0;
       transition: background 0.2s;
     }
-    .pm-close:hover { background: rgba(255,68,32,0.25); }
+    .pm-close:hover { background: rgba(255,91,0,0.25); }
     .pm-body {
       max-width: 1200px;
       margin: 0 auto;
@@ -1006,7 +1017,7 @@
     }
     .servicio-cat-card {
       background: var(--dark);
-      border: 1px solid rgba(255,68,32,0.12);
+      border: 1px solid rgba(255,91,0,0.12);
       border-radius: 14px;
       padding: 20px 18px;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
@@ -1014,16 +1025,16 @@
     .servicio-cat-card:hover {
       transform: translateY(-6px);
       border-color: var(--orange);
-      box-shadow: 0 16px 40px rgba(255,68,32,0.15);
+      box-shadow: 0 16px 40px rgba(255,91,0,0.15);
     }
     .servicio-cat-card h3 {
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: 1.15rem;
       color: var(--orange);
       margin-bottom: 18px;
       padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,68,32,0.2);
+      border-bottom: 1px solid rgba(255,91,0,0.2);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1062,8 +1073,8 @@
     .calc-wrap { max-width: 700px; margin: 0 auto; }
     .calc-steps { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
     .calc-selected-bar {
-      background: rgba(255,68,32,0.08);
-      border: 1px solid rgba(255,68,32,0.25);
+      background: rgba(255,91,0,0.08);
+      border: 1px solid rgba(255,91,0,0.25);
       border-radius: 14px;
       padding: 16px 20px;
       margin-bottom: 24px;
@@ -1082,14 +1093,14 @@
       align-items: center;
       gap: 8px;
       background: var(--dark);
-      border: 1px solid rgba(255,68,32,0.3);
+      border: 1px solid rgba(255,91,0,0.3);
       border-radius: 30px;
       padding: 6px 8px 6px 14px;
       font-size: 0.78rem;
       color: var(--cream);
     }
     .calc-chip button {
-      background: rgba(255,68,32,0.2);
+      background: rgba(255,91,0,0.2);
       border: none;
       color: var(--orange);
       width: 18px;
@@ -1125,12 +1136,12 @@
     .calc-step-sep { color: rgba(245,240,232,0.2); font-size: 0.8rem; }
     .calc-box {
       background: rgba(245,240,232,0.04);
-      border: 1px solid rgba(255,68,32,0.2);
+      border: 1px solid rgba(255,91,0,0.2);
       border-radius: 20px;
       padding: 32px;
     }
     .calc-box h3 {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.3rem;
       margin-bottom: 20px;
       color: var(--cream);
@@ -1150,8 +1161,8 @@
       transition: all 0.2s;
       text-align: left;
     }
-    .calc-option:hover { border-color: rgba(255,68,32,0.4); }
-    .calc-option.selected { border-color: var(--orange); background: rgba(255,68,32,0.08); }
+    .calc-option:hover { border-color: rgba(255,91,0,0.4); }
+    .calc-option.selected { border-color: var(--orange); background: rgba(255,91,0,0.08); }
     .calc-option .opt-icon { font-size: 1.4rem; margin-bottom: 6px; }
     .calc-option .opt-name { font-size: 0.82rem; font-weight: 800; color: var(--cream); }
     .calc-option .opt-count { font-size: 0.7rem; color: rgba(245,240,232,0.4); margin-top: 2px; }
@@ -1162,7 +1173,7 @@
       border-radius: 12px;
       padding: 14px 16px;
       color: var(--cream);
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-size: 0.9rem;
       font-weight: 300;
       outline: none;
@@ -1170,7 +1181,7 @@
       transition: border-color 0.2s;
       margin-bottom: 12px;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF4420' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF5B00' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 16px center;
       padding-right: 40px;
@@ -1186,8 +1197,8 @@
     .calc-qty-wrap label { font-size: 0.82rem; color: rgba(245,240,232,0.6); font-weight: 800; }
     .qty-btn {
       width: 36px; height: 36px;
-      background: rgba(255,68,32,0.15);
-      border: 1px solid rgba(255,68,32,0.3);
+      background: rgba(255,91,0,0.15);
+      border: 1px solid rgba(255,91,0,0.3);
       border-radius: 8px;
       color: var(--orange);
       font-size: 1.2rem;
@@ -1196,17 +1207,17 @@
       transition: background 0.2s;
       font-weight: 800;
     }
-    .qty-btn:hover { background: rgba(255,68,32,0.3); }
+    .qty-btn:hover { background: rgba(255,91,0,0.3); }
     .qty-display {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.4rem;
       color: var(--cream);
       min-width: 30px;
       text-align: center;
     }
     .calc-total {
-      background: rgba(255,68,32,0.1);
-      border: 1px solid rgba(255,68,32,0.3);
+      background: rgba(255,91,0,0.1);
+      border: 1px solid rgba(255,91,0,0.3);
       border-radius: 14px;
       padding: 20px 24px;
       display: flex;
@@ -1215,7 +1226,7 @@
       margin: 20px 0 0;
     }
     .calc-total .total-label { font-size: 0.78rem; font-weight: 800; color: rgba(245,240,232,0.5); letter-spacing: 2px; text-transform: uppercase; }
-    .calc-total .total-amount { font-family: 'DiloWorld', sans-serif; font-size: 2rem; color: var(--orange); }
+    .calc-total .total-amount { font-family: var(--font-display); font-size: 2rem; color: var(--orange); }
     .calc-total .total-unit { font-size: 0.7rem; color: rgba(245,240,232,0.4); }
     .calc-nav {
       display: flex;
@@ -1227,10 +1238,10 @@
       padding: 10px 0;
     }
     .calc-result .result-icon { font-size: 3rem; margin-bottom: 12px; }
-    .calc-result h3 { font-family: 'DiloWorld', sans-serif; font-size: 1.6rem; margin-bottom: 8px; }
+    .calc-result h3 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 8px; }
     .calc-result p { color: rgba(245,240,232,0.6); font-size: 0.9rem; margin-bottom: 24px; }
     .calc-result .big-total {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: 3rem;
       color: var(--orange);
       margin: 16px 0;
@@ -1272,8 +1283,8 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      background: linear-gradient(135deg, rgba(255,68,32,0.12), rgba(255,68,32,0.05));
-      border: 2px solid rgba(255,68,32,0.35);
+      background: linear-gradient(135deg, rgba(255,91,0,0.12), rgba(255,91,0,0.05));
+      border: 2px solid rgba(255,91,0,0.35);
       border-radius: 16px;
       padding: 28px 30px;
       text-decoration: none;
@@ -1282,14 +1293,14 @@
       margin-top: 10px;
     }
     .form-cta-box:hover {
-      background: linear-gradient(135deg, rgba(255,68,32,0.2), rgba(255,68,32,0.08));
+      background: linear-gradient(135deg, rgba(255,91,0,0.2), rgba(255,91,0,0.08));
       border-color: var(--orange);
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(255,68,32,0.2);
+      box-shadow: 0 16px 40px rgba(255,91,0,0.2);
     }
     .form-cta-icon { font-size: 2.5rem; flex-shrink: 0; }
     .form-cta-box h3 {
-      font-family: 'DiloWorld', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.4rem;
       color: var(--cream);
       margin-bottom: 6px;
@@ -1313,7 +1324,7 @@
       flex-direction: column;
       gap: 14px;
       background: var(--dark);
-      border: 1px solid rgba(255,68,32,0.2);
+      border: 1px solid rgba(255,91,0,0.2);
       border-radius: 16px;
       padding: 26px 24px;
     }
@@ -1334,7 +1345,7 @@
       border-radius: 10px;
       padding: 12px 14px;
       color: var(--cream);
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 300;
       font-size: 0.92rem;
       transition: border-color 0.25s, background 0.25s;
@@ -1343,7 +1354,7 @@
     .contact-form textarea:focus {
       outline: none;
       border-color: var(--orange);
-      background: rgba(255,68,32,0.06);
+      background: rgba(255,91,0,0.06);
     }
     .contact-form textarea { resize: vertical; min-height: 110px; }
     .contact-form button[type="submit"] {
@@ -1367,8 +1378,8 @@
     }
     .form-status.error {
       display: block;
-      background: rgba(255,68,32,0.12);
-      border: 1px solid rgba(255,68,32,0.4);
+      background: rgba(255,91,0,0.12);
+      border: 1px solid rgba(255,91,0,0.4);
       color: var(--orange);
     }
     .contacto-grid {
@@ -1393,7 +1404,7 @@
     .contacto-icon {
       width: 44px;
       height: 44px;
-      background: rgba(255,68,32,0.12);
+      background: rgba(255,91,0,0.12);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1417,7 +1428,7 @@
       width: 44px;
       height: 44px;
       background: var(--dark);
-      border: 1px solid rgba(255,68,32,0.2);
+      border: 1px solid rgba(255,91,0,0.2);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1448,7 +1459,7 @@
     .btn-wa {
       background: #fff;
       color: #128C7E;
-      font-family: 'Nexa', sans-serif;
+      font-family: var(--font-body);
       font-weight: 800;
       font-size: 0.85rem;
       letter-spacing: 1px;
@@ -1467,7 +1478,7 @@
       background: #111;
       text-align: center;
       padding: 34px 5%;
-      border-top: 1px solid rgba(255,68,32,0.1);
+      border-top: 1px solid rgba(255,91,0,0.1);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1568,6 +1579,819 @@
       .reels-grid { grid-template-columns: 1fr 1fr; }
       .project-card-title { font-size: 1rem; }
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       IDENTIDAD 2026 — agencia de marketing digital
+       Capa final: sobrescribe los estilos anteriores.
+       ═══════════════════════════════════════════════════════════ */
+    body {
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      counter-reset: sec;
+    }
+    ::selection { background: var(--orange); color: #0A0A0A; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+
+    /* Loader */
+    #loader-text {
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    /* Botones */
+    .btn {
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      padding: 15px 28px;
+      transition: transform 0.2s, box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .btn-primary {
+      background: var(--orange-grad);
+      color: #0A0A0A;
+      box-shadow: 0 12px 32px -12px rgba(255,91,0,0.75);
+    }
+    .btn-primary:hover { box-shadow: 0 18px 40px -12px rgba(255,91,0,0.95); }
+    .btn-outline { border: 1.5px solid rgba(245,242,236,0.28); color: var(--cream); }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* Navegación */
+    nav {
+      padding: 18px 5%;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s;
+    }
+    nav.scrolled {
+      padding: 12px 5%;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(14px) saturate(1.4);
+      border-bottom-color: var(--line);
+    }
+    .nav-logo { height: 40px; }
+    .nav-links { gap: 28px; }
+    .nav-links a {
+      position: relative;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(245,242,236,0.8);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -6px;
+      width: 100%; height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .lang-btn {
+      margin: 0;
+      border: 1px solid var(--line);
+      color: var(--cream);
+      font-weight: 600;
+      padding: 8px 14px;
+    }
+    .lang-btn:hover { background: transparent; border-color: var(--orange); color: var(--orange); }
+    .nav-cta {
+      background: var(--orange-grad);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px -8px rgba(255,91,0,0.8); }
+    .mobile-menu {
+      top: 64px;
+      background: rgba(10,10,10,0.97);
+      border-bottom: 1px solid var(--line);
+      gap: 14px;
+      padding: 24px 5% 30px;
+    }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: none;
+    }
+
+    /* Hero */
+    #hero {
+      min-height: 100svh;
+      padding: 120px 5% 96px;
+      text-align: left;
+      align-items: stretch;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(55% 60% at 80% 42%, rgba(255,91,0,0.22) 0%, transparent 62%),
+        radial-gradient(45% 55% at 5% 95%, rgba(13,26,63,0.6) 0%, transparent 70%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,242,236,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,242,236,0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+      max-width: 1240px;
+      margin: auto;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(245,242,236,0.05);
+      border: 1px solid var(--line);
+      color: var(--cream);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      padding: 8px 16px;
+      margin-bottom: 28px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: livePulse 2s ease-out infinite;
+    }
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,91,0,0.7); }
+      100% { box-shadow: 0 0 0 10px rgba(255,91,0,0); }
+    }
+    .hero-title {
+      font-size: clamp(2.7rem, 7.2vw, 6.6rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      max-width: 11.5ch;
+      margin: 0 0 26px;
+      text-align: left;
+    }
+    .hero-title span, .section-title span {
+      background: var(--orange-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.22rem);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 0 34px;
+    }
+    .hero-btns { justify-content: flex-start; }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(22px, 4vw, 52px);
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      animation: fadeUp 0.7s ease 2.35s both;
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: var(--cream);
+    }
+    .stat span {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 130%;
+      aspect-ratio: 1;
+      transform: translate(-50%, -55%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,91,0,0.5) 0%, rgba(255,115,0,0.14) 40%, transparent 68%);
+      filter: blur(24px);
+      z-index: -1;
+      animation: glowFloat 9s ease-in-out infinite;
+    }
+    @keyframes glowFloat {
+      0%, 100% { transform: translate(-50%, -55%) scale(1); }
+      50% { transform: translate(-48%, -50%) scale(1.08); }
+    }
+    .hero-logo-main {
+      width: min(380px, 100%);
+      filter: drop-shadow(0 24px 50px rgba(0,0,0,0.55));
+    }
+    .hero-ceo-badge { margin: 0; background: rgba(10,10,10,0.55); backdrop-filter: blur(8px); border-color: var(--line); }
+
+    /* Cinta de servicios */
+    .ticker {
+      position: relative;
+      z-index: 2;
+      width: 104%;
+      margin: -24px 0 0 -2%;
+      padding: 15px 0;
+      overflow: hidden;
+      background: var(--orange-grad);
+      color: #0A0A0A;
+      transform: rotate(-1.4deg);
+      box-shadow: 0 22px 50px -22px rgba(255,91,0,0.65);
+    }
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: marqueeScroll 34s linear infinite;
+    }
+    .ticker-track > * { margin-right: 26px; }
+    .ticker-track span {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1rem, 2vw, 1.45rem);
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .ticker-track i { font-style: normal; font-size: 1rem; opacity: 0.65; }
+
+    /* Encabezados de sección (numerados, estilo editorial) */
+    section { padding: clamp(64px, 7vw, 96px) 5%; }
+    .port-header, .servicios-intro { max-width: 1240px; margin: 0 auto 44px; }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      margin-bottom: 18px;
+    }
+    .section-label::before {
+      counter-increment: sec;
+      content: counter(sec, decimal-leading-zero);
+      color: var(--cream);
+      opacity: 0.45;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .section-title {
+      font-weight: 800;
+      font-size: clamp(2.3rem, 5.4vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+    .divider { display: none; }
+    .section-intro {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Nosotros */
+    #sobre { background: var(--dark); }
+    .sobre-grid { max-width: 1240px; gap: clamp(36px, 6vw, 80px); }
+    .sobre-img { border-radius: 22px; }
+    .sobre-img-badge {
+      background: var(--orange-grad);
+      color: #0A0A0A;
+      font-weight: 800;
+      border-radius: 16px;
+      box-shadow: 0 14px 34px -10px rgba(255,91,0,0.7);
+    }
+    .sobre-content p { color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
+    .skill-tag {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      padding: 8px 16px;
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .skill-tag:hover { border-color: var(--orange); color: var(--orange); }
+    .social-btn { border-radius: 50%; background: rgba(245,242,236,0.04); border: 1px solid var(--line); }
+
+    /* Portafolio */
+    #portafolio { background: var(--dark); padding-top: clamp(40px, 5vw, 64px); }
+    .gallery, .projects-grid { max-width: 1240px; }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      padding: 9px 18px;
+    }
+    .filter-btn:hover { background: transparent; border-color: var(--orange); color: var(--orange); }
+    .filter-btn.active, .filter-btn.active:hover {
+      background: var(--orange-grad);
+      border-color: transparent;
+      color: #0A0A0A;
+    }
+    .filter-btns { max-width: 1240px; margin: 0 auto 32px; }
+    .project-card {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,91,0,0.55);
+      box-shadow: 0 26px 50px -22px rgba(255,91,0,0.5);
+    }
+    .project-card-overlay {
+      background: linear-gradient(to top, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.2) 46%, transparent 72%);
+    }
+    .project-card-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .project-card-count { font-weight: 500; color: rgba(255,255,255,0.7); }
+    .project-card-tag {
+      background: rgba(10,10,10,0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .project-card-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      margin-right: 6px;
+      vertical-align: 1px;
+    }
+    .project-card-tag.tag-foto { background: rgba(10,10,10,0.6); }
+    .project-card-tag.tag-foto::before { background: #6F8BFF; }
+    .project-card-tag.tag-rebrand { border-color: transparent; }
+    .project-card-tag.tag-rebrand::before { display: none; }
+    .cc-dots span.on { background: var(--orange); }
+
+    /* Videos (audiovisual + reels) */
+    #reels { background: var(--gray); }
+    .videos-grid { max-width: 900px; }
+    .video-card { background: var(--dark); border-color: var(--line); }
+    .video-card:hover { border-color: var(--orange); }
+
+    /* Marcas */
+    #marcas { background: var(--dark); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    #marcas .section-label { justify-content: center; }
+    #marcas .section-label::after { display: none; }
+    #marcas .section-title { font-size: clamp(1.6rem, 3.4vw, 2.6rem); }
+
+    /* Cómo trabajamos (sección clara) */
+    #proceso { background: var(--cream); color: #0A0A0A; }
+    #proceso .section-title { color: #0A0A0A; }
+    #proceso .section-label::before { color: #0A0A0A; }
+    #proceso .section-label::after { background: rgba(10,10,10,0.15); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1240px;
+      margin: 0 auto;
+      border-top: 2px solid #0A0A0A;
+    }
+    .process-step {
+      padding: 28px 26px 8px;
+      border-right: 1px solid rgba(10,10,10,0.14);
+    }
+    .process-step:first-child { padding-left: 0; }
+    .process-step:last-child { border-right: 0; }
+    .ps-num {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--orange);
+    }
+    .process-step h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      margin: 18px 0 8px;
+    }
+    .process-step p { color: rgba(10,10,10,0.68); font-size: 0.98rem; line-height: 1.55; }
+
+    /* Servicios */
+    #servicios { background: var(--dark); }
+    .servicios-grid { max-width: 1240px; gap: 16px; }
+    .servicio-cat-card {
+      background: var(--gray);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px 22px;
+    }
+    .servicio-cat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,91,0,0.6);
+      box-shadow: 0 26px 50px -24px rgba(255,91,0,0.55);
+    }
+    .servicio-cat-card h3 {
+      color: var(--cream);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--line);
+    }
+    .servicio-item { color: var(--muted); }
+    .terminos {
+      max-width: 1240px;
+      background: rgba(255,91,0,0.06);
+      border: 1px solid rgba(255,91,0,0.25);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Cotizador */
+    #calculadora {
+      background:
+        radial-gradient(70% 60% at 85% 0%, rgba(255,91,0,0.16) 0%, transparent 60%),
+        var(--navy);
+    }
+    .calc-box { background: rgba(10,10,10,0.35); border: 1px solid var(--line); border-radius: 22px; }
+    .calc-box h3, .calc-result h3 { font-weight: 800; letter-spacing: -0.02em; }
+
+    /* Brief de Cliente */
+    #formulario {
+      background:
+        radial-gradient(45% 50% at 0% 25%, rgba(255,91,0,0.14) 0%, transparent 70%),
+        var(--dark);
+    }
+    .brief-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: clamp(32px, 5vw, 72px);
+      max-width: 1240px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .brief-intro { position: sticky; top: 96px; }
+    .brief-kicker { font-weight: 700; font-size: 1.05rem; color: var(--cream); margin: 4px 0 12px; }
+    .brief-lead { color: var(--muted); font-size: 1rem; line-height: 1.65; margin-bottom: 28px; }
+    .brief-steps-list {
+      list-style: none;
+      border-top: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+    .brief-steps-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-weight: 600;
+      color: rgba(245,242,236,0.42);
+      transition: color 0.25s;
+    }
+    .brief-steps-list li span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(245,242,236,0.32);
+    }
+    .brief-steps-list li.done { color: var(--cream); }
+    .brief-steps-list li.done span { color: var(--orange); }
+    .brief-steps-list li.current, .brief-steps-list li.current span { color: var(--orange); }
+    .brief-note { font-size: 0.82rem; color: rgba(245,242,236,0.45); }
+    .brief-card {
+      background: var(--gray);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(22px, 3.5vw, 40px);
+      box-shadow: 0 40px 80px -40px rgba(0,0,0,0.85);
+      scroll-margin-top: 90px;
+    }
+    .bf-progress { margin-bottom: 26px; }
+    .bf-progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    #bf-step-name { color: var(--orange); text-align: right; }
+    .bf-bar { height: 4px; border-radius: 4px; background: rgba(245,242,236,0.08); overflow: hidden; }
+    .bf-bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 4px;
+      background: var(--orange-grad);
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .brief-step { display: none; border: 0; min-width: 0; padding: 0; margin: 0; }
+    .brief-step.on { display: block; animation: stepIn 0.35s ease; }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateX(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .brief-step legend {
+      padding: 0;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      letter-spacing: -0.03em;
+      color: var(--cream);
+    }
+    .bf-step-sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .bf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .bf-field { display: flex; flex-direction: column; margin-top: 20px; }
+    .bf-field label, .bf-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .req { color: var(--orange); font-weight: 800; }
+    .bf-hint { color: var(--muted); font-size: 0.82rem; line-height: 1.45; margin: -4px 0 10px; }
+    .bf-field input[type="text"],
+    .bf-field input[type="tel"],
+    .bf-field input[type="email"],
+    .bf-field textarea {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.98rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .bf-field textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
+    .bf-field input:focus, .bf-field textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255,91,0,0.15);
+    }
+    .bf-field input::placeholder, .bf-field textarea::placeholder { color: rgba(245,242,236,0.3); }
+    .bf-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .bf-choice { position: relative; cursor: pointer; margin: 0 !important; }
+    .bf-choice input { position: absolute; left: 18px; top: 20px; width: 1px; height: 1px; opacity: 0; }
+    .bf-choice-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      height: 100%;
+      padding: 16px 16px 16px 48px;
+      background: var(--dark);
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .bf-choice-box::before {
+      content: '';
+      position: absolute;
+      left: 16px; top: 17px;
+      width: 20px; height: 20px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(245,242,236,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #0A0A0A;
+    }
+    .bf-choice input:checked + .bf-choice-box { border-color: var(--orange); background: rgba(255,91,0,0.08); }
+    .bf-choice input:checked + .bf-choice-box::before { content: '✓'; background: var(--orange-grad); border-color: transparent; }
+    .bf-choice input:focus-visible + .bf-choice-box { box-shadow: 0 0 0 3px rgba(255,91,0,0.35); }
+    .bf-choice-box strong { color: var(--cream); font-size: 0.95rem; }
+    .bf-choice-box em { font-style: normal; color: var(--muted); font-size: 0.8rem; }
+    #brief-status { margin-top: 18px; }
+    .bf-nav {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .bf-nav #bf-next, .bf-nav #bf-submit { margin-left: auto; }
+    .bf-success { text-align: center; padding: 30px 6px; }
+    .bf-success-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--orange-grad);
+      color: #0A0A0A;
+      font-size: 2rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 10px rgba(255,91,0,0.12);
+    }
+    .bf-success h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .bf-success p { color: var(--muted); line-height: 1.65; max-width: 520px; margin: 0 auto 24px; }
+
+    /* Contacto */
+    #contacto { background: var(--gray); }
+    .contacto-grid { max-width: 1240px; }
+    .contact-form { background: var(--dark); border: 1px solid var(--line); border-radius: 20px; }
+    .contact-form label { color: var(--cream); font-weight: 700; letter-spacing: 0.08em; }
+    .contact-form input, .contact-form textarea {
+      background: var(--gray);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-weight: 400;
+    }
+    .contacto-icon { border-radius: 12px; }
+    .social-link { background: var(--dark); border-color: var(--line); border-radius: 50%; }
+    .wa-big { border-radius: 20px; }
+
+    /* Footer */
+    footer {
+      background: #050505;
+      padding: clamp(64px, 9vw, 120px) 5% 34px;
+      text-align: left;
+      align-items: stretch;
+      gap: 56px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-cta { width: 100%; max-width: 1240px; margin: 0 auto; }
+    .footer-kicker {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .footer-big {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.2em;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3.6rem, 13vw, 11rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-big span { display: inline-block; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+    .footer-big:hover { color: var(--orange); }
+    .footer-big:hover span { transform: translateX(0.18em); }
+    .footer-mail {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--cream);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      text-decoration: underline;
+      text-decoration-color: rgba(255,91,0,0.6);
+      text-underline-offset: 6px;
+    }
+    .footer-mail:hover { color: var(--orange); }
+    .footer-bottom {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+    footer .footer-bottom img { height: 36px; opacity: 0.9; }
+
+    /* Responsive (identidad 2026) */
+    @media (max-width: 1024px) {
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: 0.76rem; }
+    }
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-visual { order: -1; flex-direction: row; justify-content: flex-start; }
+      .hero-logo-main { width: min(200px, 46vw); }
+      .hero-glow { width: 80%; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-step:nth-child(2) { border-right: 0; }
+      .process-step:nth-child(3) { padding-left: 0; }
+      .brief-wrap { grid-template-columns: 1fr; }
+      .brief-intro { position: static; }
+    }
+    @media (max-width: 768px) {
+      .nav-cta { display: none; }
+      .nav-actions { margin-left: auto; margin-right: 12px; }
+    }
+    @media (max-width: 600px) {
+      #hero { min-height: auto; padding: 96px 5% 64px; }
+      .hero-visual { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .hero-title { font-size: clamp(2.4rem, 11vw, 3.4rem); }
+      .hero-btns { align-items: stretch; }
+      .hero-tag { font-size: 0.62rem; letter-spacing: 0.08em; padding: 7px 12px; }
+      .hero-stats { margin-top: 32px; gap: 20px; }
+      .stat strong { font-size: 1.6rem; }
+      .filter-btns {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-left: -5vw; margin-right: -5vw;
+        padding: 0 5vw 4px;
+      }
+      .filter-btns::-webkit-scrollbar { display: none; }
+      .filter-btn { flex-shrink: 0; }
+      .projects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .project-card-overlay { padding: 12px; }
+      .project-card-title { font-size: 0.88rem; }
+      .project-card-count { font-size: 0.66rem; }
+      .project-card-tag { top: 8px; left: 8px; font-size: 0.55rem; padding: 4px 8px; letter-spacing: 0.06em; }
+      .cc-dots { top: 10px; right: 8px; }
+      .scroll-hint { display: none; }
+      .process-grid { grid-template-columns: 1fr; }
+      .process-step, .process-step:nth-child(3) {
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(10,10,10,0.14);
+      }
+      .bf-row, .bf-choices { grid-template-columns: 1fr; }
+      .brief-steps-list { display: none; }
+      .bf-nav .btn { width: auto; flex: 1; justify-content: center; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -1592,14 +2416,17 @@
          src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
          alt="Loop Creativo" />
     <ul class="nav-links">
-      <li><a href="#deportes">Deportes</a></li>
-      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#sobre">Nosotros</a></li>
       <li><a href="#portafolio">Portafolio</a></li>
+      <li><a href="#audiovisual">Audiovisual</a></li>
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#formulario">Formulario</a></li>
+      <li><a href="#formulario">Brief</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <button class="lang-btn" id="lang-btn" onclick="toggleLang()" aria-label="Cambiar idioma">🌐 EN</button>
+    <div class="nav-actions">
+      <button class="lang-btn" id="lang-btn" onclick="toggleLang()" aria-label="Cambiar idioma">🌐 EN</button>
+      <a href="#formulario" class="nav-cta" data-en="Start a project →">Iniciar proyecto →</a>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
@@ -1607,33 +2434,47 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#deportes" onclick="closeMobile()">Deportes</a>
-    <a href="#sobre" onclick="closeMobile()">Sobre mí</a>
+    <a href="#sobre" onclick="closeMobile()">Nosotros</a>
     <a href="#portafolio" onclick="closeMobile()">Portafolio</a>
+    <a href="#audiovisual" onclick="closeMobile()">Audiovisual</a>
     <a href="#servicios" onclick="closeMobile()">Servicios</a>
-    <a href="#formulario" onclick="closeMobile()">Formulario</a>
+    <a href="#formulario" onclick="closeMobile()">Brief</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
   </div>
 
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
-    <p class="hero-tag">⚾ Marketing Deportivo · Santo Domingo, RD</p>
-    <img class="hero-logo-main"
-         src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
-         alt="Loop Creativo" />
-    <div class="hero-ceo-badge">
-      <img src="Portafolio diigital de trabajos/Fotos/Foto del CEO/foto-ceo.jpg.png" alt="Lensy Reyes CEO"
-           onerror="this.style.display='none'" />
-      <span>CEO: <strong>Lensy Reyes</strong></span>
-    </div>
-    <p class="hero-sub">Elevamos la imagen de marcas, academias y atletas con producción audiovisual y gestión estratégica.</p>
-    <div class="hero-btns">
-      <a href="#deportes" class="btn btn-primary">Ver trabajo deportivo</a>
-      <a href="#formulario" class="btn btn-outline">Cotiza aquí</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-tag"><span class="live-dot"></span><span data-en="Digital Marketing Agency · Santo Domingo, DR">Agencia de Marketing Digital · Santo Domingo, RD</span></p>
+        <h1 class="hero-title" data-en="We create content that makes <span>brands grow.</span>">Creamos contenido que hace <span>crecer marcas.</span></h1>
+        <p class="hero-sub" data-en="We elevate your brand's image through audiovisual production, design and strategic social media management.">Elevamos la imagen de tu marca con producción audiovisual, diseño y gestión estratégica de redes sociales.</p>
+        <div class="hero-btns">
+          <a href="#portafolio" class="btn btn-primary" data-en="See our work →">Ver portafolio →</a>
+          <a href="#formulario" class="btn btn-outline" data-en="Fill out the brief">Llenar brief</a>
+        </div>
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <img class="hero-logo-main"
+             src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
+             alt="Loop Creativo" />
+        <div class="hero-ceo-badge">
+          <img src="Portafolio diigital de trabajos/Fotos/Foto del CEO/foto-ceo.jpg.png" alt="Lensy Reyes CEO"
+               onerror="this.style.display='none'" />
+          <span>CEO: <strong>Lensy Reyes</strong></span>
+        </div>
+      </div>
     </div>
     <div class="scroll-hint">Scroll</div>
   </section>
+
+  <!-- CINTA DE SERVICIOS -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
 
   <!-- SOBRE MÍ -->
   <section id="sobre">
@@ -1699,13 +2540,12 @@
   <!-- PORTAFOLIO -->
   <section id="portafolio">
     <div class="port-header reveal">
-      <p class="section-label">Trabajos</p>
-      <h2 class="section-title">Mi <span>Portafolio</span></h2>
+      <p class="section-label">Portafolio</p>
+      <h2 class="section-title">Trabajo <span>seleccionado</span></h2>
       <div class="divider"></div>
     </div>
     <div class="filter-btns reveal">
       <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="deportes">Deportes</button>
       <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
       <button class="filter-btn" data-filter="foto">Fotografía</button>
       <button class="filter-btn" data-filter="video">Video / Reels</button>
@@ -1722,13 +2562,13 @@
     <div class="yt-channel-card reveal" id="yt-channel-card"></div>
   </section>
 
-  <!-- DEPORTES -->
-  <section id="deportes">
+  <!-- PRODUCCIÓN AUDIOVISUAL -->
+  <section id="audiovisual">
     <div class="port-header reveal">
-      <p class="section-label">Nuestra Especialidad</p>
-      <h2 class="section-title">Marketing <span>Deportivo</span></h2>
+      <p class="section-label" data-en="Audiovisual Production">Producción Audiovisual</p>
+      <h2 class="section-title" data-en="Stories told <span>on video</span>">Historias contadas <span>en video</span></h2>
       <div class="divider"></div>
-      <p class="deportes-intro" style="max-width:680px; color:rgba(245,240,232,0.65); margin:-24px 0 40px; font-size:1rem; line-height:1.6;">Del terreno a las redes: coberturas de béisbol, historias de atletas y producción audiovisual deportiva. Así se ve el deporte cuando lo cuenta Loop Creativo.</p>
+      <p class="section-intro" data-en="Coverage, interviews, podcasts and branded content: audiovisual production built for digital platforms.">Coberturas, entrevistas, podcasts y contenido de marca: producción audiovisual pensada para las plataformas digitales.</p>
     </div>
     <div class="videos-grid">
       <a class="video-card reveal" href="https://www.youtube.com/watch?v=enWc7Taigr0" target="_blank" rel="noopener">
@@ -1799,10 +2639,40 @@
     <div class="reels-grid" id="reels-grid"></div>
   </section>
 
+  <!-- CÓMO TRABAJAMOS -->
+  <section id="proceso">
+    <div class="port-header reveal">
+      <p class="section-label" data-en="How we work">Cómo trabajamos</p>
+      <h2 class="section-title" data-en="From idea to <span>results</span>">De la idea a los <span>resultados</span></h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <span class="ps-num">01</span>
+        <h3 data-en="Brief">Brief</h3>
+        <p data-en="You tell us about your brand, your audience and your goals.">Nos cuentas sobre tu marca, tu público y tus objetivos.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="ps-num">02</span>
+        <h3 data-en="Strategy">Estrategia</h3>
+        <p data-en="We define the plan: what to say, where, and how often.">Definimos el plan: qué comunicar, dónde y con qué frecuencia.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="ps-num">03</span>
+        <h3 data-en="Production">Producción</h3>
+        <p data-en="We design, photograph and film your brand's content.">Diseñamos, fotografiamos y grabamos el contenido de tu marca.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="ps-num">04</span>
+        <h3 data-en="Results">Resultados</h3>
+        <p data-en="We publish, measure and optimize so your brand keeps growing.">Publicamos, medimos y optimizamos para que tu marca siga creciendo.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICIOS / PRECIOS -->
   <section id="servicios">
     <div class="servicios-intro reveal">
-      <p class="section-label">Lo que ofrezco</p>
+      <p class="section-label">Lo que ofrecemos</p>
       <h2 class="section-title">Nuestros <span>Servicios</span></h2>
       <div class="divider"></div>
     </div>
@@ -1871,8 +2741,8 @@
               <a id="btn-wa-quote" href="#" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;background:#25D366">
                 💬 Cotizar por WhatsApp
               </a>
-              <a href="https://forms.gle/TDN9NZ88FWkXLWnH6" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center">
-                📋 Llenar formulario completo
+              <a href="#formulario" class="btn btn-outline" style="width:100%;justify-content:center">
+                📋 Llenar brief completo
               </a>
               <button class="btn btn-outline" onclick="calcReset()" style="width:100%;justify-content:center">
                 🔄 Nueva cotización
@@ -1884,13 +2754,179 @@
     </div>
   </section>
 
-  <!-- FORMULARIO PARA PROYECTOS -->
-  <section id="formulario" style="text-align:center;">
-    <p class="section-label" style="text-align:center">Cuéntame tu proyecto</p>
-    <h2 class="section-title reveal">¿Tienes un <span>proyecto</span> en mente?</h2>
-    <div class="divider" style="margin: 0 auto 40px;"></div>
-    <p class="reveal" style="max-width:600px;margin:0 auto 36px;text-align:center;">Completa el formulario a continuación y cuéntame sobre tu proyecto. Te respondo en menos de 24 horas.</p>
-    <a href="https://forms.gle/TDN9NZ88FWkXLWnH6" target="_blank" rel="noopener" class="btn btn-primary reveal">Llenar formulario de proyecto</a>
+  <!-- BRIEF DE CLIENTE: DISEÑO Y REDES SOCIALES -->
+  <section id="formulario">
+    <div class="brief-wrap">
+      <aside class="brief-intro reveal">
+        <p class="section-label" data-en="Client Brief">Brief de Cliente</p>
+        <h2 class="section-title" data-en="Let's build <span>your project</span>">Construyamos <span>tu proyecto</span></h2>
+        <p class="brief-kicker" data-en="Client Brief: Design &amp; Social Media">Brief de Cliente: Diseño y Redes Sociales</p>
+        <p class="brief-lead" data-en="Hi! So we can deliver the best result and build a strategy or design that truly connects with your vision, please answer the following questions in as much detail as possible.">¡Hola! Para poder ofrecerte el mejor resultado y crear una estrategia o diseño que realmente conecte con tu visión, te pido que respondas las siguientes preguntas con el mayor detalle posible.</p>
+        <ol class="brief-steps-list" id="brief-steps-list"></ol>
+        <p class="brief-note" data-en="⏱ Takes about 8 minutes · Your progress is saved on this device.">⏱ Toma unos 8 minutos · Tu avance se guarda en este dispositivo.</p>
+      </aside>
+
+      <div class="brief-card reveal" id="brief-card">
+        <form id="brief-form" action="https://formsubmit.co/ajax/loopcreativord@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nuevo Brief de Cliente — loopcreativord.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="bf-progress">
+            <div class="bf-progress-top">
+              <span id="bf-step-label">Paso 1 de 6</span>
+              <span id="bf-step-name">Datos del Cliente</span>
+            </div>
+            <div class="bf-bar"><div class="bf-bar-fill" id="bf-bar-fill"></div></div>
+          </div>
+
+          <!-- 1. DATOS DEL CLIENTE -->
+          <fieldset class="brief-step on">
+            <legend data-en="Client details">Datos del Cliente</legend>
+            <div class="bf-row">
+              <div class="bf-field">
+                <label for="b-nombre"><span data-en="Name">Nombre</span> <b class="req">*</b></label>
+                <input type="text" id="b-nombre" name="Nombre" required autocomplete="name" />
+              </div>
+              <div class="bf-field">
+                <label for="b-telefono" data-en="Phone number / WhatsApp">Número de teléfono / WhatsApp</label>
+                <input type="tel" id="b-telefono" name="Teléfono" autocomplete="tel" placeholder="809-000-0000" />
+              </div>
+            </div>
+            <div class="bf-field">
+              <label for="b-email"><span data-en="Email">Correo electrónico</span> <b class="req">*</b></label>
+              <input type="email" id="b-email" name="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com" data-en-ph="you@example.com" />
+            </div>
+            <div class="bf-field">
+              <span class="bf-label"><span data-en="Which service do you need?">¿Qué servicio necesitas?</span> <b class="req">*</b></span>
+              <small class="bf-hint" data-en="Choose one or both — the brief adapts to your answer.">Elige uno o ambos: el brief se adapta a tu respuesta.</small>
+              <div class="bf-choices">
+                <label class="bf-choice">
+                  <input type="checkbox" id="b-svc-redes" name="Servicios" value="Manejo de Redes Sociales" data-svc="redes" checked />
+                  <span class="bf-choice-box"><strong data-en="Social Media Management">Manejo de Redes Sociales</strong><em data-en="Strategy, content and publishing">Estrategia, contenido y publicación</em></span>
+                </label>
+                <label class="bf-choice">
+                  <input type="checkbox" id="b-svc-diseno" name="Servicios" value="Diseño Gráfico" data-svc="diseno" checked />
+                  <span class="bf-choice-box"><strong data-en="Graphic Design">Diseño Gráfico</strong><em data-en="Logos, flyers, banners, signage">Logos, flyers, banners, rotulación</em></span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 2. CONOCIENDO LA EMPRESA -->
+          <fieldset class="brief-step">
+            <legend data-en="Getting to know your company">Conociendo la Empresa</legend>
+            <div class="bf-field">
+              <label for="b-marca"><span data-en="Brand / company name">Nombre de la marca/empresa</span> <b class="req">*</b></label>
+              <input type="text" id="b-marca" name="Marca / Empresa" required autocomplete="organization" />
+            </div>
+            <div class="bf-field">
+              <label for="b-dedica"><span data-en="What does your company do?">¿A qué se dedica tu empresa?</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="Describe your main products or services in a short paragraph.">Describe tus productos o servicios principales en un párrafo corto.</small>
+              <textarea id="b-dedica" name="A qué se dedica" rows="3" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-valor" data-en="What is your business's added value or competitive advantage?">¿Cuál es el valor agregado o la ventaja competitiva de tu negocio?</label>
+              <small class="bf-hint" data-en="Why do customers choose you over the competition?">¿Por qué los clientes te eligen a ti y no a la competencia?</small>
+              <textarea id="b-valor" name="Valor agregado" rows="3"></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-tiempo"><span data-en="How long have you been in the market?">¿Cuánto tiempo llevas en el mercado?</span> <b class="req">*</b></label>
+              <input type="text" id="b-tiempo" name="Tiempo en el mercado" required placeholder="Ej. 3 años" data-en-ph="E.g. 3 years" />
+            </div>
+          </fieldset>
+
+          <!-- 3. PÚBLICO OBJETIVO -->
+          <fieldset class="brief-step">
+            <legend data-en="Target audience">Público Objetivo (Target)</legend>
+            <div class="bf-field">
+              <label for="b-cliente"><span data-en="Who is your ideal customer?">¿Quién es tu cliente ideal?</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="Age, gender, location, occupation, income level.">Edad, género, ubicación, ocupación, nivel de ingresos.</small>
+              <textarea id="b-cliente" name="Cliente ideal" rows="3" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-problemas"><span data-en="What problems does your ideal customer have, and how does your product or service help solve them?">¿Qué problemas tiene tu cliente ideal y cómo ayuda tu producto o servicio a resolverlos?</span> <b class="req">*</b></label>
+              <textarea id="b-problemas" name="Problemas que resuelve" rows="3" required></textarea>
+            </div>
+          </fieldset>
+
+          <!-- 4. REDES SOCIALES -->
+          <fieldset class="brief-step" data-service="redes">
+            <legend data-en="Social Media Management">Manejo de Redes Sociales</legend>
+            <p class="bf-step-sub" data-en="Service-specific needs">Necesidades específicas del servicio</p>
+            <div class="bf-field">
+              <label for="b-plataformas"><span data-en="Which platforms are you on today, or would like to be on?">¿En qué plataformas tienes presencia actualmente o te gustaría estar?</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="Instagram, Facebook, TikTok, LinkedIn, etc.">Instagram, Facebook, TikTok, LinkedIn, etc.</small>
+              <textarea id="b-plataformas" name="Plataformas" rows="2" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-material"><span data-en="Do you have quality visual material (professional photos, 4K video) or do you need us to create that content?">¿Cuentas con material visual de calidad (fotografías profesionales, videos en 4K) o necesitas que nosotros creemos ese contenido?</span> <b class="req">*</b></label>
+              <textarea id="b-material" name="Material visual" rows="3" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-frecuencia"><span data-en="How often would you like to post per week?">¿Con qué frecuencia te gustaría publicar a la semana?</span> <b class="req">*</b></label>
+              <input type="text" id="b-frecuencia" name="Frecuencia de publicación" required placeholder="Ej. 3 veces por semana" data-en-ph="E.g. 3 times a week" />
+            </div>
+          </fieldset>
+
+          <!-- 5. DISEÑO GRÁFICO -->
+          <fieldset class="brief-step" data-service="diseno">
+            <legend data-en="Graphic Design">Diseño Gráfico</legend>
+            <p class="bf-step-sub" data-en="Service-specific needs">Necesidades específicas del servicio</p>
+            <div class="bf-field">
+              <label for="b-piezas"><span data-en="Which specific pieces do you need?">¿Qué piezas específicas necesitas?</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="E.g. logo, digital flyers, banners, vehicle wrap or storefront sign design, packaging.">Ej. Logotipo, flyers digitales, banners, diseño para rotulación de vehículos o letreros comerciales, empaques.</small>
+              <textarea id="b-piezas" name="Piezas de diseño" rows="3" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-formatos"><span data-en="In which formats do you need the final deliverables?">¿En qué formatos necesitas los entregables finales?</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="PNG, JPG, PDF, editable files, print-ready artwork for installation.">PNG, JPG, PDF, archivos editables, artes preparados para instalación.</small>
+              <textarea id="b-formatos" name="Formatos de entrega" rows="2" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-uso"><span data-en="Where will these designs be used?">¿Dónde se van a utilizar estos diseños?</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="Print, web, social media, trade shows.">Impresión, web, redes sociales, eventos feriales.</small>
+              <textarea id="b-uso" name="Uso de los diseños" rows="2" required></textarea>
+            </div>
+          </fieldset>
+
+          <!-- 6. COMPETENCIA Y REFERENCIAS -->
+          <fieldset class="brief-step">
+            <legend data-en="Competition &amp; references">Competencia y Referencias</legend>
+            <div class="bf-field">
+              <label for="b-competidores"><span data-en="Name 2 or 3 direct competitors">Menciona 2 o 3 competidores directos</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="If possible, include links to their social media or websites.">Si es posible, incluye enlaces a sus redes o sitios web.</small>
+              <textarea id="b-competidores" name="Competidores" rows="3" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-referencias"><span data-en="Name 2 or 3 social media accounts or brands you like visually (even outside your industry)">Menciona 2 o 3 cuentas de redes sociales o marcas que te gusten visualmente (aunque no sean de tu sector)</span> <b class="req">*</b></label>
+              <small class="bf-hint" data-en="What do you like about them?">¿Qué es lo que te atrae de ellas?</small>
+              <textarea id="b-referencias" name="Referencias visuales" rows="3" required></textarea>
+            </div>
+            <div class="bf-field">
+              <label for="b-evitar" data-en="Is there anything you DEFINITELY do NOT want to see in your designs or social media?">¿Hay algo que DEFINITIVAMENTE NO quieras ver en tus diseños o redes sociales?</label>
+              <small class="bf-hint" data-en="Banned colors, words that must not be used, styles you don't like.">Colores prohibidos, palabras que no se deben usar, estilos que no te gustan.</small>
+              <textarea id="b-evitar" name="Lo que NO quiere ver" rows="2"></textarea>
+            </div>
+          </fieldset>
+
+          <div class="form-status" id="brief-status"></div>
+          <div class="bf-nav">
+            <button type="button" class="btn btn-outline" id="bf-prev">← Atrás</button>
+            <button type="button" class="btn btn-primary" id="bf-next">Siguiente →</button>
+            <button type="submit" class="btn btn-primary" id="bf-submit">Enviar brief ✓</button>
+          </div>
+        </form>
+
+        <div class="bf-success" id="brief-success" hidden>
+          <div class="bf-success-icon">✓</div>
+          <h3 data-en="Thank you for your time and trust!">¡Gracias por tu tiempo y confianza!</h3>
+          <p data-en="We truly value the details you've shared about your vision. Our team will review this information in depth and get in touch with you very soon to schedule our next meeting, define the proposal and officially kick off your project. We're excited about what we're going to build together!">Valoramos mucho los detalles que nos has compartido sobre tu visión. Nuestro equipo analizará esta información a fondo y nos pondremos en contacto contigo muy pronto para agendar nuestra próxima reunión, definir la propuesta y dar el inicio oficial a tu proyecto. ¡Estamos emocionados por lo que vamos a construir juntos!</p>
+          <button type="button" class="btn btn-outline" id="bf-restart" data-en="Send another brief">Enviar otro brief</button>
+        </div>
+      </div>
+    </div>
   </section>
 
 
@@ -1949,7 +2985,7 @@
 
         <div class="wa-big reveal">
           <div class="wa-icon"><img src="Portafolio diigital de trabajos/ICONOS DE REDES SOCIALES/whatsapp.png" alt="WhatsApp" style="width:48px;height:48px;"/></div>
-          <h3 style="font-family:'DiloWorld',sans-serif; font-size:1.6rem; margin-bottom:10px; color:#fff;">¿Prefieres WhatsApp?</h3>
+          <h3 style="font-family:var(--font-display); font-size:1.6rem; margin-bottom:10px; color:#fff;">¿Prefieres WhatsApp?</h3>
           <p>Escríbeme directo y con gusto te atiendo. Respondo muy rápido.</p>
           <a href="https://api.whatsapp.com/send?phone=18093162624&utm_source=portfolio&utm_medium=web&utm_content=seccion_contacto"
              class="btn-wa" target="_blank" rel="noopener">
@@ -1962,14 +2998,21 @@
 
   <!-- FOOTER -->
   <footer>
-    <img src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
-         alt="Loop Creativo" />
-    <div class="youtube-widget">
-      <a href="https://www.youtube.com/@Loop.creativo" target="_blank" rel="noopener" title="Canal de YouTube">
-        ▶ Suscríbete a YouTube
-      </a>
+    <div class="footer-cta">
+      <div class="footer-kicker" data-en="Have a project in mind?">¿Tienes un proyecto en mente?</div>
+      <a href="#formulario" class="footer-big" data-en="Let's talk <span>→</span>">Hablemos <span>→</span></a>
+      <a class="footer-mail" href="mailto:loopcreativord@gmail.com">loopcreativord@gmail.com</a>
     </div>
-    <p>© 2025 <span>Loop Creativo</span> · Lensy Reyes · Todos los derechos reservados</p>
+    <div class="footer-bottom">
+      <img src="Portafolio diigital de trabajos/Logos de la agencia y paleta de colores/Loop Creativo Logo agencia.png"
+           alt="Loop Creativo" />
+      <div class="youtube-widget">
+        <a href="https://www.youtube.com/@Loop.creativo" target="_blank" rel="noopener" title="Canal de YouTube">
+          ▶ Suscríbete a YouTube
+        </a>
+      </div>
+      <p class="footer-copy">© 2026 <span>Loop Creativo</span> · Lensy Reyes · Todos los derechos reservados</p>
+    </div>
   </footer>
 
   <script>
@@ -2659,8 +3702,8 @@
             empty = document.createElement('div');
             empty.id = 'filter-empty';
             empty.style.cssText = 'grid-column:1/-1; text-align:center; padding:40px 20px; color:rgba(245,240,232,0.6); font-size:0.95rem;';
-            empty.innerHTML = L('🎬 Nuestro trabajo en video está en: <a href="#deportes" style="color:var(--orange); font-weight:800;">Marketing Deportivo</a> y <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a>',
-              '🎬 Our video work lives in: <a href="#deportes" style="color:var(--orange); font-weight:800;">Sports Marketing</a> and <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a>');
+            empty.innerHTML = L('🎬 Nuestro trabajo en video está en: <a href="#audiovisual" style="color:var(--orange); font-weight:800;">Producción Audiovisual</a> y <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a>',
+              '🎬 Our video work lives in: <a href="#audiovisual" style="color:var(--orange); font-weight:800;">Audiovisual Production</a> and <a href="#reels" style="color:var(--orange); font-weight:800;">Reels</a>');
             document.getElementById('project-cards-diseno').appendChild(empty);
           }
         } else if (empty) {
@@ -2948,6 +3991,21 @@
     renderServiciosGrid();
     renderYtChannelCard();
 
+    // ── ENVÍO A FORMSUBMIT (llega a loopcreativord@gmail.com) ──
+    // FormSubmit responde 200 aunque el formulario no esté activado; el éxito real viene en data.success.
+    async function sendToFormSubmit(action, formData) {
+      const res = await fetch(action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') {
+        throw new Error(data.message || 'Envío no confirmado');
+      }
+      return data;
+    }
+
     // ── FORMULARIO DE CONTACTO (FormSubmit) ──
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -2959,27 +4017,187 @@
         submitBtn.textContent = L('Enviando...','Sending...');
         status.className = 'form-status';
         try {
-          const res = await fetch(contactForm.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(contactForm)
-          });
-          if (res.ok) {
-            status.textContent = L('✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas.','✓ Message sent! We reply within 24 hours.');
-            status.classList.add('success');
-            contactForm.reset();
-            if (typeof gtag === 'function') {
-              gtag('event', 'envio_formulario_contacto', { event_category: 'Conversion', event_label: 'Formulario de contacto' });
-            }
-          } else {
-            throw new Error('Respuesta no OK');
+          await sendToFormSubmit(contactForm.action, new FormData(contactForm));
+          status.textContent = L('✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas.','✓ Message sent! We reply within 24 hours.');
+          status.classList.add('success');
+          contactForm.reset();
+          if (typeof gtag === 'function') {
+            gtag('event', 'envio_formulario_contacto', { event_category: 'Conversion', event_label: 'Formulario de contacto' });
           }
         } catch (err) {
+          console.warn('FormSubmit:', err.message);
           status.textContent = L('✗ No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.','✗ Could not send. Try again or message us on WhatsApp.');
           status.classList.add('error');
         }
         submitBtn.disabled = false;
         submitBtn.textContent = L('Enviar mensaje','Send message');
+      });
+    }
+
+    // ── HERO: CIFRAS + CINTA DE SERVICIOS ──
+    function renderHeroStats() {
+      const el = document.getElementById('hero-stats');
+      if (!el) return;
+      el.innerHTML = `
+        <div class="stat"><strong>${PROJECTS_DATA.length}+</strong><span>${L('Proyectos realizados','Projects delivered')}</span></div>
+        <div class="stat"><strong>${CLIENT_LOGOS.length}+</strong><span>${L('Marcas aliadas','Partner brands')}</span></div>
+        <div class="stat"><strong>24h</strong><span>${L('Tiempo de respuesta','Response time')}</span></div>`;
+    }
+    const TICKER_ITEMS = [
+      ['Marketing Digital', 'Digital Marketing'],
+      ['Manejo de Redes Sociales', 'Social Media Management'],
+      ['Diseño Gráfico', 'Graphic Design'],
+      ['Branding', 'Branding'],
+      ['Producción Audiovisual', 'Audiovisual Production'],
+      ['Fotografía', 'Photography'],
+      ['Publicidad Digital', 'Digital Advertising'],
+      ['Desarrollo Web', 'Web Development'],
+    ];
+    function renderTicker() {
+      const track = document.getElementById('ticker-track');
+      if (!track) return;
+      const row = TICKER_ITEMS.map(([es, en]) => `<span>${L(es, en)}</span><i>✦</i>`).join('');
+      track.innerHTML = row + row;
+    }
+    renderHeroStats();
+    renderTicker();
+
+    // ── BRIEF DE CLIENTE (formulario por pasos, se envía por FormSubmit) ──
+    const briefForm = document.getElementById('brief-form');
+    const BRIEF_DRAFT_KEY = 'lc-brief-draft';
+    let briefIdx = 0;
+
+    function briefSelectedServices() {
+      return [...briefForm.querySelectorAll('input[name="Servicios"]:checked')].map(i => i.dataset.svc);
+    }
+    // Los pasos de un servicio no elegido se desactivan: no se validan ni se envían
+    function briefActiveSteps() {
+      const svc = briefSelectedServices();
+      const steps = [...briefForm.querySelectorAll('.brief-step')];
+      steps.forEach(s => { s.disabled = !!(s.dataset.service && !svc.includes(s.dataset.service)); });
+      return steps.filter(s => !s.disabled);
+    }
+    function briefStepName(step) {
+      return step.querySelector('legend').textContent.trim();
+    }
+    function briefRender() {
+      const active = briefActiveSteps();
+      if (briefIdx > active.length - 1) briefIdx = active.length - 1;
+      briefForm.querySelectorAll('.brief-step').forEach(s => s.classList.remove('on'));
+      const cur = active[briefIdx];
+      cur.classList.add('on');
+      const last = briefIdx === active.length - 1;
+      document.getElementById('bf-step-label').textContent = L(`Paso ${briefIdx + 1} de ${active.length}`, `Step ${briefIdx + 1} of ${active.length}`);
+      document.getElementById('bf-step-name').textContent = briefStepName(cur);
+      document.getElementById('bf-bar-fill').style.width = ((briefIdx + 1) / active.length * 100) + '%';
+      document.getElementById('bf-prev').style.visibility = briefIdx === 0 ? 'hidden' : 'visible';
+      document.getElementById('bf-prev').textContent = L('← Atrás', '← Back');
+      document.getElementById('bf-next').hidden = last;
+      document.getElementById('bf-next').textContent = L('Siguiente →', 'Next →');
+      document.getElementById('bf-submit').hidden = !last;
+      document.getElementById('bf-submit').textContent = L('Enviar brief ✓', 'Send brief ✓');
+      document.getElementById('brief-steps-list').innerHTML = active.map((s, i) =>
+        `<li class="${i < briefIdx ? 'done' : ''}${i === briefIdx ? ' current' : ''}"><span>${String(i + 1).padStart(2, '0')}</span>${briefStepName(s)}</li>`
+      ).join('');
+    }
+    function briefValidateCurrent() {
+      const cur = briefActiveSteps()[briefIdx];
+      const svcBoxes = [...cur.querySelectorAll('input[name="Servicios"]')];
+      if (svcBoxes.length) {
+        svcBoxes[0].setCustomValidity(briefSelectedServices().length ? '' : L('Elige al menos un servicio.', 'Choose at least one service.'));
+      }
+      for (const f of cur.querySelectorAll('input, textarea')) {
+        if (!f.checkValidity()) { f.reportValidity(); f.focus(); return false; }
+      }
+      return true;
+    }
+    function briefGo(delta) {
+      briefIdx = Math.max(0, briefIdx + delta);
+      briefRender();
+      const card = document.getElementById('brief-card');
+      if (card.getBoundingClientRect().top < 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function briefSaveDraft() {
+      try {
+        const d = {};
+        briefForm.querySelectorAll('input[id], textarea[id]').forEach(f => {
+          d[f.id] = f.type === 'checkbox' ? f.checked : f.value;
+        });
+        localStorage.setItem(BRIEF_DRAFT_KEY, JSON.stringify(d));
+      } catch (e) {}
+    }
+    function briefLoadDraft() {
+      try {
+        const d = JSON.parse(localStorage.getItem(BRIEF_DRAFT_KEY) || 'null');
+        if (!d) return;
+        Object.entries(d).forEach(([id, v]) => {
+          const f = document.getElementById(id);
+          if (!f) return;
+          if (f.type === 'checkbox') f.checked = !!v; else f.value = v;
+        });
+      } catch (e) {}
+    }
+
+    if (briefForm) {
+      briefLoadDraft();
+      briefRender();
+      let briefStarted = false;
+      briefForm.addEventListener('input', () => {
+        briefSaveDraft();
+        if (!briefStarted && typeof gtag === 'function') {
+          briefStarted = true;
+          gtag('event', 'inicio_brief', { event_category: 'Conversion', event_label: 'Brief de Cliente' });
+        }
+      });
+      briefForm.addEventListener('change', e => {
+        if (e.target.name === 'Servicios') { e.target.setCustomValidity(''); briefRender(); }
+      });
+      document.getElementById('bf-prev').addEventListener('click', () => briefGo(-1));
+      document.getElementById('bf-next').addEventListener('click', () => { if (briefValidateCurrent()) briefGo(1); });
+
+      briefForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        if (!briefValidateCurrent()) return;
+        // Enter en un campo antes del último paso = avanzar, no enviar
+        if (briefIdx < briefActiveSteps().length - 1) { briefGo(1); return; }
+
+        const status = document.getElementById('brief-status');
+        const btn = document.getElementById('bf-submit');
+        status.className = 'form-status';
+        btn.disabled = true;
+        btn.textContent = L('Enviando...', 'Sending...');
+
+        const fd = new FormData(briefForm);
+        const services = fd.getAll('Servicios').join(', ');
+        fd.delete('Servicios');
+        fd.append('Servicios', services);
+        fd.append('Idioma del formulario', LANG === 'en' ? 'English' : 'Español');
+        fd.set('_subject', `Nuevo Brief de Cliente — ${fd.get('Marca / Empresa') || fd.get('Nombre')}`);
+
+        try {
+          await sendToFormSubmit(briefForm.action, fd);
+          briefForm.hidden = true;
+          document.getElementById('brief-success').hidden = false;
+          try { localStorage.removeItem(BRIEF_DRAFT_KEY); } catch (err) {}
+          if (typeof gtag === 'function') {
+            gtag('event', 'envio_brief', { event_category: 'Conversion', event_label: services });
+          }
+        } catch (err) {
+          console.warn('FormSubmit:', err.message);
+          status.textContent = L('✗ No se pudo enviar el brief. Intenta de nuevo o escríbenos por WhatsApp.', '✗ The brief could not be sent. Try again or message us on WhatsApp.');
+          status.classList.add('error');
+        }
+        btn.disabled = false;
+        btn.textContent = L('Enviar brief ✓', 'Send brief ✓');
+      });
+
+      document.getElementById('bf-restart').addEventListener('click', () => {
+        briefForm.reset();
+        briefIdx = 0;
+        briefForm.hidden = false;
+        document.getElementById('brief-success').hidden = true;
+        document.getElementById('brief-status').className = 'form-status';
+        briefRender();
       });
     }
 
@@ -3015,15 +4233,11 @@
     // ── TRADUCCIONES ESTÁTICAS (selector → HTML en inglés) ──
     const I18N = [
       ['#loader-text', 'Building your experience...'],
-      ['a[href="#sobre"].nav-link-i, .nav-links a[href="#sobre"], .mobile-menu a[href="#sobre"]', 'About me'],
+      ['.nav-links a[href="#sobre"], .mobile-menu a[href="#sobre"]', 'About us'],
       ['.nav-links a[href="#portafolio"], .mobile-menu a[href="#portafolio"]', 'Portfolio'],
       ['.nav-links a[href="#servicios"], .mobile-menu a[href="#servicios"]', 'Services'],
-      ['.nav-links a[href="#formulario"], .mobile-menu a[href="#formulario"]', 'Project Form'],
+      ['.nav-links a[href="#formulario"], .mobile-menu a[href="#formulario"]', 'Brief'],
       ['.nav-links a[href="#contacto"], .mobile-menu a[href="#contacto"]', 'Contact'],
-      ['.hero-tag', '📍 Santo Domingo, Dominican Republic'],
-      ['.hero-sub', 'We elevate the image of brands, academies and athletes through audiovisual production and strategic management.'],
-      ['.hero-btns .btn-primary', 'See my work'],
-      ['.hero-btns .btn-outline', 'Get a quote'],
       ['#sobre .section-label', 'About our CEO'],
       ['#sobre .section-title', 'Behind <span>Loop Creativo</span>'],
       ['#sobre .sobre-content p:nth-of-type(2)', 'Founder of <strong style="color:var(--orange)">Loop Creativo</strong>, an advertising and digital content agency based in Santo Domingo. I specialize in audiovisual production focused 100% on the digital environment and social media.'],
@@ -3034,8 +4248,8 @@
       ['.sobre-skills .skill-tag:nth-child(4)', 'Photography'],
       ['.sobre-skills .skill-tag:nth-child(5)', 'Video Editing'],
       ['.sobre-skills .skill-tag:nth-child(6)', 'Mockups'],
-      ['#portafolio .section-label', 'Work'],
-      ['#portafolio .section-title', 'My <span>Portfolio</span>'],
+      ['#portafolio .section-label', 'Portfolio'],
+      ['#portafolio .section-title', 'Selected <span>work</span>'],
       ['.filter-btn[data-filter="all"]', 'All'],
       ['.filter-btn[data-filter="diseno"]', 'Graphic Design'],
       ['.filter-btn[data-filter="foto"]', 'Photography'],
@@ -3049,8 +4263,6 @@
       ['#marcas .section-title', 'Brands that have <span>worked</span> with us'],
       ['#reels .section-label', 'Digital Content'],
       ['#reels .section-title', 'Reels for <span>Social Media</span>'],
-      ['#videos-youtube .section-label', 'Audiovisual Production'],
-      ['#videos-youtube .section-title', 'Videos on <span>YouTube</span>'],
       ['.video-sub', 'Watch on YouTube →'],
       ['#servicios .section-label', 'What we offer'],
       ['#servicios .section-title', 'Our <span>Services</span>'],
@@ -3069,12 +4281,8 @@
       ['#btn-send-request', '✓ Send request'],
       ['.calc-result h3', 'Ready for your quote!'],
       ['#btn-wa-quote', '💬 Get a quote on WhatsApp'],
-      ['#calc-step-3 a.btn-outline', '📋 Fill out the full form'],
+      ['#calc-step-3 a.btn-outline', '📋 Fill out the full brief'],
       ['#calc-step-3 button.btn-outline', '🔄 New quote'],
-      ['#formulario .section-label', 'Tell me about your project'],
-      ['#formulario .section-title', 'Have a <span>project</span> in mind?'],
-      ['#formulario > p.reveal', 'Fill out the form below and tell me about your project. I reply within 24 hours.'],
-      ['#formulario a.btn-primary', 'Fill out project form'],
       ['#contacto .section-label', 'Contact'],
       ['#contacto .section-title', 'Let\'s talk about your <span>idea</span>'],
       ['#contacto .contacto-info > p.reveal', 'I\'m available for design, digital content and photography projects, and more. Don\'t hesitate to reach out.'],
@@ -3088,7 +4296,7 @@
       ['.wa-big p', 'Message me directly and I\'ll be glad to help. I reply fast.'],
       ['.btn-wa', '💬 Message me on WhatsApp'],
       ['.youtube-widget a', '▶ Subscribe on YouTube'],
-      ['footer p', '© 2025 <span>Loop Creativo</span> · Lensy Reyes · All rights reserved'],
+      ['.footer-copy', '© 2026 <span>Loop Creativo</span> · Lensy Reyes · All rights reserved'],
     ];
     const I18N_PLACEHOLDERS = [
       ['#cf-nombre', 'Your name'],
@@ -3100,8 +4308,17 @@
       localStorage.setItem('lc-lang', lang);
       document.documentElement.lang = lang;
       document.title = lang === 'en'
-        ? 'Loop Creativo | Design & Digital Content Agency in Santo Domingo, DR'
-        : 'Loop Creativo | Agencia de Diseño y Contenido Digital en Santo Domingo, RD';
+        ? 'Loop Creativo | Digital Marketing Agency in Santo Domingo, DR'
+        : 'Loop Creativo | Agencia de Marketing Digital en Santo Domingo, RD';
+      // Elementos con data-en (guarda el español original la primera vez)
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+        el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.es;
+      });
+      document.querySelectorAll('[data-en-ph]').forEach(el => {
+        if (el.dataset.esPh === undefined) el.dataset.esPh = el.placeholder;
+        el.placeholder = lang === 'en' ? el.dataset.enPh : el.dataset.esPh;
+      });
       // Textos estáticos: guarda el español original y alterna
       I18N.forEach(([sel, en]) => {
         document.querySelectorAll(sel).forEach(el => {
@@ -3130,6 +4347,9 @@
       calcInit();
       renderSelectedChips();
       renderReels();
+      renderHeroStats();
+      renderTicker();
+      if (briefForm) briefRender();
       document.querySelectorAll('#portafolio .project-card, #servicios .servicio-cat-card').forEach(el => el.classList.add('visible'));
       if (typeof gtag === 'function') gtag('event', 'cambio_idioma', { event_category: 'UI', event_label: lang });
     }
@@ -3143,7 +4363,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Loop Creativo",
-    "description": "Agencia de diseño gráfico, contenido digital, fotografía y manejo de redes sociales en Santo Domingo, República Dominicana.",
+    "description": "Agencia de marketing digital en Santo Domingo, República Dominicana: manejo de redes sociales, diseño gráfico, branding, producción audiovisual, fotografía y publicidad digital.",
     "url": "https://loopcreativord.com",
     "telephone": "+18093162624",
     "email": "loopcreativord@gmail.com",
