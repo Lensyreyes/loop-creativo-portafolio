@@ -1979,6 +1979,7 @@
     }
     .project-card-tag.tag-foto { background: rgba(10,10,10,0.6); }
     .project-card-tag.tag-foto::before { background: #6F8BFF; }
+    .project-card-tag.tag-montaje::before { background: #2ED3A0; }
     .project-card-tag.tag-rebrand { border-color: transparent; }
     .project-card-tag.tag-rebrand::before { display: none; }
     .cc-dots span.on { background: var(--orange); }
@@ -2654,6 +2655,7 @@
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="diseno">Diseño Gráfico</button>
       <button class="filter-btn" data-filter="foto">Fotografía</button>
+      <button class="filter-btn" data-filter="montaje">Montaje de Exhibiciones</button>
       <button class="filter-btn" data-filter="video">Video / Reels</button>
       <button class="filter-btn" data-filter="redes">Redes Sociales</button>
       <button class="filter-btn" data-filter="eventos">Eventos</button>
@@ -3150,6 +3152,8 @@
       'Eventos y Shows BTL': 'BTL Events & Shows',
       'Diseño Gráfico · Redes Sociales': 'Graphic Design · Social Media',
       'Social Media Rebrand · Concepto no oficial': 'Social Media Rebrand · Unofficial concept',
+      'Montaje de Exhibición · Isuzu (Autocamiones, S.A.)': 'Exhibition Setup · Isuzu (Autocamiones, S.A.)',
+      'Montaje de Exhibiciones y Stands': 'Exhibition & Booth Setup',
       'Fotografía de Producto': 'Product Photography',
       'Fotografía de Evento': 'Event Photography',
       'Fotografía de Evento · Rueda de Prensa': 'Event Photography · Press Conference',
@@ -3244,6 +3248,8 @@
       { name: 'BeLife', file: 'BELIFE.png' },
       { name: 'ML Príncipe Auto Adornos', file: 'ML PRINCIPE AUTO ADORNOS.png' },
       { name: 'Mlopez Luxury Auto Import', file: 'Mlopez Luxury Auto Import.png' },
+      { name: 'AG Nutrition', file: 'AG NUTRITION.png' },
+      { name: 'Cartesano', file: 'cartesano.png' },
     ];
     function renderMarquee() {
       const track = document.getElementById('marquee-track');
@@ -3298,6 +3304,68 @@
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Granjeros de Moca/Arte 5.png', alt: 'Granjeros de Moca — Arte 5' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Granjeros de Moca/Arte 6.png', alt: 'Granjeros de Moca — Arte 6' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Granjeros de Moca/Arte 7.png', alt: 'Granjeros de Moca — Arte 7' },
+        ]
+      },
+      {
+        title: 'AG Nutrition',
+        cat: 'diseno',
+        sub: 'Diseño Gráfico · Redes Sociales',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/AG Nutrition/Post Creatina.png',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AG Nutrition/Post Creatina.png', alt: 'Creatina Nutrex' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AG Nutrition/Creatina 1.png', alt: 'Creatina 1' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AG Nutrition/Creatina 2.png', alt: 'Creatina 2' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AG Nutrition/Aminoacidos.png', alt: 'Aminoácidos' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/AG Nutrition/Whatsapp Nuevo.png', alt: 'Nuevo número de WhatsApp' },
+        ]
+      },
+      {
+        title: 'Brotherhood League',
+        cat: 'diseno',
+        sub: 'Diseño Gráfico · Redes Sociales',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Juan Diego.png',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Juan Diego.png', alt: 'Draft 2026 — Juan Diego' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Calendario.png', alt: 'Serie de fogueo — Calendario' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Angel Lao.png', alt: 'Draft 2026 — Angel Lao' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Kyrie Sanchez.png', alt: 'Draft 2026 — Kyrie Sánchez' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Ricardo Monsanto.png', alt: 'Draft 2026 — Ricardo Monsanto' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Angel Peña.png', alt: 'Draft 2026 — Angel Peña' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Enmanuel Carmona.png', alt: 'Draft 2026 — Enmanuel Carmona' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Erick Sanchez.png', alt: 'Draft 2026 — Erick Sánchez' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Rafael Erazo.png', alt: 'Draft 2026 — Rafael Erazo' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Brotherhood/Reimy Quezada.png', alt: 'Draft 2026 — Reimy Quezada' },
+        ]
+      },
+      {
+        title: 'Retiro Reset 2.0',
+        cat: 'diseno',
+        sub: 'Diseño Gráfico · Redes Sociales',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Reset 2.0/Reset.png',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Reset 2.0/Reset.png', alt: 'Retiro Reset 2.0' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Reset 2.0/Reset mañana abren las inscripciones .png', alt: 'Mañana abren las inscripciones' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Reset 2.0/85%25.png', alt: '85% de cupos' },
+        ]
+      },
+      {
+        title: 'Cartesano',
+        cat: 'diseno',
+        sub: 'Diseño Gráfico · Redes Sociales',
+        cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Cartesano/Cartesano.jpg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Cartesano/Cartesano.jpg', alt: 'Cambio de aceite sin mano de obra' },
+        ]
+      },
+      {
+        title: 'Rally Frontera',
+        cat: 'montaje',
+        sub: 'Montaje de Exhibición · Isuzu (Autocamiones, S.A.)',
+        cover: 'Portafolio diigital de trabajos/Coordinacion de Eventos/Rally Frontera/Montaje ffinal 01.jpeg',
+        images: [
+          { src: 'Portafolio diigital de trabajos/Coordinacion de Eventos/Rally Frontera/Visual.png', alt: 'Propuesta visual del montaje' },
+          { src: 'Portafolio diigital de trabajos/Coordinacion de Eventos/Rally Frontera/Montaje final 02.jpeg', alt: 'Montaje final — de día' },
+          { src: 'Portafolio diigital de trabajos/Coordinacion de Eventos/Rally Frontera/Montaje ffinal 01.jpeg', alt: 'Montaje final — de noche' },
         ]
       },
       {
@@ -3457,6 +3525,7 @@
         cover: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Portada.jpg',
         images: [
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Semi full.jpg', alt: 'Isuzu Semi Full' },
+          { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Isuzu.jpg', alt: 'Radiografía D-Max' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/dmax_Mesa de trabajo 1.jpg', alt: 'D-Max' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Expofomenta_Mesa de trabajo 1 (1).jpg', alt: 'Expofomenta' },
           { src: 'Portafolio diigital de trabajos/Artes de redes sociales/Isuzu/Aprovecha la Feria Fleximóvil BHD y llévate tu nueva Isuzu MU-X con condiciones especiales. Es e.jpg', alt: 'Feria Fleximóvil BHD' },
@@ -3659,6 +3728,11 @@
     // Categorías extra por proyecto (un proyecto puede pertenecer a varias)
     const EXTRA_CATS = {
       'Granjeros de Moca': 'redes publicidad',
+      'AG Nutrition': 'redes publicidad',
+      'Brotherhood League': 'redes eventos',
+      'Retiro Reset 2.0': 'redes eventos',
+      'Cartesano': 'redes publicidad',
+      'Rally Frontera': 'eventos',
       'Baseball Flyers': 'redes',
       'Artes de Legendarios': 'redes eventos',
       'Blessed Handbags': 'publicidad redes',
@@ -3683,14 +3757,16 @@
 
     // Proyectos destacados (se muestran por defecto; el resto tras "Ver más")
     const FEATURED = [
-      'Granjeros de Moca', 'Baseball Flyers', 'Artes de Legendarios', 'Mlopez Luxury Auto Import',
-      'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
+      'Granjeros de Moca', 'Baseball Flyers', 'AG Nutrition', 'Artes de Legendarios', 'Mlopez Luxury Auto Import',
+      'Rally Frontera', 'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
     ];
-    // Orden visual: diseño primero, luego fotografía, agrupados por afinidad de color
+    // Orden visual: diseño primero, luego montajes y fotografía, agrupados por afinidad de color
     const CARD_ORDER = [
-      'Granjeros de Moca', 'Baseball Flyers', 'Artes de Legendarios', 'BeLife', 'Mlopez Luxury Auto Import',
+      'Granjeros de Moca', 'Baseball Flyers', 'AG Nutrition', 'Artes de Legendarios', 'Mlopez Luxury Auto Import',
+      'Brotherhood League', 'Retiro Reset 2.0', 'BeLife', 'Cartesano',
       'ML Príncipe Auto Adornos', 'Smart Tech', 'Reid y Compañía Equipos Pesados',
       'Isuzu', 'Jeep', 'Ram',
+      'Rally Frontera',
       'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
       'Expo Puerto Plata 2025', 'Polo In The City - Maserati',
       'Premiación Fed. Dom. Deportes Ecuestres', 'Rally Playero 2025',
@@ -3729,10 +3805,10 @@
                  <div class="cc-dots">${slides.map((_, j) => `<span class="${j === 0 ? 'on' : ''}"></span>`).join('')}</div>
                </div>`;
           })()}
-          <span class="project-card-tag ${p.carousel ? 'tag-rebrand' : (p.cat === 'foto' ? 'tag-foto' : '')}">${p.carousel ? 'Rebrand' : (p.cat === 'foto' ? L('Fotografía','Photography') : L('Diseño','Design'))}</span>
+          <span class="project-card-tag ${p.carousel ? 'tag-rebrand' : p.cat === 'foto' ? 'tag-foto' : p.cat === 'montaje' ? 'tag-montaje' : ''}">${p.carousel ? 'Rebrand' : p.cat === 'foto' ? L('Fotografía','Photography') : p.cat === 'montaje' ? L('Montaje','Exhibit') : L('Diseño','Design')}</span>
           <div class="project-card-overlay">
             <div class="project-card-title">${p.title}</div>
-            <div class="project-card-count">${p.images.length} ${L('piezas · Ver proyecto →','pieces · View project →')}</div>
+            <div class="project-card-count">${p.images.length} ${p.images.length === 1 ? L('pieza · Ver proyecto →','piece · View project →') : L('piezas · Ver proyecto →','pieces · View project →')}</div>
           </div>
         </div>
       `).join('') + `
@@ -3921,6 +3997,7 @@
         'Contenidos para Redes Sociales',
         'Activaciones de Marca BTL',
         'Eventos y Shows BTL',
+        'Montaje de Exhibiciones y Stands',
       ]},
     ];
 
@@ -4379,6 +4456,7 @@
       ['.filter-btn[data-filter="all"]', 'All'],
       ['.filter-btn[data-filter="diseno"]', 'Graphic Design'],
       ['.filter-btn[data-filter="foto"]', 'Photography'],
+      ['.filter-btn[data-filter="montaje"]', 'Exhibition Setup'],
       ['.filter-btn[data-filter="redes"]', 'Social Media'],
       ['.filter-btn[data-filter="eventos"]', 'Events'],
       ['.filter-btn[data-filter="publicidad"]', 'Digital Ads'],
