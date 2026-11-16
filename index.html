@@ -3734,12 +3734,11 @@
     const EXTRA_CATS = {
       'Granjeros de Moca': 'redes publicidad',
       'AG Nutrition': 'redes publicidad',
-      'Brotherhood League': 'redes eventos',
-      'Retiro Reset 2.0': 'redes eventos',
+      'Brotherhood League': 'redes',
+      'Retiro Reset 2.0': 'redes',
       'Cartesano': 'redes publicidad',
-      'Rally Frontera': 'eventos',
       'Baseball Flyers': 'redes',
-      'Artes de Legendarios': 'redes eventos',
+      'Artes de Legendarios': 'redes',
       'Blessed Handbags': 'publicidad redes',
       'Fotos Legendarios': 'eventos',
       'ML Príncipe Auto Adornos': 'redes',
@@ -3779,6 +3778,21 @@
     ];
     let showAllProjects = false;
 
+    // Miniaturas livianas para las tarjetas (las fotos completas se ven al abrir el proyecto).
+    // Nombre = parte legible + hash FNV-1a de la ruta original; se generan con un script aparte.
+    function thumbOf(src) {
+      let h = 0x811c9dc5;
+      for (let i = 0; i < src.length; i++) { h ^= src.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+      const slug = src.split('/').slice(-2).join('-').replace(/[^A-Za-z0-9]+/g, '-').slice(0, 50);
+      return `miniaturas/${slug}-${h.toString(16).padStart(8, '0')}.webp`;
+    }
+    // Si falta una miniatura, se usa la foto original
+    function thumbFallback(img) {
+      if (img.dataset.full && img.getAttribute('src') !== img.dataset.full) img.src = img.dataset.full;
+    }
+    const cardImg = (src, alt, cls) =>
+      `<img src="${thumbOf(src)}" data-full="${src}" onerror="thumbFallback(this)" alt="${alt}"${cls ? ` class="${cls}"` : ''} loading="lazy"/>`;
+
     function renderProjectCards() {
       const container = document.getElementById('project-cards-diseno');
       if (!container) return;
@@ -3804,9 +3818,9 @@
             const slides = [{ src: p.cover, alt: p.title }]
               .concat(p.images.filter(im => im.src !== p.cover))
               .slice(0, 5);
-            if (slides.length < 2) return `<img src="${p.cover}" alt="${p.title}" loading="lazy"/>`;
+            if (slides.length < 2) return cardImg(p.cover, p.title);
             return `<div class="card-carousel">
-                 ${slides.map((im, j) => `<img src="${im.src}" alt="${im.alt}" class="${j === 0 ? 'on' : ''}" loading="lazy"/>`).join('')}
+                 ${slides.map((im, j) => cardImg(im.src, im.alt, j === 0 ? 'on' : '')).join('')}
                  <div class="cc-dots">${slides.map((_, j) => `<span class="${j === 0 ? 'on' : ''}"></span>`).join('')}</div>
                </div>`;
           })()}
