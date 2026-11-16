@@ -982,12 +982,48 @@
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.95);
-      z-index: 1000;
+      z-index: 1200; /* por encima de la ventana del proyecto (1100) */
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
     #lightbox.open { display: flex; }
+    .lb-nav {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 48px; height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lb-nav:hover { background: rgba(255,91,0,0.35); border-color: var(--orange); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    #lightbox.has-nav .lb-nav { display: flex; }
+    #lb-count {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+    @media (max-width: 600px) {
+      .lb-nav { width: 40px; height: 40px; background: rgba(0,0,0,0.5); }
+      .lb-prev { left: 8px; }
+      .lb-next { right: 8px; }
+    }
     #lightbox img, #lightbox video {
       max-width: 90vw;
       max-height: 90vh;
@@ -996,6 +1032,7 @@
     }
     #lightbox-close {
       position: absolute;
+      z-index: 2;
       top: 20px; right: 24px;
       background: none;
       border: none;
@@ -1983,6 +2020,21 @@
     .project-card-tag.tag-rebrand { border-color: transparent; }
     .project-card-tag.tag-rebrand::before { display: none; }
     .cc-dots span.on { background: var(--orange); }
+    /* Proyectos recientes: etiqueta "Nuevo" y borde naranja */
+    .project-card.is-new { border-color: rgba(255,91,0,0.6); }
+    .project-card-new {
+      align-self: flex-start;
+      background: var(--orange-grad);
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 30px;
+      margin-bottom: 8px;
+      box-shadow: 0 6px 18px -6px rgba(255,91,0,0.75);
+    }
 
     /* Videos (audiovisual + reels): tarjetas cuadradas, más pequeñas que las de proyectos */
     #reels { background: var(--gray); }
@@ -2721,8 +2773,11 @@
 
   <!-- LIGHTBOX -->
   <div id="lightbox">
-    <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button id="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
+    <button class="lb-nav lb-prev" onclick="lbStep(-1)" aria-label="Foto anterior">‹</button>
     <div id="lightbox-content"></div>
+    <button class="lb-nav lb-next" onclick="lbStep(1)" aria-label="Foto siguiente">›</button>
+    <div id="lb-count"></div>
   </div>
 
   <!-- PROJECT MODAL -->
@@ -3855,6 +3910,29 @@
       'Granjeros de Moca', 'Baseball Flyers', 'AG Nutrition', 'Artes de Legendarios', 'Mlopez Luxury Auto Import',
       'Rally Frontera', 'Blessed Handbags', 'Fotos Legendarios', 'Asonahores 2025', 'Jeep Wrangler 2026',
     ];
+    // Fecha en que se agregó cada proyecto (AAAA-MM-DD). Al agregar uno nuevo, poner aquí su fecha:
+    // durante NUEVO_DIAS días sale primero en "Trabajo seleccionado" y con la etiqueta "Nuevo".
+    const ADDED_ON = {
+      'Expomóvil Banreservas - Isuzu': '2026-11-15', 'RPM Julio - Legendarios': '2026-11-15',
+      'Torneo Reid - Padel Point 360': '2026-11-15', 'Spirit Sessions - Reid & Compañía': '2026-11-15',
+      'Isuzu D-Max - Social Brunch Bloom': '2026-11-15',
+      'Retiro Reset 2.0': '2026-09-29', 'Rally Frontera': '2026-09-29', 'Cartesano': '2026-09-29',
+      'Brotherhood League': '2026-09-29', 'AG Nutrition': '2026-09-29',
+      'Granjeros de Moca': '2026-07-31', 'Baseball Flyers': '2026-07-18', 'EGO Shoes': '2026-06-20',
+      'Reid y Compañía Equipos Pesados': '2026-06-17', 'Ram': '2026-06-17', 'Rally Playero 2025': '2026-06-17',
+      'Premiación Fed. Dom. Deportes Ecuestres': '2026-06-17', 'Polo In The City - Maserati': '2026-06-17',
+      'Jeep Wrangler 2026': '2026-06-17', 'Jeep': '2026-06-17', 'Isuzu': '2026-06-17',
+      'Expo Puerto Plata 2025': '2026-06-17', 'Asonahores 2025': '2026-06-17',
+      'Smart Tech': '2026-06-16', 'Resistencia CA': '2026-06-16', 'Mlopez Luxury Auto Import': '2026-06-16',
+      'ML Príncipe Auto Adornos': '2026-06-16', 'Fotos Legendarios': '2026-06-16', 'Blessed Handbags': '2026-06-16',
+      'BeLife': '2026-06-16', 'Artes de Legendarios': '2026-06-16',
+    };
+    const NUEVO_DIAS = 45;
+    const MOSTRAR_INICIO = 10; // tarjetas visibles antes de "Ver más"
+    const isNew = p => {
+      const d = ADDED_ON[p.title];
+      return !!d && (Date.now() - new Date(d + 'T00:00:00')) / 864e5 <= NUEVO_DIAS;
+    };
     // Orden visual: diseño primero, luego montajes y fotografía, agrupados por afinidad de color
     const CARD_ORDER = [
       'Granjeros de Moca', 'Baseball Flyers', 'AG Nutrition', 'Artes de Legendarios', 'Mlopez Luxury Auto Import',
@@ -3894,14 +3972,23 @@
         </div>`;
         return;
       }
+      // Los nuevos primero (del más reciente al más antiguo) y luego el orden visual de siempre
       const sorted = PROJECTS_DATA.map((p, i) => ({ p, i }))
         .sort((a, b) => {
+          const na = isNew(a.p), nb = isNew(b.p);
+          if (na !== nb) return na ? -1 : 1;
+          const da = ADDED_ON[a.p.title], db = ADDED_ON[b.p.title];
+          if (na && da !== db) return da < db ? 1 : -1;
           const oa = CARD_ORDER.indexOf(a.p.title), ob = CARD_ORDER.indexOf(b.p.title);
           return (oa === -1 ? 999 : oa) - (ob === -1 ? 999 : ob);
         });
+      // Visibles al inicio: los nuevos y, después, los destacados hasta completar MOSTRAR_INICIO
+      const nuevos = sorted.filter(({ p }) => isNew(p)).map(({ p }) => p.title);
+      const inicio = nuevos.concat(FEATURED.filter(t => !nuevos.includes(t)))
+        .slice(0, Math.max(MOSTRAR_INICIO, nuevos.length));
       container.innerHTML = sorted.map(({ p, i }) => `
-        <div class="project-card${FEATURED.includes(p.title) ? '' : ' extra hidden'}"
-             data-featured="${FEATURED.includes(p.title) ? '1' : '0'}"
+        <div class="project-card${inicio.includes(p.title) ? '' : ' extra hidden'}${isNew(p) ? ' is-new' : ''}"
+             data-featured="${inicio.includes(p.title) ? '1' : '0'}"
              data-cat="${((p.cat || 'diseno') + ' ' + (EXTRA_CATS[p.title] || '')).trim()}"
              onclick="openProjectModal(${i})">
           ${(() => {
@@ -3917,6 +4004,7 @@
           })()}
           <span class="project-card-tag ${p.carousel ? 'tag-rebrand' : p.cat === 'foto' ? 'tag-foto' : p.cat === 'montaje' ? 'tag-montaje' : ''}">${p.carousel ? 'Rebrand' : p.cat === 'foto' ? L('Fotografía','Photography') : p.cat === 'montaje' ? L('Montaje','Exhibit') : L('Diseño','Design')}</span>
           <div class="project-card-overlay">
+            ${isNew(p) ? `<span class="project-card-new">${L('Nuevo', 'New')}</span>` : ''}
             <div class="project-card-title">${p.title}</div>
             <div class="project-card-count">${p.images.length} ${p.images.length === 1 ? L('pieza · Ver proyecto →','piece · View project →') : L('piezas · Ver proyecto →','pieces · View project →')}</div>
           </div>
@@ -3969,8 +4057,9 @@
       const p = PROJECTS_DATA[idx];
       document.getElementById('pm-title').textContent = p.title;
       document.getElementById('pm-sub').textContent = t(p.sub);
-      document.getElementById('pm-body').innerHTML = p.images.map(img =>
-        `<img src="${img.src}" alt="${img.alt}" loading="lazy" onclick="openLightboxSrc('${img.src}','${img.alt}')"/>`
+      pmImages = p.images;
+      document.getElementById('pm-body').innerHTML = p.images.map((img, k) =>
+        `<img src="${img.src}" alt="${img.alt}" loading="lazy" onclick="openProjectPhoto(${k})"/>`
       ).join('');
       document.getElementById('project-modal').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -3979,10 +4068,23 @@
       document.getElementById('project-modal').classList.remove('open');
       document.body.style.overflow = '';
     }
-    function openLightboxSrc(src, alt) {
-      document.getElementById('lightbox-content').innerHTML = `<img src="${src}" alt="${alt}"/>`;
-      document.getElementById('lightbox').classList.add('open');
+    // Foto ampliada con flechas para recorrer las fotos del proyecto abierto
+    let pmImages = [], lbGallery = [], lbIndex = 0;
+    function showLbPhoto() {
+      const im = lbGallery[lbIndex];
+      const box = document.getElementById('lightbox');
+      document.getElementById('lightbox-content').innerHTML = `<img src="${im.src}" alt="${im.alt}"/>`;
+      document.getElementById('lb-count').textContent = lbGallery.length > 1 ? `${lbIndex + 1} / ${lbGallery.length}` : '';
+      box.classList.toggle('has-nav', lbGallery.length > 1);
+      box.classList.add('open');
       document.body.style.overflow = 'hidden';
+    }
+    function openProjectPhoto(k) { lbGallery = pmImages; lbIndex = k; showLbPhoto(); }
+    function openLightboxSrc(src, alt) { lbGallery = [{ src, alt }]; lbIndex = 0; showLbPhoto(); }
+    function lbStep(d) {
+      if (lbGallery.length < 2) return;
+      lbIndex = (lbIndex + d + lbGallery.length) % lbGallery.length;
+      showLbPhoto();
     }
 
     // ── FILTRO PORTAFOLIO (multi-categoría + transición suave) ──
@@ -4038,6 +4140,9 @@
     function openLightbox(el) {
       const img = el.querySelector('img');
       const vid = el.querySelector('video');
+      lbGallery = [];
+      lightbox.classList.remove('has-nav');
+      document.getElementById('lb-count').textContent = '';
       lbContent.innerHTML = '';
       if (img) {
         const i = document.createElement('img');
@@ -4060,14 +4165,28 @@
     function closeLightbox() {
       lightbox.classList.remove('open');
       lbContent.innerHTML = '';
-      document.body.style.overflow = '';
+      // Si el proyecto sigue abierto, la página de fondo no debe moverse
+      document.body.style.overflow = document.getElementById('project-modal').classList.contains('open') ? 'hidden' : '';
     }
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lbContent) closeLightbox(); });
     document.addEventListener('keydown', e => {
+      const lbOpen = lightbox.classList.contains('open');
       if (e.key === 'Escape') {
-        closeLightbox();
-        closeProjectModal();
+        if (lbOpen) closeLightbox(); else closeProjectModal();
+      } else if (lbOpen && e.key === 'ArrowRight') {
+        lbStep(1);
+      } else if (lbOpen && e.key === 'ArrowLeft') {
+        lbStep(-1);
       }
+    });
+    // Deslizar con el dedo para pasar de foto en el celular
+    let lbTouchX = null;
+    lightbox.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      if (lbTouchX === null) return;
+      const dx = e.changedTouches[0].clientX - lbTouchX;
+      lbTouchX = null;
+      if (Math.abs(dx) > 50) lbStep(dx < 0 ? 1 : -1);
     });
 
     // ── DATOS DESDE ADMIN (localStorage) ──
