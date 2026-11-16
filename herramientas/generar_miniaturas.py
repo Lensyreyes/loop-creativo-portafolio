@@ -17,6 +17,9 @@ from urllib.parse import unquote
 
 from PIL import Image, ImageOps
 
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(RAIZ, "index.html")
 # Las tarjetas son 4:5 y miden como mucho ~380px de ancho => 2x para retina
@@ -69,7 +72,14 @@ for src, thumb in dict(pares).items():
     despues += os.path.getsize(destino)
     creadas += 1
 
-print(f"Miniaturas creadas: {creadas}, ya existían: {saltadas}")
+# Borrar miniaturas que ya no usa ninguna tarjeta (son archivos generados, no originales)
+usadas = {os.path.basename(t) for _, t in pares}
+carpeta = os.path.join(RAIZ, "miniaturas")
+sobrantes = [f for f in os.listdir(carpeta) if f.endswith(".webp") and f not in usadas]
+for f in sobrantes:
+    os.remove(os.path.join(carpeta, f))
+
+print(f"Miniaturas creadas: {creadas}, ya existían: {saltadas}, borradas sin uso: {len(sobrantes)}")
 if creadas:
     print(f"Peso: {antes / 1e6:.1f} MB originales -> {despues / 1e6:.1f} MB miniaturas")
 for f in faltan:
